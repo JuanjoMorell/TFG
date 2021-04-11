@@ -1,0 +1,179 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage[left=2.25cm,right=2.25cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[sc]{mathpazo}
+\linespread{1.5}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{colortbl}
+% Scalable fonts (para lettrine)
+\usepackage{type1ec} 
+\usepackage{lettrine}
+% Cabeceras y pies de página
+\usepackage{fancyhdr}
+% Vertabim
+\usepackage{moreverb}
+% Código 
+\usepackage{listings}
+% Identacion y separacion de parrafos
+\usepackage{parskip}
+% Posicion de figuras
+\usepackage{float}
+% Diagramas
+\usepackage[all,pdf]{xy}
+% Subfiguras
+\usepackage{subcaption}
+% Hyperref
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,%
+	citecolor=black,%
+	filecolor=black,%
+	linkcolor=black,%
+	urlcolor=black,%
+	pageanchor=false
+}
+% URL en bibliografía
+\usepackage{url}
+% Apéndices
+\usepackage{appendix}
+% Múltiples columnas
+\usepackage{multicol}
+% Captions en multicols
+\usepackage{caption}
+% Títulos de capítulos
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\bfseries\Large} 
+{\filleft\MakeUppercase{\chaptertitlename} \Huge\thechapter} {4ex}
+{\titlerule
+\vspace{2ex}%
+\filright} [\vspace{2ex}%
+\titlerule]
+% Tablas largas
+\usepackage{longtable}
+% Columnas de más de una fila en las tablas
+\usepackage{multirow}
+\usepackage{epstopdf}
+
+
+\renewcommand{\tablename}{Tabla}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand{\chaptermark}[1]{\lhead[{\sc{\chaptername\ #1}}]{}}
+\renewcommand{\sectionmark}[1]{\rhead[ ]{{\thesection.\ #1}}}
+
+
+\begin{document}
+\title{Supervisión visual de normas COVID}
+\author{Juan José Morell Fernández}
+
+\begin{titlepage}
+ 
+\begin{center}
+ 
+% Upper part of the page
+\vfill
+
+\includegraphics[height=0.5\textwidth]{imagenes/escudo}\\[2.5cm]
+ 
+\textsc{\LARGE Universidad de Murcia}\\[0.5cm]
+ 
+\textsc{\Large Trabajo Final de Grado}\\[0.5cm]
+ 
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries Supervisión visual de}\\[0.4cm]
+{ \huge \bfseries normas COVID}\\[0.4cm]
+\HRule \\[1.5cm]
+ 
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autor:}\\
+Juan José \textsc{Morell Fernández}\\
+juanjose.morellf@um.es
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Tutor:} \\
+Alberto \textsc{Ruiz Garcia}\\
+a.ruiz@um.es
+\end{flushright}
+\end{minipage}
+ 
+\vfill
+ 
+% Bottom of the page
+{\large \today}
+ 
+\end{center}
+ 
+\end{titlepage}
+
+\let\cleardoublepage\newpage
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+% Agradecimientos
+\input{agradecimientos.tex}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\pagestyle{plain}
+\setcounter{page}1
+\setcounter{secnumdepth}{4}	%Profundidad de la numeracion del indice
+\setcounter{tocdepth}{2}	%Profundidad del indice
+
+\tableofcontents
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\listoffigures
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\setlength{\parindent}{18pt}
+
+% Resumen en castellano
+\input{resumen.tex}
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+% Resumen en inglés
+\input{abstract.tex}
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\lhead[{\sc{\chaptername\ \thechapter.\ #1}}]{}}
+\renewcommand{\sectionmark}[1]{\rhead[ ]{{\thesection.\ #1}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% Introduccion
+\input{capitulo1.tex}
+
+% Estado del arte
+\input{capitulo2.tex}
+
+% Análisis de objetivos y metodología 
+\input{capitulo3.tex}
+
+% Diseño y resolución
+\input{capitulo4.tex}
+
+% Conclusiones y vias futuras
+\input{capitulo5.tex}
+
+% Apéndices, si hiciese falta
+\appendix
+\input{apendice1.tex}
+
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{plainurl}
+
+\end{document}
