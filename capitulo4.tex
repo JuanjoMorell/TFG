@@ -6,7 +6,7 @@
 
 \section{Paul Viola and Michael Jones}
 
-En 2001, el reconocimiento facial tuvo su primera apararicion en el campo de la visión artificial como aplicación en tiempo real. Este avance fue de la mano de Paul Viola y Michael Jones, expertos de la Universidad de Cambridge. Análogamente, el punto de partida del estudio de este TFG. Durante este apartado, se estudiará el funcionamiento del algoritmo ideado por estos dos investigadores y se realizará una implementación del mismo mediante \textit{Python} y \textit{OpenCV} para comprobar como se comporta en la situación actual.
+En 2001, el reconocimiento facial tuvo su primera aparición en el campo de la visión artificial como aplicación en tiempo real. Este avance fue de la mano de Paul Viola y Michael Jones. Análogamente, el punto de partida del estudio de este TFG. Durante este apartado, se estudiará el funcionamiento del algoritmo \textit{Viola-Jones face detector}, ideado por estos dos investigadores y se realizará una implementación del mismo mediante \textit{Python} y \textit{OpenCV} para comprobar como se comporta en la situación actual.
 
 \subsection*{Método de estudio}
 
@@ -15,7 +15,7 @@ El trabajo de los expertos fue presentado por parte de la Universidad de Cambrid
 	"This paper describes a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates" \cite{paulViola}
 \end{quote}
 
-Para poder lograr esta afirmación se basan en un procedimiento de trabajo en dos fases: entrenamiento y detección. Igualmente, Paul y Michael lo dividen en tres puntos importantes: una imagen integral, Adaboost (algoritmo de Machine Learning) y un método llamado \textit{cascade}. 
+Para poder lograr esta afirmación se basan en un procedimiento de trabajo en dos fases: entrenamiento y detección. Igualmente, Paul y Michael dividen el proyecto en tres ideas principales para poder lograr un detector que se pueda ejecutar en tiempo real. Y estas son: la imagen integral, Adaboost (algoritmo de Machine Learning) y un método llamado \textit{attentional cascade structure}. 
 
 Con todos estos puntos combinados lograron ingeniar un prototipo capaz de detectar caras humanas con un \textit{frame rate} de 15 fps. Fue diseñado para la detección de caras frontales, haciendose difícil para posiciones laterales o inclinadas.
 
@@ -45,7 +45,7 @@ Si se supone una imagen con unas dimensiones de $<w,h>$ (ancho y alto, respectiv
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=5cm]{imagenes/integral.png}
-	\caption{Imagen Integral}
+	\caption{Funcionamiento de una \textit{Imagen Integral}}
 	\label{fig:integral}
 \end{figure}
 
@@ -60,24 +60,37 @@ Viola y Jones junta esta propuesta con los filtros \textit{Haar-like features}, 
 %
 % MACHINE LEARNING - ADABOOST
 \newpage
-Una vez estudiada la obtención de caracteristcas y con un set de entrenamiento, solo queda seleccionar un método de \textit{machine learning} que permita crear una función de clasificación. Concretamente, se plantea el uso de una variante de \textbf{\textit{AdaBoost}}. Este algoritmo de aprendizaje ...
+Una vez estudiada la obtención de características y con un set de entrenamiento, solo queda seleccionar un método de \textit{machine learning} que permita crear una función de clasificación. Concretamente, se plantea el uso de una variante de \textbf{\textit{AdaBoost}}, que permite seleccionar un pequeño conjunto de características y poder entrenar un clasificador. 
 
+Este algoritmo de aprendizaje esta basado en generar una predicción muy buena a partir de la combinación de predicciones peores y más débiles, donde cada uno de estas se corresponde con el \textit{threshold} de una de las características \textit{Haar-like}. La primera vez que aparece este algoritmo, de forma práctica, fue de la mano de \textit{Freund y Schapire} \cite{adaboost1}. Sin embargo, el usado por \textit{Viola y Jones} es una modificación de este.
 
+La salida que genera el algoritmo \textbf{\textit{AdaBoost}} es un clasificador llamado \textit{Strong Classifier}, como se ha mencionado anteriormente, compuesto por combinaciones lineales de \textit{Weak Classifiers}. 
 
-% https://www.math.arizona.edu/~hzhang/math574m/Read/explaining-adaboost.pdf
-%
-%
-% ---------------------------
-%
+El procedimiento para encontrar \textit{Weak Classifiers} es ejecutar el algoritmo T iteraciones donde T es el número de clasificadores a encontrar. En cada iteración, el algoritmo busca el porcentaje de error entre todas las características y escoje la que menos porcentaje de error presente en dicha iteración. (Como se muestra en la \textit{Figura \ref{fig:ada1}}) \cite{adaboost2}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=10cm]{imagenes/ada1.png}
+	\caption{Construcción del \textit{Strong Classifier}}
+	\label{fig:ada1}
+\end{figure}
+
+Con estos clasificadores se procede a la construcción de una estructura en cascada para crear un \textit{Multi-stage Classifier}, que podrá realizar una detección rápida y buena. Por tanto, la estructura de cascada esta compuesta por varios estados de \textit{Strong Classifiers} generados por el algoritmo \textit{AdaBoost}. Donde el trabajo de cada estado será identificar si, dada una región de la imagen, no hay una cara o si hay la posibilidad de que la haya. \cite{adaboost1}
+
+Si el resultado de uno de los estados es que no existe una cara en dicha región, esta se descarta directamente. Mientras que, si hay la posibilidad de que exista una, pasa al siguiente estado de la estructura. De tal forma que, cuantos más estados atraviese una región de la imagen, con más seguridad se podrá afirmar que existe una cara en ella. La estructura completa se refleja en la \textit{Figura \ref{fig:ada2}}.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=10cm]{imagenes/ada2.png}
+	\caption{Construcción del \textit{Multi-stage Classifier}}
+	\label{fig:ada2}
+\end{figure}
 
 % VIDEO DE LOCOS: https://www.youtube.com/watch?v=uEJ71VlUmMQ&t=5s
 
-\subsection*{Implementación}
-
-\subsection*{Experimentación}
+\subsection*{Implementación y Experimentación}
 
 \begin{itemize}
-	\item Inicios del reconocimiento facial
 	\item Explicar su funcionamiento
 	\item Mostrar funcionamiento y aplicacion al objetivo
 \end{itemize}

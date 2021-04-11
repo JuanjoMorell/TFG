@@ -1,53 +1,57 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: proyecto.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: plainurl.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: bibliografia.bib
-Warning--I didn't find a database entry for "raab2015"
 Warning--empty journal in integral
-You've used 4 entries,
-            2849 wiz_defined-function locations,
-            645 strings with 5590 characters,
-and the built_in function-call counts, 1692 in all, are:
-= -- 173
-> -- 52
+Warning--empty journal in adaboost1
+Warning--empty journal in adaboost2
+You've used 6 entries,
+            2882 wiz_defined-function locations,
+            661 strings with 5933 characters,
+and the built_in function-call counts, 2444 in all, are:
+= -- 255
+> -- 70
 < -- 0
-+ -- 18
-- -- 14
-* -- 95
-:= -- 267
-add.period$ -- 15
-call.type$ -- 4
-change.case$ -- 19
++ -- 24
+- -- 18
+* -- 123
+:= -- 369
+add.period$ -- 25
+call.type$ -- 6
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 39
-empty$ -- 160
-format.name$ -- 14
-if$ -- 428
+cite$ -- 9
+duplicate$ -- 63
+empty$ -- 242
+format.name$ -- 18
+if$ -- 640
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 3
-newline$ -- 26
-num.names$ -- 8
-pop$ -- 33
+int.to.str$ -- 6
+missing$ -- 5
+newline$ -- 40
+num.names$ -- 12
+pop$ -- 57
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 21
 quote$ -- 0
-skip$ -- 121
+skip$ -- 183
 stack$ -- 0
-substring$ -- 89
+substring$ -- 99
 swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 1
-while$ -- 10
-width$ -- 5
-write$ -- 50
-(There were 2 warnings)
+type$ -- 24
+warning$ -- 3
+while$ -- 14
+width$ -- 7
+write$ -- 76
+(There were 3 warnings)

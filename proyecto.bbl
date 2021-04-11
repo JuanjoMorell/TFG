@@ -11,18 +11,34 @@ Konstantinos Derpanis.
 \newblock Integral image-based representations.
 \newblock 1, 01 2007.
 
+\bibitem{adaboost1}
+Robert E.~Schapire.
+\newblock Explaining adaboost.
+\newblock 2020.
+\newblock Acceso: 11-04-2021.
+\newblock URL: \url{https://www.math.arizona.edu/~hzhang/math574m/}.
+
+\bibitem{adaboost2}
+Socret Lee.
+\newblock Understanding face detection with the viola-jones object detection
+  framework.
+\newblock 2020.
+\newblock Acceso: 11-04-2021.
+\newblock URL:
+  \url{https://towardsdatascience.com/understanding-face-detection-with-the-viola-jones-object-detection-framework-c55cc2a9da14}.
+
 \bibitem{haar-like}
 Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock Joint haar-like features for face detection.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
-\newblock \href {http://dx.doi.org/10.1109/ICCV.2005.129}
+\newblock \href {https://doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
 
 \bibitem{paulViola}
 Paul Viola and Michael Jones.
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock {\em IEEE Conf Comput Vis Pattern Recognit}, 1:I--511, 02 2001.
-\newblock \href {http://dx.doi.org/10.1109/CVPR.2001.990517}
+\newblock \href {https://doi.org/10.1109/CVPR.2001.990517}
   {\path{doi:10.1109/CVPR.2001.990517}}.
 
 \end{thebibliography}

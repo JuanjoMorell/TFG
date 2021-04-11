@@ -3,7 +3,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{11}{figure.caption.5}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Imagen Integral\relax }}{12}{figure.caption.6}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{13}{figure.caption.5}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{14}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{16}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
