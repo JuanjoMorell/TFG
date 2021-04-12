@@ -90,33 +90,36 @@ Si el resultado de uno de los estados es que no existe una cara en dicha región
 
 \subsection*{Implementación y Experimentación}
 
-\begin{itemize}
-	\item Explicar su funcionamiento
-	\item Mostrar funcionamiento y aplicacion al objetivo
-\end{itemize}
+El prototipo será implementado en \textit{Python}, con el uso de \textit{OpenCV}. Y, el objetivo es construir dos detectores de caras, donde el primero usará un modelo preentrenado de \textit{OpenCV} de caras frontales. Mientras que en el segundo, se intentará modificar el programa, para que mediante el uso de varios modelos preentrenados se pueda detectar una cara con una mascarilla.
 
+La \textbf{implementación básica} hace uso de un modelo preentrenado cargado mediante una clase de \textit{OpenCV} llamada \textit{Cascade Classifier}. Esta representa la base de \textit{Machine Learning} explicado en el apartado anterior. Asimismo, \textit{OpenCV} también proporciona una serie de archivos \textit{xml} con diferente modelos preentrenados. En concreto, para este prototipo se hace uso del modelo por defecto, detector de caras frontal, como se muestra en la investigación de \textit{Viola y Jones}.
 
+Finalmente, la detección se realiza, tras realizar una transformación del espacio de color a blanco y negro, mediante la función \textit{detectMultiScale} de la clase, creada anteriormente, \textit{Cascade Classifier}. Concretamente, su funcionalidad será encontrar caras dentro de las imágenes que vaya procesando.
+
+[Explicacion del prototipo custom]
+
+[Resultados]
 
 \section{HOG y Dlib}
 
 \begin{itemize}
 	\item Explicar su funcionamiento
-	\item Mostrar funcionamiento y aplicacion al objetivo
+	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}
 
 \section{Facial Landmask}
 
 \begin{itemize}
 	\item Explicar su funcionamiento
-	\item Mostrar funcionamiento y aplicacion al objetivo
+	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}
 
 \section{Facial Landmask Custom}
 
 \begin{itemize}
 	\item Plantear idea
-	\item Proceso de creacion
-	\item Mostrar funcionamiento y aplicacion al objetivo
+	\item Proceso de creación
+	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}
 
 \section{YOLO}
@@ -124,7 +127,7 @@ Si el resultado de uno de los estados es que no existe una cara en dicha región
 \begin{itemize}
 	\item Acercamiento al Deep Learning
 	\item Explicar su funcionamiento
-	\item Mostrar funcionamiento y aplicacion al objetivo
+	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}
 
 \section{Tensorflow}
@@ -132,5 +135,5 @@ Si el resultado de uno de los estados es que no existe una cara en dicha región
 \begin{itemize}
 	\item Plantear idea
 	\item Procedimiento
-	\item Mostrar funcionamiento y aplicacion al objetivo
+	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}

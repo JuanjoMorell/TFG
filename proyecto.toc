@@ -15,11 +15,11 @@
 \contentsline {chapter}{\numberline {3}Análisis de objetivos y metodología}{11}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Diseño y resolución}{12}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{12}{section.4.1}%
-\contentsline {section}{\numberline {4.2}HOG y Dlib}{16}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Facial Landmask}{16}{section.4.3}%
+\contentsline {section}{\numberline {4.2}HOG y Dlib}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Facial Landmask}{17}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Facial Landmask Custom}{17}{section.4.4}%
 \contentsline {section}{\numberline {4.5}YOLO}{17}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Tensorflow}{17}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{18}{chapter.5}%
-\contentsline {chapter}{\numberline {A}ANEXO I - Implementación Viola-Jones Face Detector}{19}{appendix.Alph1}%
-\contentsline {chapter}{Bibliografía}{20}{appendix*.9}%
+\contentsline {section}{\numberline {4.6}Tensorflow}{18}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {A}ANEXO I - Implementación Viola-Jones Face Detector}{20}{appendix.Alph1}%
+\contentsline {chapter}{Bibliografía}{21}{appendix*.9}%
