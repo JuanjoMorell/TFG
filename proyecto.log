@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  12 APR 2021 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  13 APR 2021 11:30
 entering extended mode
 **./proyecto.tex
 (proyecto.tex
@@ -1002,7 +1002,25 @@ https : / / aishack . in / tutorials /
  []
 
 
-Overfull \hbox (107.83728pt too wide) in paragraph at lines 22--29
+Underfull \hbox (badness 6493) in paragraph at lines 10--16
+[]\T1/pplx/m/n/12 Rostyslav De-mush.  A brief his-tory of com-pu-ter vi-sion (a
+nd con-vo-
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 10--16
+\T1/pplx/m/n/12 lu-tio-nal neu-ral net-works).  02 2019.  URL: [][]$\T1/cmtt/m/
+n/12 https : / / hackernoon . com /
+ []
+
+
+Overfull \hbox (58.44934pt too wide) in paragraph at lines 10--16
+\T1/cmtt/m/n/12 a-[]brief-[]history-[]of-[]computer-[]vision-[]and-[]convolutio
+nal-[]neural-[]networks-[]8fe8aacc79f3$[][]\T1/pplx/m/n/12 . 
+ []
+
+
+Overfull \hbox (107.83728pt too wide) in paragraph at lines 35--42
 \T1/cmtt/m/n/12 understanding-[]face-[]detection-[]with-[]the-[]viola-[]jones-[
 ]object-[]detection-[]framework-[]c55cc2a9da14$[][]\T1/pplx/m/n/12 . 
  []
@@ -1015,10 +1033,10 @@ Package rerunfilecheck Info: File `proyecto.out' has not changed.
 (rerunfilecheck)             Checksum: 0B5BD3A060131B0C6330E6B287C217E2;3763.
  ) 
 Here is how much of TeX's memory you used:
- 17155 strings out of 479334
- 255490 string characters out of 2856609
- 627762 words of memory out of 3000000
- 34188 multiletter control sequences out of 15000+200000
+ 17163 strings out of 479334
+ 255629 string characters out of 2856609
+ 627872 words of memory out of 3000000
+ 34193 multiletter control sequences out of 15000+200000
  459819 words of font info for 103 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,12n,77p,3231b,660s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1034,9 +1052,9 @@ Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Juanjo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Juanjo/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Juanjo/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on proyecto.pdf (23 pages, 318395 bytes).
+Output written on proyecto.pdf (23 pages, 320953 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
  218 words of extra memory for PDF output out of 10000 (max. 10000000)
 

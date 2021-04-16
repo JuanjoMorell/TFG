@@ -6,6 +6,14 @@ AIShak.
 \newblock \url{https://aishack.in/tutorials/integral-images-opencv/}, Jun 2010.
 \newblock Acceso: 07-04-2021.
 
+\bibitem{histComputer}
+Rostyslav Demush.
+\newblock A brief history of computer vision (and convolutional neural
+  networks).
+\newblock 02 2019.
+\newblock URL:
+  \url{https://hackernoon.com/a-brief-history-of-computer-vision-and-convolutional-neural-networks-8fe8aacc79f3}.
+
 \bibitem{integral}
 Konstantinos Derpanis.
 \newblock Integral image-based representations.
@@ -17,6 +25,11 @@ Robert E.~Schapire.
 \newblock 2020.
 \newblock Acceso: 11-04-2021.
 \newblock URL: \url{https://www.math.arizona.edu/~hzhang/math574m/}.
+
+\bibitem{gonzalez_woods_2018}
+Rafael~C. Gonzalez and Richard~E. Woods.
+\newblock {\em Digital image processing}.
+\newblock Pearson, 2018.
 
 \bibitem{adaboost2}
 Socret Lee.
@@ -33,6 +46,11 @@ Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
 \newblock \href {https://doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
+
+\bibitem{szeliski_2018}
+R.~Szeliski.
+\newblock {\em COMPUTER VISION: Algorithms and aplications.}
+\newblock SPRINGER NATURE, 2021.
 
 \bibitem{paulViola}
 Paul Viola and Michael Jones.
