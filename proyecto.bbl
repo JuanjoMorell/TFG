@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{integral-web}
 AIShak.
@@ -30,6 +30,13 @@ Robert E.~Schapire.
 Rafael~C. Gonzalez and Richard~E. Woods.
 \newblock {\em Digital image processing}.
 \newblock Pearson, 2018.
+
+\bibitem{inproceedings}
+Vahid Kazemi and Josephine Sullivan.
+\newblock One millisecond face alignment with an ensemble of regression trees.
+\newblock 06 2014.
+\newblock \href {https://doi.org/10.13140/2.1.1212.2243}
+  {\path{doi:10.13140/2.1.1212.2243}}.
 
 \bibitem{adaboost2}
 Socret Lee.

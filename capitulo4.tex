@@ -98,19 +98,35 @@ Finalmente, la detección se realiza, tras realizar una transformación del espa
 
 [Explicacion del prototipo custom]
 
+\textbf{OpenCV y Haar-like features + Machine Learning con PCA y SVM}
+% Buscar como referencia para lo segundo HOG y SVM
+
+Se implementa un identificador de caras conjunto a un modelo de machine learning que identifica cuando una persona lleva o no mascarilla, mediante una toma de muestras anterior. Gracias a los modelos PCA y SVM, se puede crear un modelo para su identificador.
+Lo malo: Solo funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, ya que si se coloca la cámara en la borde superior de una puerta o similar, el detector se pierde mucho y crea identificaciones falsa o no llega a reconocer nada.
+
+Este procedimiento se podría llegar a usar con otra implementación, específicamente con HOG. 
+
 [Resultados]
+Bien, es un comienzo. Pero mal para un mercado amplio.
 
 \section{Facial Landmark}
 
-Este apartado se podría adentrar en el ambito de deep learning, ya que sus pasos de ejecución serían: detectar una cara y posteriormente obtener los puntos de interes (Landmarks). El primer punto puede realizarse de dos maneras, tanto con la tecnica explicada anteriormente como con HOG + SVMLinear,
+Con el objetivo de ampliar la idea anterior, se plantea el uso de Facial Landmark, una tecnología que nos permite el reconocimiento de puntos de interés en las caras que se han detectado en la imagen. Sus pasos de ejecución son: detectar cara dentro de la imagen (En este caso, se usará \textit{Haar-like features}) y obtener dichos puntos de interés.
+
+La implementación que se va a estudiar es la estudiada por \textit{Kazemi} y \textit{Sullivan} en 2014, con el paper \textit{One Millisecond Face Alignment with an Ensemble of Regression Trees} \cite{inproceedings}. Centrado en obtener los puntos de interés de una imagen en la que solamente se reconoce una cara.
+
+Este método se centra en localizar las siguientes zonas faciales: boca, cejas, ojos, nariz y mentón.
+
+%Paper de Sullivan
+%Anuncio de dlib
+
 
 \subsection*{Haar y Facial Landmark}
-Implentacion de facial landmark con las ideas anteriores sobre bolsas de features.
+Implementación de facial landmark con las ideas anteriores sobre bolsas de features.
 
-\subsection*{Deep Learning}
-Implementacion de facial landmark para deteccion de mascarillas mediatne el uso de la API Mediapie o con el uso de otro tipo de modelo.
+\subsection*{Mediapipe}
+Implementación de facial landmark para detección de mascarillas mediante el uso de la API Mediapipe o con el uso de otro tipo de modelo.
 
-\subsection*{Implementación}
 
 \section{YOLO}
 Mostrar la idea de lo que es una CNN y posteriormente explicar el funcionamiento de YOLO. Posible añadido de AlexNet si es util.

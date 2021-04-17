@@ -18,46 +18,47 @@ I'm skipping whatever remains of this entry
 Warning--empty journal in histComputer
 Warning--empty journal in integral
 Warning--empty journal in adaboost1
+Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
-You've used 9 entries,
+You've used 10 entries,
             2882 wiz_defined-function locations,
-            677 strings with 6335 characters,
-and the built_in function-call counts, 3456 in all, are:
-= -- 353
-> -- 101
+            682 strings with 6467 characters,
+and the built_in function-call counts, 3846 in all, are:
+= -- 389
+> -- 115
 < -- 0
-+ -- 36
-- -- 26
-* -- 159
-:= -- 513
-add.period$ -- 35
-call.type$ -- 9
-change.case$ -- 38
++ -- 41
+- -- 30
+* -- 180
+:= -- 568
+add.period$ -- 39
+call.type$ -- 10
+change.case$ -- 43
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 99
-empty$ -- 352
-format.name$ -- 26
-if$ -- 916
+cite$ -- 15
+duplicate$ -- 112
+empty$ -- 394
+format.name$ -- 30
+if$ -- 1018
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 10
-newline$ -- 56
-num.names$ -- 18
-pop$ -- 95
+int.to.str$ -- 10
+missing$ -- 11
+newline$ -- 62
+num.names$ -- 20
+pop$ -- 109
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 35
 quote$ -- 0
-skip$ -- 263
+skip$ -- 289
 stack$ -- 0
-substring$ -- 115
-swap$ -- 9
+substring$ -- 120
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
-warning$ -- 4
-while$ -- 20
-width$ -- 10
-write$ -- 107
+type$ -- 36
+warning$ -- 5
+while$ -- 22
+width$ -- 12
+write$ -- 118
 (There was 1 error message)
