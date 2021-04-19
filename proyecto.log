@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  17 APR 2021 19:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  19 APR 2021 11:28
 entering extended mode
 **./proyecto.tex
 (proyecto.tex
@@ -867,6 +867,9 @@ Package lettrine.sty Info: Targeted height = 71.09999pt
 [5
 
 ]
+Underfull \vbox (badness 2057) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -887,7 +890,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [7]
 Cap\'{\i }tulo 2.
 
-Underfull \vbox (badness 6893) has occurred while \output is active []
+Underfull \vbox (badness 1655) has occurred while \output is active []
 
  [8])
 (capitulo3.tex
@@ -917,7 +920,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [11]
 Cap\'{\i }tulo 4.
 [12]
-<imagenes/haar-like.jpeg, id=163, 321.2pt x 272.01625pt>
+<imagenes/haar-like.jpeg, id=167, 321.2pt x 272.01625pt>
 File: imagenes/haar-like.jpeg Graphic file (type jpg)
 <use imagenes/haar-like.jpeg>
 Package pdftex.def Info: imagenes/haar-like.jpeg  used on input line 26.
@@ -932,7 +935,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13 <./imagenes/haar-like.jpeg>]
-<imagenes/integral.png, id=171, 213.04594pt x 173.89969pt>
+<imagenes/integral.png, id=175, 213.04594pt x 173.89969pt>
 File: imagenes/integral.png Graphic file (type png)
 <use imagenes/integral.png>
 Package pdftex.def Info: imagenes/integral.png  used on input line 47.
@@ -951,7 +954,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14 <./imagenes/integral.png (PNG copy)>]
-<imagenes/ada1.png, id=185, 475.02469pt x 188.20313pt>
+<imagenes/ada1.png, id=189, 475.02469pt x 188.20313pt>
 File: imagenes/ada1.png Graphic file (type png)
 <use imagenes/ada1.png>
 Package pdftex.def Info: imagenes/ada1.png  used on input line 73.
@@ -966,7 +969,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15 <./imagenes/ada1.png>]
-<imagenes/ada2.png, id=195, 472.01344pt x 212.29312pt>
+<imagenes/ada2.png, id=199, 472.01344pt x 212.29312pt>
 File: imagenes/ada2.png Graphic file (type png)
 <use imagenes/ada2.png>
 Package pdftex.def Info: imagenes/ada2.png  used on input line 84.
@@ -1077,9 +1080,9 @@ Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Juanjo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Juanjo/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Juanjo/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on proyecto.pdf (24 pages, 322200 bytes).
+Output written on proyecto.pdf (24 pages, 322486 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
+ 280 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
