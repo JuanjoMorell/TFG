@@ -31,6 +31,13 @@ Rafael~C. Gonzalez and Richard~E. Woods.
 \newblock {\em Digital image processing}.
 \newblock Pearson, 2018.
 
+\bibitem{faceMesh}
+Google.
+\newblock Mediapipe face mesh.
+\newblock 2020.
+\newblock Acceso: 21-04-2021.
+\newblock URL: \url{https://google.github.io/mediapipe/solutions/face_mesh}.
+
 \bibitem{inproceedings}
 Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
