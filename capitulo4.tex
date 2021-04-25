@@ -2,9 +2,9 @@
 
 \chapter{Diseño y resolución}
 
-\linespread{1.5}
+%\linespread{1.5}
 
-\section{Paul Viola and Michael Jones}
+\section{Paul Viola and Michael Jones} \label{haar-like}
 
 En 2001, el reconocimiento facial tuvo su primera aparición en el campo de la visión artificial como aplicación en tiempo real. Este avance fue de la mano de Paul Viola y Michael Jones. Análogamente, el punto de partida del estudio de este TFG. Durante este apartado, se estudiará el funcionamiento del algoritmo \textit{Viola-Jones face detector}, ideado por estos dos investigadores y se realizará una implementación del mismo mediante \textit{Python} y \textit{OpenCV} para comprobar como se comporta en la situación actual.
 
@@ -109,45 +109,76 @@ Este procedimiento se podría llegar a usar con otra implementación, específic
 [Resultados]
 Bien, es un comienzo. Pero mal para un mercado amplio.
 
+\newpage
 \section{Facial Landmark}
 
 Con el objetivo de ampliar la idea anterior, se plantea el uso de Facial Landmark, una tecnología que nos permite el reconocimiento de puntos de interés en las caras que se han detectado en la imagen. Sus pasos de ejecución son: detectar cara dentro de la imagen (En este caso, se usará \textit{Haar-like features}) y obtener dichos puntos de interés.
 
-La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \textit{Sullivan} en 2014, con el paper \textit{One Millisecond Face Alignment with an Ensemble of Regression Trees} \cite{inproceedings}. Centrado en obtener los puntos de interés de una imagen en la que solamente se reconoce una cara.
+La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \textit{Sullivan} en 2014, con el paper \textit{One Millisecond Face Alignment with an Ensemble of Regression Trees} \cite{inproceedings}, y usado en el \textit{toolkit} \textit{Dlib}. Centrado en obtener los puntos de interés de una imagen en la que solamente se reconoce una cara. 
 
 Este método se centra en localizar las siguientes zonas faciales: boca, cejas, ojos, nariz y mentón, gracias al uso de un conjunto de árboles de regresión. Estos son entrenados mediante  un modelo formado por puntos de interés de un grupo de imágenes, etiquetados a mano y especificadas como coordenadas (x,y). 
- 
-%Explicar algo sobre HOG, metodo de deteccion facial que se usa en dlib
 
+\textit{Dlib} será el \textit{toolkit} (\textit{Open Source}) utilizado para la implementación de dicho método. Este contiene algoritmos de \textit{Machine Learning} y herramientas capaces de crear software complejo en \textit{C++} y \textit{Python} para resolver problemas reales. Sobre todo centrado en robótica, dispositivos embebidos, móviles y ordenadores de gran capacidad. \cite{dlib}
+
+\subsection*{HOG - \textit{Histogram of Oriented Gradients}}
+
+El primer paso en esta solución es encontrar una cara dentro de la imagen de entrada, y el encargado será el método HOG. El cual, sigue una idea similar al método de \textit{Haar-like}, ya que se basa en la detección de \textit{features} (características).
+
+\subsection*{Sullivan Paper}
 %Paper de Sullivan
 
-%Anuncio de dlib
+\subsection*{Prototipo}
+% Prototipo
 
+\subsection*{Próximos pasos}
 
-\subsection*{Dlib y Haar}
+Con el objetivo de mejorar este prototipo se incorpora el \textit{Deep Learning}. 
 
-Implementación de facial landmark con las ideas anteriores sobre bolsas de features.
+\newpage
+\section{Mediapipe}
 
-\subsection*{Mediapipe}
+Mediapipe es una API \textit{open-source} creada por \textit{Google}, que ofrece servicios de \textit{Machine Learning} para vídeos y fuentes multimedia. Entre ellas, se encuentra un servicio llamado \textit{Face Mesh} que ofrece una solución que estima 468 puntos de interés de un rostro, que conforman una malla 3D en tiempo real. Este usa aceleración GPU conjuntamente con un modelo y el uso de una \textit{pipeline}.
 
-Mediapipe es una API \textit{open-source} creada por \textit{Google}, que ofrece servicios de \textit{Machine Learning} para vídeos y fuentes multimedia. Entre ellas, hay un servicio llamado \textit{Face Mesh} que ofrece una solución que estima 468 puntos de interés de un rostro, que conforman una malla 3D en tiempo real. Este usa aceleración GPU conjuntamente con un modelo y el uso de una \textit{pipeline}.
+La \textit{pipeline} que se utiliza en esta API consiste en dos modelos de \textit{Deep Learning} que trabajan al mismo tiempo. Su funcionalidad es realizar una detección a partir de una imagen de los puntos de interés sobre una cara y construir un modelo \textit{face landmark} 3D que aproxima la superficie de esta mediante regresión sobre dichos puntos. Esta tarea es facilitada si la cara, donde se tienen que detectar los puntos de interés, se encuentra recortada, haciendo así que el modelo se centre solamente en buscar los puntos, aumentando la precisión de la predicción. Asimismo, los recortes de las caras se puede generar a partir de las predicciones anteriores realizadas por el mismo modelo, y solamente es llamada la predicción nuevamente cuando no se consigue detectar la presencia de la cara.\cite{faceMesh}
 
-La \textit{pipeline} que se utiliza en esta API consiste en dos modelos de \textit{Deep Learning} que trabajan al mismo tiempo. \cite{faceMesh}
+Todo esto es implementado gracias al framework \textit{MediaPipe}, con la herramienta \textit{MediaPipe graph}. Arquitectura caracterizada por estar formada por componentes llamados \textit{Calculator}, nodos del grafo que tras la entrada de cero o más inputs generan cero o mas salidas. Todos estos nodos estan conectados mediante datos en forma de \textit{Streams}, donde cada uno representa un conjunto de datos-tiempo en \textit{Packets}. Por tanto, los \textit{calculators} y \textit{steams} definen el flujo de datos del \textit{Graph}. \cite{mediapipe}
 
-% Tratar un poco las cosas que utiliza
+El \textit{pipeline} puede ser definido mediante la adición/modificación de \textit{calculators} dentro del \textit{graph}. Especificamente, el pipeline que se utiliza en esta solución (\textit{FaceMesh}) esta formada por un \textit{graph} compuesto por un \textit{subgraph} de \textit{face landmark} (proveniente del modulo, ya implementado, de face landmark de Mediapipe), donde a su vez usa otro subgraph proveniente de face detection module para la detección de caras, y un \textit{face renderer subgraph} para mostrar el resultado. \cite{faceMesh} En concreto el \textit{graph} que se usa en esta implementación es el mostrado en la Figura \ref{fig:faceMesh}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=15cm]{imagenes/faceMesh.png}
+	\caption{MediaPipe Graph utilizado en FaceMesh}
+	\label{fig:faceMesh}
+\end{figure}
+
+Por tanto, el procesamiento de una imagen en este modelo sigue dos pasos. El primero (1) toma la imagen de entrada, capturada por la cámara, es procesada por un detector de caras \textit{lightweigth}, llamado \textit{BlazeFace}, y produce unos rectángulos que definen el perímetro donde se encuentra la cara, conjuntamente con un par de puntos de interés superficiales (ojos, boca y nariz). Estos puntos se utilizarán para alinear la cara para el siguiente paso. Y el segundo (2), mediante el rectángulo obtenido en el paso anterior, se recorta la cara de la imagen inicial y es reescalado para utilizarse como entrada de la red neuronal que realiza la prediccion de la malla. (El tamaño de reescalado será entre 256x256 en un modelo completo, hasta 128x128 en el modelo más pequeño). Tras la predicción, se obtiene como salida un vector de coordenadas \textit{landmark 3D}, que serán mapeadas y dibujadas en la imagen original. \cite{faceMesh2}
+
+Las coordenadas que se obtienen como salida estan compuestas por unas coordenadas x e y provenientes de localizaciones del plano 2D propio de la imagen. Mientras que, la coordenada z es interpretada como una profundidad relativa a un centro de masa que compone la malla de la cara.
+
+Se utilizan dos modelos para el funcionamiento de \textit{FaceMesh}. El primero de ellos dedicado a la detección facial, llamado BlazeFace (mencionado anteriormente). Este es un modelo \textit{lightweight} creado para GPU móviles, llegando a una velocidad de procesamiento de entre 200 a 1000 fps en dispositivos móviles punteros. Es inspirado en los modelos \textit{MobileNet}, tanto la primera version como la segunda, provenientes del \textit{framework} SSD (\textit{Single Shot Multibox Detector}). Este modelo produce una salida compuesta por un rectángulo perimetral y 6 puntos de interés faciales. \cite{blazeface}
+
+El segundo modelo, \textit{Face Landmark Model}, es generado mediante \textit{Transfer Learning} buscado una serie de objetivos: crear coordenadas 3D (mencionadas anteriormente) y conseguir mostrarlas en la imagen de salida de forma correcta. \cite{faceMesh} El \textit{Transfer Learning} es una técnica de \textit{Machine Learning} donde se puede hacer uso de un modelo preentrenado para personalizarlo y usarlo en una tarea determinada. Conviene destacar que un modelo entrenado es una red almacenada, entrenada previamente con un conjunto de datos con el objetivo de realizar una tarea de clasificación de imágenes a gran escala. \cite{transferLearning}
+
+\textit{FaceMesh} propone una implementación mediante \textit{TensorFlow Lite} que dispone de dos formatos: CPU y GPU, que presentan un rendimiento en dispositivos moviles (\textit{Pixel3}, \textit{Pixel2} y \textit{iPhoneX}) muy fluido, impresionado sobre todo su funcionamiento sobre CPU. (Figura \ref{fig:faceMeshRen}) \cite{faceMesh3}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=10cm]{imagenes/rendFaceMesh.png}
+	\caption{Rendimiento de FaceMesh sobre dispositivos móviles}
+	\label{fig:faceMeshRen}
+\end{figure}
+
+\subsection*{Prototipo}
+
+Uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado en \textit{Haar-like features}, como el mencionado en el \textit{paper} de Viola \& Jones (\ref{haar-like}).
 
 % Explicar mi prototipo
 
-\section{YOLO}
-Mostrar la idea de lo que es una CNN y posteriormente explicar el funcionamiento de YOLO. Posible añadido de AlexNet si es útil.
-
-\subsection*{Implementación}
-
-
-\subsection*{YOLO Custom}
-
-
+\newpage
 \section{Tensorflow}
+
+Posible añadido de AlexNet si es útil.
 
 \begin{itemize}
 	\item Plantear idea
@@ -155,3 +186,6 @@ Mostrar la idea de lo que es una CNN y posteriormente explicar el funcionamiento
 	\item Diferentes tipos de modelos
 	\item Mostrar funcionamiento y aplicación al objetivo
 \end{itemize}
+
+\newpage
+\section{Comparación}

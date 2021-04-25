@@ -12,9 +12,9 @@
 \contentsline {section}{\numberline {3.1}Prototipo}{11}{section.3.1}%
 \contentsline {chapter}{\numberline {4}Diseño y resolución}{12}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{12}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Facial Landmark}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}YOLO}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Tensorflow}{18}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{20}{chapter.5}%
-\contentsline {chapter}{\numberline {A}ANEXO I - Implementación Viola-Jones Face Detector}{21}{appendix.Alph1}%
-\contentsline {chapter}{Bibliografía}{23}{appendix*.9}%
+\contentsline {section}{\numberline {4.2}Facial Landmark}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mediapipe}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Tensorflow}{23}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparación}{24}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{25}{chapter.5}%
+\contentsline {chapter}{Bibliografía}{27}{chapter*.11}%

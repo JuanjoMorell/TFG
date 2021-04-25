@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  21 APR 2021 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  25 APR 2021 18:52
 entering extended mode
 **./proyecto.tex
 (proyecto.tex
@@ -920,7 +920,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [11]
 Cap\'{\i }tulo 4.
 [12]
-<imagenes/haar-like.jpeg, id=167, 321.2pt x 272.01625pt>
+<imagenes/haar-like.jpeg, id=171, 321.2pt x 272.01625pt>
 File: imagenes/haar-like.jpeg Graphic file (type jpg)
 <use imagenes/haar-like.jpeg>
 Package pdftex.def Info: imagenes/haar-like.jpeg  used on input line 26.
@@ -935,7 +935,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13 <./imagenes/haar-like.jpeg>]
-<imagenes/integral.png, id=175, 213.04594pt x 173.89969pt>
+<imagenes/integral.png, id=179, 213.04594pt x 173.89969pt>
 File: imagenes/integral.png Graphic file (type png)
 <use imagenes/integral.png>
 Package pdftex.def Info: imagenes/integral.png  used on input line 47.
@@ -954,7 +954,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14 <./imagenes/integral.png (PNG copy)>]
-<imagenes/ada1.png, id=189, 475.02469pt x 188.20313pt>
+<imagenes/ada1.png, id=193, 475.02469pt x 188.20313pt>
 File: imagenes/ada1.png Graphic file (type png)
 <use imagenes/ada1.png>
 Package pdftex.def Info: imagenes/ada1.png  used on input line 73.
@@ -969,7 +969,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15 <./imagenes/ada1.png>]
-<imagenes/ada2.png, id=199, 472.01344pt x 212.29312pt>
+<imagenes/ada2.png, id=203, 472.01344pt x 212.29312pt>
 File: imagenes/ada2.png Graphic file (type png)
 <use imagenes/ada2.png>
 Package pdftex.def Info: imagenes/ada2.png  used on input line 84.
@@ -993,6 +993,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1001,7 +1004,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18]) (capitulo5.tex
+[18]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1011,46 +1014,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-Cap\'{\i }tulo 5.
-) (apendice1.tex [20]
-Ap\'{e}ndice A.
-) (proyecto.bbl [21]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
-.
+<imagenes/faceMesh.png, id=226, 670.00313pt x 335.00156pt>
+File: imagenes/faceMesh.png Graphic file (type png)
+<use imagenes/faceMesh.png>
+Package pdftex.def Info: imagenes/faceMesh.png  used on input line 150.
+(pdftex.def)             Requested size: 426.79134pt x 213.39325pt.
 
-(C:\Users\Juanjo\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Underfull \hbox (badness 6016) in paragraph at lines 4--8
-[]\T1/pplx/m/n/12 AIShak.  In-te-gral ima-ges in opencv.  [][]$\T1/cmtt/m/n/12 
-https : / / aishack . in / tutorials /
- []
-
-
-Underfull \hbox (badness 5302) in paragraph at lines 10--16
-[]\T1/pplx/m/n/12 Rostyslav De-mush.  A brief his-tory of com-pu-ter vi-sion (a
-nd con-vo-
- []
-
-
-Underfull \hbox (badness 5862) in paragraph at lines 10--16
-\T1/pplx/m/n/12 lu-tio-nal neu-ral net-works).  02 2019.  URL: [][]$\T1/cmtt/m/
-n/12 https : / / hackernoon . com /
- []
-
-
-Overfull \hbox (64.44934pt too wide) in paragraph at lines 10--16
-\T1/cmtt/m/n/12 a-[]brief-[]history-[]of-[]computer-[]vision-[]and-[]convolutio
-nal-[]neural-[]networks-[]8fe8aacc79f3$[][]\T1/pplx/m/n/12 . 
- []
-
-
-Overfull \hbox (113.83728pt too wide) in paragraph at lines 49--56
-\T1/cmtt/m/n/12 understanding-[]face-[]detection-[]with-[]the-[]viola-[]jones-[
-]object-[]detection-[]framework-[]c55cc2a9da14$[][]\T1/pplx/m/n/12 . 
- []
-
-[22])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1059,21 +1028,110 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23] (proyecto.aux
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21 <./imagenes/faceMesh.png>]
+<imagenes/rendFaceMesh.png, id=243, 642.4pt x 392.46625pt>
+File: imagenes/rendFaceMesh.png Graphic file (type png)
+<use imagenes/rendFaceMesh.png>
+Package pdftex.def Info: imagenes/rendFaceMesh.png  used on input line 167.
+(pdftex.def)             Requested size: 284.52756pt x 173.82948pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22 <./imagenes/rendFaceMesh.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]) (capitulo5.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24]
+Cap\'{\i }tulo 5.
+) (proyecto.bbl [25]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+2.
+
+(C:\Users\Juanjo\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Underfull \hbox (badness 6016) in paragraph at lines 10--14
+[]\T1/pplx/m/n/12 AIShak.  In-te-gral ima-ges in opencv.  [][]$\T1/cmtt/m/n/12 
+https : / / aishack . in / tutorials /
+ []
+
+
+Underfull \hbox (badness 5302) in paragraph at lines 22--28
+[]\T1/pplx/m/n/12 Rostyslav De-mush.  A brief his-tory of com-pu-ter vi-sion (a
+nd con-vo-
+ []
+
+
+Underfull \hbox (badness 5862) in paragraph at lines 22--28
+\T1/pplx/m/n/12 lu-tio-nal neu-ral net-works).  02 2019.  URL: [][]$\T1/cmtt/m/
+n/12 https : / / hackernoon . com /
+ []
+
+
+Overfull \hbox (64.44934pt too wide) in paragraph at lines 22--28
+\T1/cmtt/m/n/12 a-[]brief-[]history-[]of-[]computer-[]vision-[]and-[]convolutio
+nal-[]neural-[]networks-[]8fe8aacc79f3$[][]\T1/pplx/m/n/12 . 
+ []
+
+[26]
+Overfull \hbox (113.83728pt too wide) in paragraph at lines 73--80
+\T1/cmtt/m/n/12 understanding-[]face-[]detection-[]with-[]the-[]viola-[]jones-[
+]object-[]detection-[]framework-[]c55cc2a9da14$[][]\T1/pplx/m/n/12 . 
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27] (proyecto.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: C145ECBDDD08DCBFA5498B8AF6DADBF0;3082.
+(rerunfilecheck)             Checksum: 885169500DCF226929D463F7B777E850;2900.
  ) 
 Here is how much of TeX's memory you used:
- 17154 strings out of 479334
- 255452 string characters out of 2856609
- 626939 words of memory out of 3000000
- 34187 multiletter control sequences out of 15000+200000
- 459819 words of font info for 103 fonts, out of 3000000 for 9000
+ 17184 strings out of 479334
+ 255931 string characters out of 2856609
+ 628346 words of memory out of 3000000
+ 34208 multiletter control sequences out of 15000+200000
+ 461930 words of font info for 106 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,77p,3231b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 71i,12n,77p,3231b,481s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}{C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/
 8r.enc}<C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
@@ -1086,9 +1144,9 @@ Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Juanjo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Juanjo/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Juanjo/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on proyecto.pdf (25 pages, 324791 bytes).
+Output written on proyecto.pdf (29 pages, 382718 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 330 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

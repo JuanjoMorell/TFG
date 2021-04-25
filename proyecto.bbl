@@ -1,10 +1,22 @@
 \begin{thebibliography}{10}
 
+\bibitem{faceMesh3}
+Artsiom Ablavatski and Google~AI Ivan~Grishchenko, Research~Engineers.
+\newblock Real-time ar self-expression with machine learning.
+\newblock 03 2019.
+\newblock Acceso: 25-04-2021.
+
 \bibitem{integral-web}
 AIShak.
 \newblock Integral images in opencv.
 \newblock \url{https://aishack.in/tutorials/integral-images-opencv/}, Jun 2010.
 \newblock Acceso: 07-04-2021.
+
+\bibitem{blazeface}
+Valentin Bazarevsky, Yury Kartynnik, Andrey Vakunov, Karthik Raveendran, and
+  Matthias Grundmann.
+\newblock Blazeface: Sub-millisecond neural face detection on mobile gpus.
+\newblock 07 2019.
 
 \bibitem{histComputer}
 Rostyslav Demush.
@@ -18,6 +30,12 @@ Rostyslav Demush.
 Konstantinos Derpanis.
 \newblock Integral image-based representations.
 \newblock 1, 01 2007.
+
+\bibitem{dlib}
+Dlib.
+\newblock Dlib library, 2021.
+\newblock Acceso: 25-04-2021.
+\newblock URL: \url{http://dlib.net}.
 
 \bibitem{adaboost1}
 Robert E.~Schapire.
@@ -38,6 +56,12 @@ Google.
 \newblock Acceso: 21-04-2021.
 \newblock URL: \url{https://google.github.io/mediapipe/solutions/face_mesh}.
 
+\bibitem{faceMesh2}
+Yury Kartynnik, Artsiom Ablavatski, Ivan Grishchenko, and Matthias Grundmann.
+\newblock Real-time facial surface geometry from monocular video on mobile
+  gpus.
+\newblock 07 2019.
+
 \bibitem{inproceedings}
 Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
@@ -54,6 +78,13 @@ Socret Lee.
 \newblock URL:
   \url{https://towardsdatascience.com/understanding-face-detection-with-the-viola-jones-object-detection-framework-c55cc2a9da14}.
 
+\bibitem{mediapipe}
+Camillo Lugaresi, Jiuqiang Tang, Hadon Nash, Chris McClanahan, Esha Uboweja,
+  Michael Hays, Fan Zhang, Chuo-Ling Chang, Ming Yong, Juhyun Lee, Wan-Teh
+  Chang, Wei Hua, Manfred Georg, and Matthias Grundmann.
+\newblock Mediapipe: A framework for building perception pipelines.
+\newblock 06 2019.
+
 \bibitem{haar-like}
 Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock Joint haar-like features for face detection.
@@ -65,6 +96,13 @@ Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 R.~Szeliski.
 \newblock {\em COMPUTER VISION: Algorithms and aplications.}
 \newblock SPRINGER NATURE, 2021.
+
+\bibitem{transferLearning}
+TensorFlow.
+\newblock Transferir el aprendizaje y la puesta a punto, 2021.
+\newblock Acceso: 25-04-2021.
+\newblock URL:
+  \url{https://www.tensorflow.org/tutorials/images/transfer_learning}.
 
 \bibitem{paulViola}
 Paul Viola and Michael Jones.
