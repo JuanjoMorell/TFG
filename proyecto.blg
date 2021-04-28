@@ -23,51 +23,52 @@ Warning--empty journal in faceMesh3
 Warning--empty journal in blazeface
 Warning--empty journal in histComputer
 Warning--empty journal in integral
+Warning--empty journal in cnn
 Warning--empty journal in adaboost1
 Warning--empty journal in faceMesh
 Warning--empty journal in faceMesh2
 Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
-You've used 17 entries,
+You've used 18 entries,
             2882 wiz_defined-function locations,
-            714 strings with 7592 characters,
-and the built_in function-call counts, 6795 in all, are:
-= -- 664
-> -- 285
+            719 strings with 7787 characters,
+and the built_in function-call counts, 7153 in all, are:
+= -- 703
+> -- 294
 < -- 0
-+ -- 104
-- -- 86
-* -- 343
-:= -- 1014
-add.period$ -- 65
-call.type$ -- 17
-change.case$ -- 92
++ -- 107
+- -- 88
+* -- 355
+:= -- 1065
+add.period$ -- 70
+call.type$ -- 18
+change.case$ -- 96
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 182
-empty$ -- 640
-format.name$ -- 86
-if$ -- 1756
+cite$ -- 29
+duplicate$ -- 194
+empty$ -- 677
+format.name$ -- 88
+if$ -- 1854
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 16
-newline$ -- 102
-num.names$ -- 34
-pop$ -- 211
+int.to.str$ -- 18
+missing$ -- 17
+newline$ -- 109
+num.names$ -- 36
+pop$ -- 221
 preamble$ -- 1
-purify$ -- 77
+purify$ -- 80
 quote$ -- 0
-skip$ -- 485
+skip$ -- 516
 stack$ -- 0
-substring$ -- 155
+substring$ -- 160
 swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 10
-while$ -- 36
-width$ -- 19
-write$ -- 193
+type$ -- 68
+warning$ -- 11
+while$ -- 38
+width$ -- 20
+write$ -- 206
 (There was 1 error message)

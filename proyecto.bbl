@@ -37,6 +37,14 @@ Dlib.
 \newblock Acceso: 25-04-2021.
 \newblock URL: \url{http://dlib.net}.
 
+\bibitem{cnn}
+Govinda Dumane.
+\newblock Introduction to convolutional neural network (cnn) using tensorflow.
+\newblock 2020.
+\newblock Acceso: 28-04-2021.
+\newblock URL:
+  \url{https://towardsdatascience.com/introduction-to-convolutional-neural-network-cnn-de73f69c5b83}.
+
 \bibitem{adaboost1}
 Robert E.~Schapire.
 \newblock Explaining adaboost.
