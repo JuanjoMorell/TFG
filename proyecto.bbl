@@ -23,7 +23,7 @@ N.~Dalal and B.~Triggs.
 \newblock Histograms of oriented gradients for human detection.
 \newblock In {\em 2005 IEEE Computer Society Conference on Computer Vision and
   Pattern Recognition (CVPR'05)}, volume~1, pages 886--893 vol. 1, 2005.
-\newblock \href {https://doi.org/10.1109/CVPR.2005.177}
+\newblock \href {http://dx.doi.org/10.1109/CVPR.2005.177}
   {\path{doi:10.1109/CVPR.2005.177}}.
 
 \bibitem{histComputer}
@@ -82,8 +82,16 @@ Yury Kartynnik, Artsiom Ablavatski, Ivan Grishchenko, and Matthias Grundmann.
 Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
 \newblock 06 2014.
-\newblock \href {https://doi.org/10.13140/2.1.1212.2243}
+\newblock \href {http://dx.doi.org/10.13140/2.1.1212.2243}
   {\path{doi:10.13140/2.1.1212.2243}}.
+
+\bibitem{faceLandmark}
+Vahid Kazemi and Josephine Sullivan.
+\newblock One millisecond face alignment with an ensemble of regression trees.
+\newblock In {\em 2014 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 1867--1874, 2014.
+\newblock \href {http://dx.doi.org/10.1109/CVPR.2014.241}
+  {\path{doi:10.1109/CVPR.2014.241}}.
 
 \bibitem{adaboost2}
 Socret Lee.
@@ -105,7 +113,7 @@ Camillo Lugaresi, Jiuqiang Tang, Hadon Nash, Chris McClanahan, Esha Uboweja,
 Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock Joint haar-like features for face detection.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
-\newblock \href {https://doi.org/10.1109/ICCV.2005.129}
+\newblock \href {http://dx.doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
 
 \bibitem{szeliski_2018}
@@ -124,7 +132,7 @@ TensorFlow.
 Paul Viola and Michael Jones.
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock {\em IEEE Conf Comput Vis Pattern Recognit}, 1:I--511, 02 2001.
-\newblock \href {https://doi.org/10.1109/CVPR.2001.990517}
+\newblock \href {http://dx.doi.org/10.1109/CVPR.2001.990517}
   {\path{doi:10.1109/CVPR.2001.990517}}.
 
 \end{thebibliography}
