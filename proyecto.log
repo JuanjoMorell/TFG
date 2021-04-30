@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  28 APR 2021 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  30 APR 2021 11:49
 entering extended mode
 **./proyecto.tex
 (proyecto.tex
@@ -992,7 +992,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4217) has occurred while \output is active []
 
 
 
@@ -1013,10 +1013,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-<imagenes/faceMesh.png, id=226, 670.00313pt x 335.00156pt>
+<imagenes/faceMesh.png, id=228, 670.00313pt x 335.00156pt>
 File: imagenes/faceMesh.png Graphic file (type png)
 <use imagenes/faceMesh.png>
-Package pdftex.def Info: imagenes/faceMesh.png  used on input line 150.
+Package pdftex.def Info: imagenes/faceMesh.png  used on input line 152.
 (pdftex.def)             Requested size: 426.79134pt x 213.39325pt.
 
 
@@ -1037,10 +1037,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21 <./imagenes/faceMesh.png>]
-<imagenes/rendFaceMesh.png, id=243, 642.4pt x 392.46625pt>
+<imagenes/rendFaceMesh.png, id=245, 642.4pt x 392.46625pt>
 File: imagenes/rendFaceMesh.png Graphic file (type png)
 <use imagenes/rendFaceMesh.png>
-Package pdftex.def Info: imagenes/rendFaceMesh.png  used on input line 167.
+Package pdftex.def Info: imagenes/rendFaceMesh.png  used on input line 169.
 (pdftex.def)             Requested size: 284.52756pt x 173.82948pt.
 
 
@@ -1084,28 +1084,25 @@ https : / / aishack . in / tutorials /
  []
 
 
-Underfull \hbox (badness 5302) in paragraph at lines 22--28
+Underfull \hbox (badness 5302) in paragraph at lines 30--36
 []\T1/pplx/m/n/12 Rostyslav De-mush.  A brief his-tory of com-pu-ter vi-sion (a
 nd con-vo-
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 22--28
+Underfull \hbox (badness 5862) in paragraph at lines 30--36
 \T1/pplx/m/n/12 lu-tio-nal neu-ral net-works).  02 2019.  URL: [][]$\T1/cmtt/m/
 n/12 https : / / hackernoon . com /
  []
 
 
-Overfull \hbox (64.44934pt too wide) in paragraph at lines 22--28
+Overfull \hbox (64.44934pt too wide) in paragraph at lines 30--36
 \T1/cmtt/m/n/12 a-[]brief-[]history-[]of-[]computer-[]vision-[]and-[]convolutio
 nal-[]neural-[]networks-[]8fe8aacc79f3$[][]\T1/pplx/m/n/12 . 
  []
 
-
-Underfull \vbox (badness 1314) has occurred while \output is active []
-
- [26]
-Overfull \hbox (113.83728pt too wide) in paragraph at lines 81--88
+[26]
+Overfull \hbox (113.83728pt too wide) in paragraph at lines 89--96
 \T1/cmtt/m/n/12 understanding-[]face-[]detection-[]with-[]the-[]viola-[]jones-[
 ]object-[]detection-[]framework-[]c55cc2a9da14$[][]\T1/pplx/m/n/12 . 
  []
@@ -1127,13 +1124,13 @@ Package rerunfilecheck Info: File `proyecto.out' has not changed.
 (rerunfilecheck)             Checksum: 885169500DCF226929D463F7B777E850;2900.
  ) 
 Here is how much of TeX's memory you used:
- 17182 strings out of 479334
- 255820 string characters out of 2856609
- 629372 words of memory out of 3000000
- 34208 multiletter control sequences out of 15000+200000
+ 17187 strings out of 479334
+ 255878 string characters out of 2856609
+ 628398 words of memory out of 3000000
+ 34212 multiletter control sequences out of 15000+200000
  461930 words of font info for 106 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,77p,3231b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 71i,12n,77p,3231b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}{C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/
 8r.enc}<C:/Users/Juanjo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
@@ -1146,9 +1143,9 @@ Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Juanjo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Juanjo/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Juanjo/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on proyecto.pdf (28 pages, 384663 bytes).
+Output written on proyecto.pdf (28 pages, 386465 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
+ 335 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
  188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

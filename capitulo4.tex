@@ -122,8 +122,14 @@ La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \t
 
 El primer paso en esta solución es encontrar una cara dentro de la imagen de entrada, y el encargado será el método HOG. El cual, sigue una idea similar al método de \textit{Haar-like}, ya que se basa en la detección de \textit{features} (características).
 
+La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto, en este caso caras, mediante la distribución de la intensidad de gradientes locales o direcciones de los bordes. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calculo un histograma de gradientes de 1 dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste. \cite{hog}
+
+%https://medium.com/analytics-vidhya/a-gentle-introduction-into-the-histogram-of-oriented-gradients-fdee9ed8f2aa
+%https://learnopencv.com/histogram-of-oriented-gradients/
+
 \subsection*{Sullivan Paper}
 %Paper de Sullivan
+%https://medium.com/analytics-vidhya/facial-landmarks-detection-with-dlib-and-haar-cascade-e3c8195131d7
 
 \subsection*{Prototipo}
 % Prototipo

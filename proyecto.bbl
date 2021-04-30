@@ -18,6 +18,14 @@ Valentin Bazarevsky, Yury Kartynnik, Andrey Vakunov, Karthik Raveendran, and
 \newblock Blazeface: Sub-millisecond neural face detection on mobile gpus.
 \newblock 07 2019.
 
+\bibitem{hog}
+N.~Dalal and B.~Triggs.
+\newblock Histograms of oriented gradients for human detection.
+\newblock In {\em 2005 IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition (CVPR'05)}, volume~1, pages 886--893 vol. 1, 2005.
+\newblock \href {https://doi.org/10.1109/CVPR.2005.177}
+  {\path{doi:10.1109/CVPR.2005.177}}.
+
 \bibitem{histComputer}
 Rostyslav Demush.
 \newblock A brief history of computer vision (and convolutional neural
