@@ -3,10 +3,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{13}{figure.caption.5}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{14}{figure.caption.6}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcci\IeC {\'o}n del \textit {Strong Classifier}\relax }}{15}{figure.caption.7}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcci\IeC {\'o}n del \textit {Multi-stage Classifier}\relax }}{16}{figure.caption.8}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{23}{figure.caption.9}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos m\IeC {\'o}viles\relax }}{24}{figure.caption.10}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{13}{figure.caption.5}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{14}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{23}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{24}{figure.caption.10}%
 \addvspace {10\p@ }

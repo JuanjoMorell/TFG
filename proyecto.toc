@@ -1,20 +1,20 @@
 \babel@toc {spanish}{}
-\contentsline {chapter}{Resumen}{3}{chapter*.3}
-\contentsline {chapter}{Extended abstract}{4}{chapter*.4}
-\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Historia de la Visi\IeC {\'o}n Artificial}{5}{section.1.1}
-\contentsline {section}{\numberline {1.2}Reconocimiento Facial y COVID-19}{7}{section.1.2}
-\contentsline {chapter}{\numberline {2}Estado del arte}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}Python y OpenCV}{9}{section.2.1}
-\contentsline {section}{\numberline {2.2}Aplicaciones sin Deep Learning}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Aplicaciones con Deep Learning}{9}{section.2.3}
-\contentsline {chapter}{\numberline {3}An\IeC {\'a}lisis de objetivos y metodolog\IeC {\'\i }a}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Prototipo}{11}{section.3.1}
-\contentsline {chapter}{\numberline {4}Dise\IeC {\~n}o y resoluci\IeC {\'o}n}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Facial Landmark}{18}{section.4.2}
-\contentsline {section}{\numberline {4.3}Mediapipe}{22}{section.4.3}
-\contentsline {section}{\numberline {4.4}Tensorflow}{25}{section.4.4}
-\contentsline {section}{\numberline {4.5}Comparaci\IeC {\'o}n}{26}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusiones y v\IeC {\'\i }as futuras}{27}{chapter.5}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{29}{chapter*.11}
+\contentsline {chapter}{Resumen}{3}{chapter*.3}%
+\contentsline {chapter}{Extended abstract}{4}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introducción}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Historia de la Visión Artificial}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Reconocimiento Facial y COVID-19}{7}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Estado del arte}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Python y OpenCV}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Aplicaciones sin Deep Learning}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Aplicaciones con Deep Learning}{9}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Análisis de objetivos y metodología}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Prototipo}{11}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Diseño y resolución}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Facial Landmark}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mediapipe}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Tensorflow}{25}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparación}{26}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{27}{chapter.5}%
+\contentsline {chapter}{Bibliografía}{29}{chapter*.11}%
