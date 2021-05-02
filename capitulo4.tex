@@ -127,11 +127,16 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 \begin{enumerate}
 	\item \textit{Pre-procesado}: Para una imagen de entrada de cualquier tamaño es tratada en regiones de ciertas escalas y analizadas en varias zonas de la imagen. La única restricción es que los tamaño de las regiones analizadas tienen una relación de aspecto fija.
 	
-	\item \textit{Cálculo de las imágenes de gradiente}: To calculate a HOG descriptor, we need to first calculate the horizontal and vertical gradients; after all, we want to calculate the histogram of gradients. This is easily achieved by filtering the image with the following kernels.
-	Next, we can find the magnitude and direction of gradient using the following formula.If you are using OpenCV, the calculation can be done using the function \textit{cartToPolar}.
-	Notice, the x-gradient fires on vertical lines and the y-gradient fires on horizontal lines. The magnitude of gradient fires where ever there is a sharp change in intensity. None of them fire when the region is smooth. I have deliberately left out the image showing the direction of gradient because direction shown as an image does not convey much.
-	The gradient image removed a lot of non-essential information ( e.g. constant colored background ), but highlighted outlines. In other words, you can look at the gradient image and still easily say there is a person in the picture.
-	At every pixel, the gradient has a magnitude and a direction. For color images, the gradients of the three channels are evaluated ( as shown in the figure above ). The magnitude of gradient at a pixel is the maximum of the magnitude of gradients of the three channels, and the angle is the angle corresponding to the maximum gradient.
+	\item \textit{Cálculo de las imágenes de gradiente}: Para el calculo del histograma de gradientes es necesario realizar el calculo de los gradientes, tanto verticales como horizontales. Esto se puede obtener facilmente gracias al uso de \textit{Kernels} (filtros). Posteriormente, se busca la magnitud de las direcciones de dichos gradientes con el uso de la siguiente fórmula:
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=3cm]{imagenes/HOGFormula.png}
+		\caption{Fórmula \textit{HOG}}
+		\label{fig:hogf}
+	\end{figure}
+	
+	La fórmula esta implementada en \textit{OpenCV} mediante la función \textit{cartToPolar}. En este punto se puede obtener la imagen de los gradientes, eliminando toda la información no relevante de la imagen original, y se puede observar como en todos los pixeles el gradiente tomara una magnitud y una dirección. Si la imagen es RGB, los gradientes se evaluan sobre los tres canales de color, siendo la magnitud final el valor mayor entre los tres canales.
 	
 	\item \textit{Calculo de los histogramas de gradientes en celdas (8x8)}: In this step, the image is divided into 8x8 cells and a histogram of gradients is calculated for each 8x8 cells.
 	We will learn about the histograms in a moment, but before we go there let us first understand why we have divided the image into 8x8 cells. One of the important reasons to use a feature descriptor to describe a patch of an image is that it provides a compact representation. An 8x8 image patch contains 8x8x3 = 192 pixel values. The gradient of this patch contains 2 values ( magnitude and direction ) per pixel which adds up to 8x8x2 = 128 numbers.
