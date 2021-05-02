@@ -122,41 +122,28 @@ La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \t
 
 El primer paso en esta solución es encontrar una cara dentro de la imagen de entrada, y el encargado será el método HOG. El cual, sigue una idea similar al método de \textit{Haar-like}, ya que se basa en la detección de \textit{features} (características).
 
-La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto, en este caso caras, mediante la distribución de la intensidad de gradientes locales o direcciones de los bordes. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calculo un histograma de gradientes de 1 dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste. \cite{hog}
+La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto mediante la distribución de la intensidad de gradientes locales, gracias a que estos obtienen una magnitud mayor en las cercanías de bordes o esquinas. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calculo un histograma de gradientes de 1 dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste de la imagen de entrada. \cite{hog} Con este procedimiento se obtiene un \textit{feature vector} a partir de la imagen de entrada, y la distribución resultante de los gradientes serán usados como las características. La implementación de HOG se podría dividir en 5 pasos generales:
 
-Con este procedimiento se obtiene un \textit{feature vector} a partir de la imagen de entrada.
-
-In the HOG feature descriptor, the distribution ( histograms ) of directions of gradients ( oriented gradients ) are used as features. Gradients ( x and y derivatives ) of an image are useful because the magnitude of gradients is large around edges and corners ( regions of abrupt intensity changes ) and we know that edges and corners pack in a lot more information about object shape than flat regions.
-
-La implementacion de HOG se podria dividir en 5 pasos generales:
 \begin{enumerate}
-	\item Preprocesado.
+	\item \textit{Pre-procesado}: Para una imagen de entrada de cualquier tamaño es tratada en regiones de ciertas escalas y analizadas en varias zonas de la imagen. La única restricción es que los tamaño de las regiones analizadas tienen una relación de aspecto fija.
 	
-	HOG feature descriptor used for pedestrian detection is calculated on a 64x128 patch of an image. Of course, an image may be of any size. Typically patches at multiple scales are analyzed at many image locations. The only constraint is that the patches being analyzed have a fixed aspect ratio.
-	
-	\item Calculo de las imagenes de gradiente.
-	
-	To calculate a HOG descriptor, we need to first calculate the horizontal and vertical gradients; after all, we want to calculate the histogram of gradients. This is easily achieved by filtering the image with the following kernels.
+	\item \textit{Cálculo de las imágenes de gradiente}: To calculate a HOG descriptor, we need to first calculate the horizontal and vertical gradients; after all, we want to calculate the histogram of gradients. This is easily achieved by filtering the image with the following kernels.
 	Next, we can find the magnitude and direction of gradient using the following formula.If you are using OpenCV, the calculation can be done using the function \textit{cartToPolar}.
 	Notice, the x-gradient fires on vertical lines and the y-gradient fires on horizontal lines. The magnitude of gradient fires where ever there is a sharp change in intensity. None of them fire when the region is smooth. I have deliberately left out the image showing the direction of gradient because direction shown as an image does not convey much.
 	The gradient image removed a lot of non-essential information ( e.g. constant colored background ), but highlighted outlines. In other words, you can look at the gradient image and still easily say there is a person in the picture.
 	At every pixel, the gradient has a magnitude and a direction. For color images, the gradients of the three channels are evaluated ( as shown in the figure above ). The magnitude of gradient at a pixel is the maximum of the magnitude of gradients of the three channels, and the angle is the angle corresponding to the maximum gradient.
 	
-	\item Calculo de los histogramas de gradientes en celdas (8x8).
-	
-	In this step, the image is divided into 8x8 cells and a histogram of gradients is calculated for each 8x8 cells.
+	\item \textit{Calculo de los histogramas de gradientes en celdas (8x8)}: In this step, the image is divided into 8x8 cells and a histogram of gradients is calculated for each 8x8 cells.
 	We will learn about the histograms in a moment, but before we go there let us first understand why we have divided the image into 8x8 cells. One of the important reasons to use a feature descriptor to describe a patch of an image is that it provides a compact representation. An 8x8 image patch contains 8x8x3 = 192 pixel values. The gradient of this patch contains 2 values ( magnitude and direction ) per pixel which adds up to 8x8x2 = 128 numbers.
 	By the end of this section we will see how these 128 numbers are represented using a 9-bin histogram which can be stored as an array of 9 numbers. Not only is the representation more compact, calculating a histogram over a patch makes this represenation more robust to noise. Individual graidents may have noise, but a histogram over 8x8 patch makes the representation much less sensitive to noise.
 	But why 8x8 patch ? Why not 32x32 ? It is a design choice informed by the scale of features we are looking for. 
 	The contributions of all the pixels in the 8x8 cells are added up to create the 9-bin histogram.
 	
-	\item Normalización de bloques (16x16).
-	
-	In the previous step, we created a histogram based on the gradient of the image. Gradients of an image are sensitive to overall lighting. If you make the image darker by dividing all pixel values by 2, the gradient magnitude will change by half, and therefore the histogram values will change by half.
+	\item \textit{Normalización de bloques (16x16)}: In the previous step, we created a histogram based on the gradient of the image. Gradients of an image are sensitive to overall lighting. If you make the image darker by dividing all pixel values by 2, the gradient magnitude will change by half, and therefore the histogram values will change by half.
 	Ideally, we want our descriptor to be independent of lighting variations. In other words, we would like to “normalize” the histogram so they are not affected by lighting variations.
 	A 16x16 block has 4 histograms which can be concatenated to form a 36 x 1 element vector and it can be normalized just the way a 3x1 vector is normalized. The window is then moved by 8 pixels ( see animation ) and a normalized 36x1 vector is calculated over this window and the process is repeated.
 	
-	\item Calculo del vector de \textit{HOG}: To calculate the final feature vector for the entire image patch, the 36x1 vectors are concatenated into one giant vector.
+	\item \textit{Calculo del vector de HOG}: To calculate the final feature vector for the entire image patch, the 36x1 vectors are concatenated into one giant vector.
 
 
 \end{enumerate}
@@ -172,6 +159,7 @@ El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \
 
 \subsection*{Prototipo}
 % Prototipo
+Prototipo xd
 
 \subsection*{Próximos pasos}
 
