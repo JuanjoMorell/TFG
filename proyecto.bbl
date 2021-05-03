@@ -18,12 +18,18 @@ Valentin Bazarevsky, Yury Kartynnik, Andrey Vakunov, Karthik Raveendran, and
 \newblock Blazeface: Sub-millisecond neural face detection on mobile gpus.
 \newblock 07 2019.
 
+\bibitem{coco}
+COCO.
+\newblock Coco, common objects in context, 2021.
+\newblock Acceso: 02-05-2021.
+\newblock URL: \url{https://cocodataset.org/#home}.
+
 \bibitem{hog}
 N.~Dalal and B.~Triggs.
 \newblock Histograms of oriented gradients for human detection.
 \newblock In {\em 2005 IEEE Computer Society Conference on Computer Vision and
   Pattern Recognition (CVPR'05)}, volume~1, pages 886--893 vol. 1, 2005.
-\newblock \href {http://dx.doi.org/10.1109/CVPR.2005.177}
+\newblock \href {https://doi.org/10.1109/CVPR.2005.177}
   {\path{doi:10.1109/CVPR.2005.177}}.
 
 \bibitem{histComputer}
@@ -82,7 +88,7 @@ Yury Kartynnik, Artsiom Ablavatski, Ivan Grishchenko, and Matthias Grundmann.
 Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
 \newblock 06 2014.
-\newblock \href {http://dx.doi.org/10.13140/2.1.1212.2243}
+\newblock \href {https://doi.org/10.13140/2.1.1212.2243}
   {\path{doi:10.13140/2.1.1212.2243}}.
 
 \bibitem{faceLandmark}
@@ -90,7 +96,7 @@ Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
 \newblock In {\em 2014 IEEE Conference on Computer Vision and Pattern
   Recognition}, pages 1867--1874, 2014.
-\newblock \href {http://dx.doi.org/10.1109/CVPR.2014.241}
+\newblock \href {https://doi.org/10.1109/CVPR.2014.241}
   {\path{doi:10.1109/CVPR.2014.241}}.
 
 \bibitem{adaboost2}
@@ -109,17 +115,45 @@ Camillo Lugaresi, Jiuqiang Tang, Hadon Nash, Chris McClanahan, Esha Uboweja,
 \newblock Mediapipe: A framework for building perception pipelines.
 \newblock 06 2019.
 
+\bibitem{hog2}
+Satya Mallick.
+\newblock Histogram of oriented gradients explained using opencv.
+\newblock 2016.
+\newblock Acceso: 02-05-2021.
+\newblock URL: \url{https://learnopencv.com/histogram-of-oriented-gradients/}.
+
 \bibitem{haar-like}
 Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock Joint haar-like features for face detection.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
-\newblock \href {http://dx.doi.org/10.1109/ICCV.2005.129}
+\newblock \href {https://doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
+
+\bibitem{ibug}
+Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
+\newblock 300 faces in-the-wild challenge: The first facial landmark
+  localization challenge.
+\newblock In {\em 2013 IEEE International Conference on Computer Vision
+  Workshops}, pages 397--403, 2013.
+\newblock \href {https://doi.org/10.1109/ICCVW.2013.59}
+  {\path{doi:10.1109/ICCVW.2013.59}}.
 
 \bibitem{szeliski_2018}
 R.~Szeliski.
 \newblock {\em COMPUTER VISION: Algorithms and aplications.}
 \newblock SPRINGER NATURE, 2021.
+
+\bibitem{tensorflow}
+TensorFlow.
+\newblock Tensorflow core, 2021.
+\newblock Acceso: 02-05-2021.
+\newblock URL: \url{https://www.tensorflow.org/guide?hl=es_419}.
+
+\bibitem{modelGarden}
+Tensorflow.
+\newblock Tensorflow official models, 2021.
+\newblock Acceso: 02-05-2021.
+\newblock URL: \url{https://github.com/tensorflow/models/tree/master/official}.
 
 \bibitem{transferLearning}
 TensorFlow.
@@ -132,7 +166,7 @@ TensorFlow.
 Paul Viola and Michael Jones.
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock {\em IEEE Conf Comput Vis Pattern Recognit}, 1:I--511, 02 2001.
-\newblock \href {http://dx.doi.org/10.1109/CVPR.2001.990517}
+\newblock \href {https://doi.org/10.1109/CVPR.2001.990517}
   {\path{doi:10.1109/CVPR.2001.990517}}.
 
 \end{thebibliography}

@@ -1,11 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: proyecto.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: plainurl.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: bibliografia.bib
 I was expecting a `,' or a `}'---line 81 of file bibliografia.bib
  :  
@@ -16,6 +19,10 @@ Warning--entry type for "transferLearning" isn't style-file defined
 --line 133 of file bibliografia.bib
 Warning--entry type for "dlib" isn't style-file defined
 --line 150 of file bibliografia.bib
+Warning--entry type for "tensorflow" isn't style-file defined
+--line 195 of file bibliografia.bib
+Warning--entry type for "coco" isn't style-file defined
+--line 213 of file bibliografia.bib
 Warning--empty journal in faceMesh3
 Warning--empty journal in blazeface
 Warning--empty journal in histComputer
@@ -27,45 +34,46 @@ Warning--empty journal in faceMesh2
 Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
-You've used 20 entries,
-            2849 wiz_defined-function locations,
-            724 strings with 8155 characters,
-and the built_in function-call counts, 8256 in all, are:
-= -- 822
-> -- 322
-< -- 3
-+ -- 117
-- -- 96
-* -- 407
-:= -- 1219
-add.period$ -- 78
-call.type$ -- 20
-change.case$ -- 106
+Warning--empty journal in hog2
+You've used 25 entries,
+            2882 wiz_defined-function locations,
+            758 strings with 8864 characters,
+and the built_in function-call counts, 10478 in all, are:
+= -- 1058
+> -- 379
+< -- 4
++ -- 138
+- -- 112
+* -- 508
+:= -- 1488
+add.period$ -- 99
+call.type$ -- 25
+change.case$ -- 129
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 242
-empty$ -- 766
-format.name$ -- 96
-if$ -- 2119
+cite$ -- 37
+duplicate$ -- 304
+empty$ -- 1028
+format.name$ -- 112
+if$ -- 2762
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 19
-newline$ -- 121
-num.names$ -- 40
-pop$ -- 224
+int.to.str$ -- 25
+missing$ -- 21
+newline$ -- 152
+num.names$ -- 50
+pop$ -- 310
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 106
 quote$ -- 0
-skip$ -- 610
+skip$ -- 771
 stack$ -- 0
-substring$ -- 255
-swap$ -- 43
-text.length$ -- 3
+substring$ -- 308
+swap$ -- 59
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
-warning$ -- 11
-while$ -- 46
-width$ -- 22
-write$ -- 233
+type$ -- 96
+warning$ -- 12
+while$ -- 58
+width$ -- 27
+write$ -- 295
 (There was 1 error message)

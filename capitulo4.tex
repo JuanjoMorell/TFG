@@ -122,7 +122,7 @@ La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \t
 
 El primer paso en esta solución es encontrar una cara dentro de la imagen de entrada, y el encargado será el método HOG. El cual, sigue una idea similar al método de \textit{Haar-like}, ya que se basa en la detección de \textit{features} (características).
 
-La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto mediante la distribución de la intensidad de gradientes locales, gracias a que estos obtienen una magnitud mayor en las cercanías de bordes o esquinas. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calculo un histograma de gradientes de 1 dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste de la imagen de entrada. \cite{hog} Con este procedimiento se obtiene un \textit{feature vector} a partir de la imagen de entrada, y la distribución resultante de los gradientes serán usados como las características. La implementación de HOG se podría dividir en 5 pasos generales:
+La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto mediante la distribución de la intensidad de gradientes locales, gracias a que estos obtienen una magnitud mayor en las cercanías de bordes o esquinas. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calculo un histograma de gradientes de 1 dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste de la imagen de entrada. \cite{hog} Con este procedimiento se obtiene un \textit{feature vector} a partir de la imagen de entrada, y la distribución resultante de los gradientes serán usados como las características. La implementación de HOG se podría dividir en 5 pasos generales \cite{hog2}:
 
 \begin{enumerate}
 	\item \textit{Pre-procesado}: Para una imagen de entrada de cualquier tamaño es tratada en regiones de ciertas escalas y analizadas en varias zonas de la imagen. La única restricción es que los tamaño de las regiones analizadas tienen una relación de aspecto fija.
@@ -138,39 +138,54 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 	
 	La fórmula esta implementada en \textit{OpenCV} mediante la función \textit{cartToPolar}. En este punto se puede obtener la imagen de los gradientes, eliminando toda la información no relevante de la imagen original, y se puede observar como en todos los pixeles el gradiente tomara una magnitud y una dirección. Si la imagen es RGB, los gradientes se evaluan sobre los tres canales de color, siendo la magnitud final el valor mayor entre los tres canales.
 	
-	\item \textit{Calculo de los histogramas de gradientes en celdas (8x8)}: In this step, the image is divided into 8x8 cells and a histogram of gradients is calculated for each 8x8 cells.
-	We will learn about the histograms in a moment, but before we go there let us first understand why we have divided the image into 8x8 cells. One of the important reasons to use a feature descriptor to describe a patch of an image is that it provides a compact representation. An 8x8 image patch contains 8x8x3 = 192 pixel values. The gradient of this patch contains 2 values ( magnitude and direction ) per pixel which adds up to 8x8x2 = 128 numbers.
-	By the end of this section we will see how these 128 numbers are represented using a 9-bin histogram which can be stored as an array of 9 numbers. Not only is the representation more compact, calculating a histogram over a patch makes this represenation more robust to noise. Individual graidents may have noise, but a histogram over 8x8 patch makes the representation much less sensitive to noise.
-	But why 8x8 patch ? Why not 32x32 ? It is a design choice informed by the scale of features we are looking for. 
-	The contributions of all the pixels in the 8x8 cells are added up to create the 9-bin histogram.
+	\item \textit{Calculo de los histogramas de gradientes en celdas (8x8)}: La imagen se divide en celdas y se calculan los histogramas para cada una de ellas. Por ejemplo, si la celda es de tamaño 8x8, esta contendrá 192 píxeles (8x8x3), donde el gradiente tiene dos valores, descritos anteriormente (magnitud y dirección), por cada uno de los píxeles, lo que añade 128 valores (8x8x2). Esto facilita la representación de las regiones mediante el uso de un histograma, ademas mejora la influencia al ruido. El tamaño de la celda vendrá definida dependiendo de la escala de características (\textit{features}) que se estén buscando.
 	
-	\item \textit{Normalización de bloques (16x16)}: In the previous step, we created a histogram based on the gradient of the image. Gradients of an image are sensitive to overall lighting. If you make the image darker by dividing all pixel values by 2, the gradient magnitude will change by half, and therefore the histogram values will change by half.
-	Ideally, we want our descriptor to be independent of lighting variations. In other words, we would like to “normalize” the histogram so they are not affected by lighting variations.
-	A 16x16 block has 4 histograms which can be concatenated to form a 36 x 1 element vector and it can be normalized just the way a 3x1 vector is normalized. The window is then moved by 8 pixels ( see animation ) and a normalized 36x1 vector is calculated over this window and the process is repeated.
+	\item \textit{Normalización de bloques (16x16)}: Una vez creado el histograma, hay que tener en cuenta que la imagen es sensible al brillo que tenga. Por ejemplo, si el brillo de la imagen se divide en dos, la magnitud del gradiente también lo hará. De igual forma, si el brillo se multiplica por dos, el gradiente ídem. Pero, se busca un descriptor que sea independiente a esto, por lo que se normaliza el histograma para que no se vea afectado por los cambios de luz/brillo.	Disponiendo de celdas de 8x8, un bloque de 16x16 posee cuatro histogramas que pueden ser condensados en un unico vector normalizado.
 	
-	\item \textit{Calculo del vector de HOG}: To calculate the final feature vector for the entire image patch, the 36x1 vectors are concatenated into one giant vector.
-
+	\item \textit{Calculo del vector de HOG}: El último paso es concatenar los vectores normalizados obtenidos en uno global.
 
 \end{enumerate}
 
-%https://medium.com/analytics-vidhya/a-gentle-introduction-into-the-histogram-of-oriented-gradients-fdee9ed8f2aa
-%https://learnopencv.com/histogram-of-oriented-gradients/
+Este procedimiento se repite varias veces sobre imagenes distintas y se introduce en un modelo \textit{Machine Learning} del tipo SVM Linear, con el objetivo de obtener un detector de caras. En el caso de \textit{Dlib}, posee un modelo preentrenado.
 
 
 \subsection*{Sullivan Paper}
-%Paper de Sullivan
-%https://medium.com/analytics-vidhya/facial-landmarks-detection-with-dlib-and-haar-cascade-e3c8195131d7
-El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \textit{toolkit Dlib} del algoritmo que estima de forma precisa y eficiente de los puntos de interes faciales. Para ello se hará uso de una \textit{cascada de regresores}. \cite{faceLandmark}
+
+El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \textit{toolkit Dlib} del algoritmo que estima de forma precisa y eficiente los puntos de interés faciales. Esta basado en \textit{gradient boosting} para el aprendizaje de un conjunto de arboles de regresión (\textit{ensemble of regression trees}), que será el encargado de la predicción de los puntos de interés.\cite{faceLandmark} 
+
+Este método fue uno de los primeros que mejoro el rendimiento, a diferencia con los métodos anteriores, gracias a la detección de componentes esenciales para el \textit{face aligment} y procesarlos para introducirlos en funciones de regresión en cascada. Cada una de estas funciones estima, de forma eficiente, la forma facial desde una estimación inicial y obtiene un conjunto de píxeles indexados a dicha estimación. En concreto, \textit{Dlib} estimará un total de 68 píxeles indexados (Figura \ref{fig:dlibPoints}), ya que sigue las anotaciones del \textit{dataset iBUG 300-W} \cite{ibug}, usado en los modelos pre-entrenados ofrecidos por \textit{Dlib}.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=8cm]{imagenes/facial_landmarks_68markup.jpg}
+	\caption{68 coordenadas del \textit{facial landmark} con \textit{iBUG 300-W} \textit{dataset}}
+	\label{fig:dlibPoints}
+\end{figure}
+
+Ademas, se introdujeron dos elementos clave a las funciones de aprendizaje de regresión. El primero gira en torno a la intensidad de los píxeles indexados con respecto a la estimación actual de la forma facial, ya que estos son muy influenciables por la deformación de la estimación de la forma y a los cambios de iluminación. El dilema que aparece es que necesitamos características confiables para obtener una predicción con precisión la forma y, por otro lado, necesitamos una estimación precisa de la forma para extraer características fiables. Para resolver este dilema se plantea el uso de un enfoque iterativo. La idea se basa en obtener una imagen transformada en un sistema de coordenadas normalizado basado en una estimación actual de la forma, y posteriormente extraer las características para predecir un vector de actualización para los parámetros de la forma. Este proceso suele repetirse varias veces.
+
+El segundo elemento clave se trata de reducir la dificultad del proceso de inferencia/predicción. El objetivo es obtener una función capaz de estimar la forma que concuerde con la información de la imagen y el modelo. Pero el problema es que esta función es no convexa en varios valores locales. Para resolver esto se plantearon dos soluciones a lo largo del tiempo. El primero afirma que las predicciones estimadas en zonas lineales del subespacio mienten, y efectivamente ayuda a evitar este problema. Pero, posteriormente se descubrió la segunda solución, donde se asume que la función mienten en zonas lineales del subespacio y no es necesario realizar trabajo adicional. En el caso de este \textit{paper}, se implementa una solución donde se utilizan una combinación de ambas. Por lo que, cada regresor aprende mediante \textit{gradient boosting} conjuntamente a una función de perdida de error al cuadrado.
+
+La entrada usada en el regresor, es seleccionada mediante \textit{gradient boosting} sobre un conjunto de píxeles dispersos, y la prioridad de probabilidad sobre la distancia entre pares de píxeles de entrada. Esto permite realizar un estudio sobre un mayor número de características relevante de forma eficiente. El resultado es una cascada de regresores que pueden localizar los puntos de referencia faciales cuando es inicializada con la media de la pose facial.
+
+De forma más general, la investigación ofrece las siguiente contribuciones a las investigaciones de \textit{Face Landmark} anteriores:
+
+\begin{enumerate}
+	\item Un método de alineación que se basa en un conjunto de árboles de regresión que nos devuelve la forma facial mientras minimiza la función de error.
+	\item Método que maneja la predicción de puntos que faltan o no están presentes en la imagen. Por ejemplo, rostros que estén medio ocultos. (Esto solamente se realizará si el modelo creado con HOG detecta dicha cara oculta).
+	\item Resultados que demuestran que el método produce predicciones de alta calidad.
+	\item El efecto de la cantidad de datos de entrenamiento.
+\end{enumerate}
 
 \subsection*{Prototipo}
-% Prototipo
-Prototipo xd
+
+Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementación de ambas ideas, mediante modeles pre-entrenados.
 
 \subsection*{Próximos pasos}
 
 Con el objetivo de mejorar este prototipo se incorpora el \textit{Deep Learning}. En las últimas décadas, se ha convertido en uno de los métodos mas usados para la creación de aplicaciones de visión artificial. \cite{szeliski_2018}. Esta basado en las estructuras neuronales CNN (\textit{Convolutional Neural Network}), principales responsables de que un ordenador pueda procesar de forma sencilla una imagen. \textit{CNN} es una combinación entre capas neuronales y convolcionales, siendo estas últimas filtros con los que se obtendrán características de la imagen de entrada, los conocidos \textit{features}. La principal función del Deep Learning es clasificar, ya sea una imagen, un objeto o incluso varios objetos a la vez. Esto es gracias al uso de modelos, entrenados con miles de imágenes, que consiguen clasificar imágenes en varias categorías, por ejemplo \textit{MobileNet}. \cite{cnn}
 
-En los siguientes apartados se probará implementar prototipos con el uso de Deep Learning con el objetivo de mejorar los resultado obtenidos hasta ahora. Se va a tratar con la API de Google llamada \textit{MediaPipe} y la tecnologia de \textit{Transfer Learning} conjuntamente con \textit{TensorFlow}, para poder reentrenar modelos para nuestro objetivo, detectar mascarillas.
+En los siguientes apartados se probará implementar prototipos con el uso de Deep Learning con el objetivo de mejorar los resultado obtenidos hasta ahora. Se va a tratar con la API de Google llamada \textit{MediaPipe} y la tecnología de \textit{Transfer Learning} conjuntamente con \textit{TensorFlow}, para poder reentrenar modelos para nuestro objetivo, detectar mascarillas.
 
 \newpage
 \section{Mediapipe}
@@ -207,6 +222,10 @@ El segundo modelo, \textit{Face Landmark Model}, es generado mediante \textit{Tr
 	\label{fig:faceMeshRen}
 \end{figure}
 
+\subsection*{SSD y MobileNet} \label{Mobilenet}
+
+Explicar un poco.
+
 \subsection*{Prototipo}
 
 Uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado en \textit{Haar-like features}, como el mencionado en el \textit{paper} de Viola \& Jones (\ref{haar-like}).
@@ -216,26 +235,30 @@ Uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado e
 \newpage
 \section{Tensorflow}
 
-TensorFlow es una plataforma de código abierto de extremo a extremo para el aprendizaje automático. Cuenta con un ecosistema integral y flexible de herramientas, bibliotecas y recursos de la comunidad que les permite a los investigadores innovar con el aprendizaje automático y, a los desarrolladores, compilar e implementar con facilidad aplicaciones con tecnología de AA.
+TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. Esta se basa en tensores, matrices multidimensionales con un tipo uniforme, que si se está familiarizado con NumPy , los tensores son como \textit{np.arrays}. Con la característica de que nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo. \cite{tensorflow}
 
-Los tensores son matrices multidimensionales con un tipo uniforme (llamado dtype ). Puede ver todos los dtypes admitidos entf.dtypes.DType . Si está familiarizado con NumPy , los tensores son (algo así como) como np.arrays . Todos los tensores son inmutables como los números y las cadenas de Python: nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo.
+Concretamente, se usarán los modelos y ejemplos de aprendizaje automático ofrecidos y entrenados mediante la API de alto nivel de Tensorflow para la implementación del último prototipo. Este recurso recibe el nombre de \textit{TensorFlow Model Garden} \cite{modelGarden}, y se trata de un repositorio con un diferentes implementaciones de modelos y soluciones modeladas para Tensorflow. Los modelos estan pre-entrenados mediante un dataset llamado \textit{COCO 2017} \cite{coco}.
 
-The TensorFlow Model Garden is a repository with a number of different implementations of state-of-the-art (SOTA) models and modeling solutions for TensorFlow users. We aim to demonstrate the best practices for modeling so that TensorFlow users can take full advantage of TensorFlow for their research and product development.
-
-We provide a collection of detection models pre-trained on the COCO 2017 dataset. These models can be useful for out-of-the-box inference if you are interested in categories already in those datasets. You can try it in our inference colab
+%https://blog.tensorflow.org/2020/03/introducing-model-garden-for-tensorflow-2.html
+De que dispone Model garden, Un poco mas de info de coco
 
 COCO is a large-scale object detection, segmentation, and captioning dataset. COCO has several features.
 
 Junto a esto se usa Transfer Learning. \textit{Explicar}
 
-Todos los modelos usados se basan en SSD.
+\subsection{Prototipo MobileNet}
 
-MobileNet
+Explicar Mobilenet y pruebas
 
-CenterNet MobileNet
+\subsection{Prototipo RetinaNet}
 
-RetinaNet
+Explicar RetinaNet y pruebas
 
+\subsection{Prototipo YOLO}
+
+Explicar YOLO y pruebas
+%https://medium.com/analytics-vidhya/yolov3-custom-object-detection-with-transfer-learning-47186c8f166d
+%https://github.com/hunglc007/tensorflow-yolov4-tflite
 
 \newpage
 \section{Comparación}
