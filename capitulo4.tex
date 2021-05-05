@@ -213,7 +213,7 @@ Se utilizan dos modelos para el funcionamiento de \textit{FaceMesh}. El primero 
 
 El segundo modelo, \textit{Face Landmark Model}, es generado mediante \textit{Transfer Learning} buscado una serie de objetivos: crear coordenadas 3D (mencionadas anteriormente) y conseguir mostrarlas en la imagen de salida de forma correcta. \cite{faceMesh} El \textit{Transfer Learning} es una técnica de \textit{Machine Learning} donde se puede hacer uso de un modelo preentrenado para personalizarlo y usarlo en una tarea determinada. Conviene destacar que un modelo entrenado es una red almacenada, entrenada previamente con un conjunto de datos con el objetivo de realizar una tarea de clasificación de imágenes a gran escala. \cite{transferLearning}
 
-\textit{FaceMesh} propone una implementación mediante \textit{TensorFlow Lite} que dispone de dos formatos: CPU y GPU, que presentan un rendimiento en dispositivos moviles (\textit{Pixel3}, \textit{Pixel2} y \textit{iPhoneX}) muy fluido, impresionado sobre todo su funcionamiento sobre CPU. (Figura \ref{fig:faceMeshRen}) \cite{faceMesh3}
+\textit{FaceMesh} propone una implementación mediante \textit{TensorFlow Lite} que dispone de dos formatos: CPU y GPU, que presentan un rendimiento en dispositivos móviles (\textit{Pixel3}, \textit{Pixel2} y \textit{iPhoneX}) muy fluido, impresionado sobre todo su funcionamiento sobre CPU. (Figura \ref{fig:faceMeshRen}) \cite{faceMesh3}
 
 \begin{figure}[htp]
 	\centering
@@ -222,9 +222,6 @@ El segundo modelo, \textit{Face Landmark Model}, es generado mediante \textit{Tr
 	\label{fig:faceMeshRen}
 \end{figure}
 
-\subsection*{SSD y MobileNet} \label{Mobilenet}
-
-Explicar un poco.
 
 \subsection*{Prototipo}
 
@@ -237,26 +234,49 @@ Uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado e
 
 TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. Esta se basa en tensores, matrices multidimensionales con un tipo uniforme, que si se está familiarizado con NumPy , los tensores son como \textit{np.arrays}. Con la característica de que nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo. \cite{tensorflow}
 
-Concretamente, se usarán los modelos y ejemplos de aprendizaje automático ofrecidos y entrenados mediante la API de alto nivel de Tensorflow para la implementación del último prototipo. Este recurso recibe el nombre de \textit{TensorFlow Model Garden} \cite{modelGarden}, y se trata de un repositorio con un diferentes implementaciones de modelos y soluciones modeladas para Tensorflow. Los modelos estan pre-entrenados mediante un dataset llamado \textit{COCO 2017} \cite{coco}.
+Concretamente, se usarán los modelos y ejemplos de aprendizaje automático ofrecidos y entrenados mediante la API de alto nivel de Tensorflow para la implementación del último prototipo. Este recurso recibe el nombre de \textit{TensorFlow Model Garden} \cite{modelGarden}, y se trata de un repositorio con un diferentes implementaciones de modelos y soluciones modeladas para Tensorflow. Los modelos estan pre-entrenados mediante un dataset llamado \textit{COCO 2017} \cite{coco}. Siendo este un gran conjunto de datos a grande escala para \textit{object detection}, segmentación y captación.
 
-%https://blog.tensorflow.org/2020/03/introducing-model-garden-for-tensorflow-2.html
-De que dispone Model garden, Un poco mas de info de coco
+Model Garden dispone de un apartado dedicado a la visión artificial, donde se encuentran los ámbitos de clasificación de imágenes, como \textit{MNIST}, \textit{ResNet} o \textit{EfficentNet}, y detección de objetos y segmentación, donde se destacan \textit{RetinaNet}, \textit{Mask R-CNN}, etc. Sin embargo, este prototipo se centrará en la implementación de uno de los modelos que ofrece Model Garden, llamado \textit{SSD-MobileNet}, y aplicar \textit{Transfer Learning} sobre el, para obtener un detector de lo que estamos buscando, comprobar si la mascarilla esta bien vestida.
 
-COCO is a large-scale object detection, segmentation, and captioning dataset. COCO has several features.
+Transfer Learning es una técnica en la que se reusa un model pre-entrenado para un nuevo problema. Últimamente su uso se esta popularizando, ya que permite el entrenamiento de una \textit{deep neural network} con una pequeña cantidad de datos. Algo bastante revolucionario, puesto que todos los modelos hasta ahora necesitaban millones de datos, clasificados a mano y posteriormente necesitar una gran capacidad computacional para ser entrenados.\cite{transferLearning} En nuestro caso, se busca utilizar un modelo general de detección de objetos y aplicando transfer learning, re-entrenarlo para una tarea más especifica pero sin desperdiciar sus conocimientos previos.
 
-Junto a esto se usa Transfer Learning. \textit{Explicar}
+\subsection*{SSD-MobileNet}
 
-\subsection{Prototipo MobileNet}
+El prototipo de Tensorflow que se va a construir usará un modelo \textit{SSD-MobileNet}, combinación de un modelo SSD, \textit{Single Shot MultiBox Detector}, con otro llamado MobileNet. Este tipo de modelos se caracterizan por el uso de un método para detectar objetos en imagenes mediante una \textit{deep neural network}, que genera valores de predicción sobre la presencia de cada objeto/categoria en cada una de las detecciones y devuelve el objeto con el más coincida.
 
-Explicar Mobilenet y pruebas
+El modelo \textit{SSD} se caracteriza por estar formado por dos componentes principales: un modelo backbone y una cabeza SSD. El backbone es un modelo de clasificación de imágenes, que esta pre-entrenado para ser utilizado como un extractor de características. Normalmente, se implementa con modelos como \textit{ResNet}. Mientras que, la cabeza SSD esta formada por uno o mas capas convolucionales que interpretan la salida del backbone como \textit{bounding boxes} y clases de objetos. \cite{ssdwork}
 
-\subsection{Prototipo RetinaNet}
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=10cm]{imagenes/cnnssd.png}
+	\caption{Arquitectura de una CNN con uso de SSD.}
+	\label{fig:ssd}
+\end{figure}
 
-Explicar RetinaNet y pruebas
+Otras característica destacables de SSD es la división de la imagen de entrada mediante un \textit{grid} y realizar una predicción de la clase y la localización del objeto en cada una de las celdas de dicho grid. Si en dicho grid no existe ningún objeto, se considera como \textit{background} y la localización es ignorado. A cada celda se le puede asignar varias \textit{anchor boxes} (\textit{Bounding boxes} con una altura y anchura predefinida) con un tamaño igual al de las celdas. Pero no todos los objetos que estan contenidos en la imagen tienen dicho tamaño, por eso se añade un parámetro (\textit{ratio}) dedicado a especificar los diferentes valores que pueden tomar las \textit{anchor boxes}. Asimismo, existe otro parámetro llamado zoom para especificar cuanto pueden escalar dichos \textit{boxes}, tanto aumentando como reduciendo.\cite{ssdwork}
 
-\subsection{Prototipo YOLO}
+El comportamiento y aportaciones especificas de este modelo, vienen planteadas en el paper con su mismo nombre, \textit{"SSD: Single Shot MultiBox Detector"} \cite{ssd}. Y son las siguientes:
 
-Explicar YOLO y pruebas
+\begin{enumerate}
+	\item Se introduce un modelo para la deteccion de multiples categorias que es más eficaz y preciso que los modelos posteriores como YOLO.
+	\item El núcleo de SSD predice la categoría y localización de la \textit{bounding box} mediante el uso de pequeños filtros convolucionales aplicados sobre mapas de características.
+	\item Para obtener una mayor precisión se realizan predicciones sobre mapas de caracteristicas con diferente escalado.
+	\item Experimentación con análisis de tiempo y precisión sobre el modelo evaluado sobre \textit{PASCAL VOC}, \textit{COCO} y \textit{ILSVRC}. Asimismo, es comparado con modelos recientes.
+\end{enumerate}
+
+MobileNet es un modelo con arquitectura \textit{CNN} para la clasificación de imágenes y visión artificial en móviles. Lo que hace especial este modelo es la potencia computacional necesaria para ejecutarlo o aplicar transfer learning sobre el. Esto lo convierte en un perfecto candidato para dispositivos móviles, sistemas integrados y ordenadores sin GPU o baja eficiencia computacional sin llegar a comprometer significativamente la precisión de los resultados.
+
+Este modelo se basa en el uso de una arquitectura optimizada que usa convoluciones separables en profundidad para construir \textit{deep neural networks} ligeros. Ademas, proporciona dos hiperparámetros globales que permiten ajustar de forma eficiente entre la latencia y precisión. Por consiguiente, con la combinación de ambos, se logra la creación de un modelo apto para dispositivos y ordenadores con poca potencia de GPU, capaz de obtener una detección de forma precisa y veloz.
+
+\subsection*{Prototipo}
+
+%\subsection{Prototipo RetinaNet}
+
+%Explicar RetinaNet y pruebas
+
+%\subsection{Prototipo YOLO}
+
+%Explicar YOLO y pruebas
 %https://medium.com/analytics-vidhya/yolov3-custom-object-detection-with-transfer-learning-47186c8f166d
 %https://github.com/hunglc007/tensorflow-yolov4-tflite
 

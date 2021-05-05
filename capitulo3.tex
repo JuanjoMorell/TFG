@@ -15,10 +15,36 @@ El COVID-19 es un problema que ha provocado en la humanidad incontables problema
 
 \section{Prototipo}
 
-[Explicar el funcionamiento de como se va a llevar a cabo la creación del prototipo]
+Para cada uno de los apartados del desarrollo de este \textit{TFG} se creará un prototipo con la finalidad de mostrar la tecnología expuesta en el mismo. Con el objetivo final de crea una aplicación que contenga todos los prototipos y se puedan ejecutar de forma sencilla. 
+
+Los prototipos serán probados en varios escenarios de prueba, todos ellos se realizarán en tiempo real. Se contará con una totalidad de tres escenarios:
 
 \begin{itemize}
-	\item Para cada apartado se creará un prototipo especifico para probar dicha tecnología.
-	\item Se realizará un estudio de los resultado para cada uno de ellos.
-	\item En los anexos se mostrará una explicación de como se ha implementado más centrado en la programación.
+	\item Detección de mascarillas a una distancia cercana.
+	\item Detección de mascarillas a una distancia media.
+	\item Detección de mascarillas desde una posición alejada, como la parte superior de una puerta.
 \end{itemize}
+
+Asimismo, las pruebas se repetirán en dos dispositivos diferentes. El primero de ellos sin GPU y el segundo con GPU (CUDA). A continuación se muestran las especificaciones de los dispositivos:
+
+\begin{center}
+	\begin{tabular}{ |c|c|c|c| } 
+		\hline
+		 & PC 1 & PC 2 \\
+		\hline
+		\multirow{3}{4em}{CPU} & Intel i7-1065G7 & Intel i7 \\ 
+		& 1.30GHz & GHz \\ 
+		& 8 núcleos & núcleos \\ 
+		\hline
+		GPU & Intel Iris Plus Graphics  & GTX 980M 2Gb \\
+		\hline
+		RAM & 16 Gb & 8 Gb \\
+		\hline
+		OS & Ubuntu 18.04 & Ubuntu 18.04 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+Por último, en los anexos se mostrará una explicación de como se ha implementado más centrado en la programación, conjuntamente con un manual de usuario.

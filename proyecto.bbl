@@ -45,6 +45,12 @@ Konstantinos Derpanis.
 \newblock Integral image-based representations.
 \newblock 1, 01 2007.
 
+\bibitem{ssdwork}
+ArcGIS Developers.
+\newblock How single-shot detector (ssd) works?, 2021.
+\newblock Acceso: 05-05-2021.
+\newblock URL: \url{https://developers.arcgis.com/python/guide/how-ssd-works/}.
+
 \bibitem{dlib}
 Dlib.
 \newblock Dlib library, 2021.
@@ -107,6 +113,15 @@ Socret Lee.
 \newblock Acceso: 11-04-2021.
 \newblock URL:
   \url{https://towardsdatascience.com/understanding-face-detection-with-the-viola-jones-object-detection-framework-c55cc2a9da14}.
+
+\bibitem{ssd}
+Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed,
+  Cheng-Yang Fu, and Alexander~C. Berg.
+\newblock Ssd: Single shot multibox detector.
+\newblock {\em Lecture Notes in Computer Science}, page 21–37, 2016.
+\newblock URL: \url{http://dx.doi.org/10.1007/978-3-319-46448-0_2}, \href
+  {https://doi.org/10.1007/978-3-319-46448-0_2}
+  {\path{doi:10.1007/978-3-319-46448-0_2}}.
 
 \bibitem{mediapipe}
 Camillo Lugaresi, Jiuqiang Tang, Hadon Nash, Chris McClanahan, Esha Uboweja,

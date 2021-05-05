@@ -23,6 +23,12 @@ Warning--entry type for "tensorflow" isn't style-file defined
 --line 195 of file bibliografia.bib
 Warning--entry type for "coco" isn't style-file defined
 --line 213 of file bibliografia.bib
+Warning--entry type for "ssdwork" isn't style-file defined
+--line 263 of file bibliografia.bib
+Repeated entry---line 271 of file bibliografia.bib
+ : @article{transferLearning
+ :                          ,
+I'm skipping whatever remains of this entry
 Warning--empty journal in faceMesh3
 Warning--empty journal in blazeface
 Warning--empty journal in histComputer
@@ -35,45 +41,45 @@ Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
 Warning--empty journal in hog2
-You've used 25 entries,
+You've used 27 entries,
             2882 wiz_defined-function locations,
-            758 strings with 8864 characters,
-and the built_in function-call counts, 10478 in all, are:
-= -- 1058
-> -- 379
-< -- 4
-+ -- 138
-- -- 112
-* -- 508
-:= -- 1488
-add.period$ -- 99
-call.type$ -- 25
-change.case$ -- 129
+            771 strings with 9313 characters,
+and the built_in function-call counts, 11565 in all, are:
+= -- 1174
+> -- 427
+< -- 5
++ -- 156
+- -- 128
+* -- 565
+:= -- 1632
+add.period$ -- 107
+call.type$ -- 27
+change.case$ -- 143
 chr.to.int$ -- 0
-cite$ -- 37
-duplicate$ -- 304
-empty$ -- 1028
-format.name$ -- 112
-if$ -- 2762
+cite$ -- 39
+duplicate$ -- 341
+empty$ -- 1120
+format.name$ -- 128
+if$ -- 3049
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 21
-newline$ -- 152
-num.names$ -- 50
-pop$ -- 310
+int.to.str$ -- 27
+missing$ -- 22
+newline$ -- 164
+num.names$ -- 54
+pop$ -- 340
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 118
 quote$ -- 0
-skip$ -- 771
+skip$ -- 854
 stack$ -- 0
-substring$ -- 308
-swap$ -- 59
-text.length$ -- 4
+substring$ -- 332
+swap$ -- 78
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
+type$ -- 104
 warning$ -- 12
-while$ -- 58
-width$ -- 27
-write$ -- 295
-(There was 1 error message)
+while$ -- 63
+width$ -- 29
+write$ -- 321
+(There were 2 error messages)
