@@ -1,15 +1,16 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Soluciones de MediaPipe\relax }}{11}{figure.caption.5}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{14}{figure.caption.5}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{15}{figure.caption.6}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{16}{figure.caption.7}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{17}{figure.caption.8}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Fórmula \textit {HOG}\relax }}{20}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}\relax }}{22}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{26}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{27}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{29}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{15}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{18}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fórmula \textit {HOG}\relax }}{21}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}\relax }}{23}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{27}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{28}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{30}{figure.caption.14}%
 \addvspace {10\p@ }

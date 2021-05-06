@@ -84,18 +84,17 @@ Google.
 \newblock Acceso: 21-04-2021.
 \newblock URL: \url{https://google.github.io/mediapipe/solutions/face_mesh}.
 
+\bibitem{ibm}
+IBM.
+\newblock Visual recognition, 2021.
+\newblock Acceso: 07-05-2021.
+\newblock URL: \url{https://cloud.ibm.com/catalog/services/visual-recognition}.
+
 \bibitem{faceMesh2}
 Yury Kartynnik, Artsiom Ablavatski, Ivan Grishchenko, and Matthias Grundmann.
 \newblock Real-time facial surface geometry from monocular video on mobile
   gpus.
 \newblock 07 2019.
-
-\bibitem{inproceedings}
-Vahid Kazemi and Josephine Sullivan.
-\newblock One millisecond face alignment with an ensemble of regression trees.
-\newblock 06 2014.
-\newblock \href {https://doi.org/10.13140/2.1.1212.2243}
-  {\path{doi:10.13140/2.1.1212.2243}}.
 
 \bibitem{faceLandmark}
 Vahid Kazemi and Josephine Sullivan.
@@ -104,6 +103,13 @@ Vahid Kazemi and Josephine Sullivan.
   Recognition}, pages 1867--1874, 2014.
 \newblock \href {https://doi.org/10.1109/CVPR.2014.241}
   {\path{doi:10.1109/CVPR.2014.241}}.
+
+\bibitem{inproceedings}
+Vahid Kazemi and Josephine Sullivan.
+\newblock One millisecond face alignment with an ensemble of regression trees.
+\newblock 06 2014.
+\newblock \href {https://doi.org/10.13140/2.1.1212.2243}
+  {\path{doi:10.13140/2.1.1212.2243}}.
 
 \bibitem{adaboost2}
 Socret Lee.
@@ -143,6 +149,11 @@ Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
 \newblock \href {https://doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
+
+\bibitem{YOLO}
+Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection, 2016.
+\newblock \href {http://arxiv.org/abs/1506.02640} {\path{arXiv:1506.02640}}.
 
 \bibitem{ibug}
 Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
