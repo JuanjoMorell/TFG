@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  7 MAY 2021 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.11)  9 MAY 2021 18:15
 entering extended mode
 **./proyecto.tex
 (proyecto.tex
@@ -833,7 +833,9 @@ ne 82.
 
 {C:/Users/Juanjo/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./imagenes/esc
 udo-eps-converted-to.pdf>]
-(proyecto.toc
+(agradecimientos.tex) [2
+
+] (proyecto.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -842,28 +844,39 @@ LaTeX Info: Redefining \% on input line 1.
 
  [1
 
-
 ] (proyecto.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (15.28159pt too wide) in paragraph at lines 17--17
+ [][] [][][]\T1/pplx/m/n/12 Pruebas con Dlib's Fa-cial Land-marks y mo-de-lo Ha
+ar-like fea-tu-re \T1/pplx/m/it/12 mcs_mouth.xml[][] [][]  
+ []
+
 )
 \tf@lof=\write6
 \openout6 = `proyecto.lof'.
 
  [2
 
-] (resumen.tex) [3
+] (proyecto.lot
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lot=\write7
+\openout7 = `proyecto.lot'.
 
-] (abstract.tex) [4
+ [3] (resumen.tex) [4
 
-]
-(capitulo1.tex
+] (abstract.tex) [5
+
+] (capitulo1.tex
 Cap\'{\i }tulo 1.
 Package lettrine.sty Info: Targeted height = 71.09999pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 71.10031pt (L);
 (lettrine.sty)             reported on input line 5.
-[5
+[6
 
 ]
 Underfull \vbox (badness 2057) has occurred while \output is active []
@@ -877,7 +890,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6]) (capitulo2.tex
+[7]) (capitulo2.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -886,21 +899,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]
+[8]
 Cap\'{\i }tulo 2.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[9]
+ [9]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -910,7 +914,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
-<imagenes/solucionesMediaPipe.png, id=178, 569.87906pt x 461.47406pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11]
+<imagenes/solucionesMediaPipe.png, id=212, 569.87906pt x 461.47406pt>
 File: imagenes/solucionesMediaPipe.png Graphic file (type png)
 <use imagenes/solucionesMediaPipe.png>
 Package pdftex.def Info: imagenes/solucionesMediaPipe.png  used on input line 5
@@ -925,12 +938,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11 <./imagenes/solucionesMediaPipe.png>]
+[12 <./imagenes/solucionesMediaPipe.png>]
 Cap\'{\i }tulo 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12])
+ [13])
 (capitulo4.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -940,10 +953,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13]
-Cap\'{\i }tulo 4.
 [14]
-<imagenes/haar-like.jpeg, id=199, 321.2pt x 272.01625pt>
+Cap\'{\i }tulo 4.
+[15]
+<imagenes/haar-like.jpeg, id=232, 321.2pt x 272.01625pt>
 File: imagenes/haar-like.jpeg Graphic file (type jpg)
 <use imagenes/haar-like.jpeg>
 Package pdftex.def Info: imagenes/haar-like.jpeg  used on input line 26.
@@ -957,8 +970,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15 <./imagenes/haar-like.jpeg>]
-<imagenes/integral.png, id=207, 213.04594pt x 173.89969pt>
+[16 <./imagenes/haar-like.jpeg>]
+<imagenes/integral.png, id=240, 213.04594pt x 173.89969pt>
 File: imagenes/integral.png Graphic file (type png)
 <use imagenes/integral.png>
 Package pdftex.def Info: imagenes/integral.png  used on input line 47.
@@ -976,8 +989,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16 <./imagenes/integral.png (PNG copy)>]
-<imagenes/ada1.png, id=221, 475.02469pt x 188.20313pt>
+[17 <./imagenes/integral.png (PNG copy)>]
+<imagenes/ada1.png, id=255, 475.02469pt x 188.20313pt>
 File: imagenes/ada1.png Graphic file (type png)
 <use imagenes/ada1.png>
 Package pdftex.def Info: imagenes/ada1.png  used on input line 73.
@@ -991,8 +1004,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17 <./imagenes/ada1.png>]
-<imagenes/ada2.png, id=230, 472.01344pt x 212.29312pt>
+[18 <./imagenes/ada1.png>]
+<imagenes/ada2.png, id=264, 472.01344pt x 212.29312pt>
 File: imagenes/ada2.png Graphic file (type png)
 <use imagenes/ada2.png>
 Package pdftex.def Info: imagenes/ada2.png  used on input line 84.
@@ -1006,16 +1019,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18 <./imagenes/ada2.png>]
+[19 <./imagenes/ada2.png>]
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 105.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 114.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[19]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1025,10 +1038,46 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20]
-<imagenes/HOGFormula.png, id=249, 135.50626pt x 100.87688pt>
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 157.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 166.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]
+<imagenes/HOGFormula.png, id=291, 135.50626pt x 100.87688pt>
 File: imagenes/HOGFormula.png Graphic file (type png)
 <use imagenes/HOGFormula.png>
-Package pdftex.def Info: imagenes/HOGFormula.png  used on input line 134.
+Package pdftex.def Info: imagenes/HOGFormula.png  used on input line 221.
 (pdftex.def)             Requested size: 85.35826pt x 63.5466pt.
 
 
@@ -1039,12 +1088,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21 <./imagenes/HOGFormula.png (PNG copy)>]
-<imagenes/facial_landmarks_68markup.jpg, id=261, 770.88pt x 621.32124pt>
+[24 <./imagenes/HOGFormula.png (PNG copy)>]
+<imagenes/facial_landmarks_68markup.jpg, id=303, 770.88pt x 621.32124pt>
 File: imagenes/facial_landmarks_68markup.jpg Graphic file (type jpg)
 <use imagenes/facial_landmarks_68markup.jpg>
 Package pdftex.def Info: imagenes/facial_landmarks_68markup.jpg  used on input 
-line 160.
+line 247.
 (pdftex.def)             Requested size: 227.62204pt x 183.45883pt.
 
 
@@ -1055,7 +1104,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22]
+[25]
 Underfull \vbox (badness 4024) has occurred while \output is active []
 
 
@@ -1067,7 +1116,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23 <./imagenes/facial_landmarks_68markup.jpg>]
+[26 <./imagenes/facial_landmarks_68markup.jpg>]
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 280.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+
+Underfull \hbox (badness 1990) in paragraph at lines 281--281
+[]\T1/pplx/m/n/12 Figura 4.11: |Prue-bas con Dlib's Fa-cial Land-marks y mo-de-
+lo Haar-like fea-tu-re
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1076,7 +1138,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24]
+[27]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1085,11 +1147,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
-<imagenes/faceMesh.png, id=288, 670.00313pt x 335.00156pt>
+[28]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[29]
+<imagenes/faceMesh.png, id=337, 670.00313pt x 335.00156pt>
 File: imagenes/faceMesh.png Graphic file (type png)
 <use imagenes/faceMesh.png>
-Package pdftex.def Info: imagenes/faceMesh.png  used on input line 203.
+Package pdftex.def Info: imagenes/faceMesh.png  used on input line 332.
 (pdftex.def)             Requested size: 426.79134pt x 213.39325pt.
 
 
@@ -1100,7 +1171,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26]
+[30]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1109,11 +1180,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27 <./imagenes/faceMesh.png>]
-<imagenes/rendFaceMesh.png, id=305, 642.4pt x 392.46625pt>
+[31 <./imagenes/faceMesh.png>]
+<imagenes/rendFaceMesh.png, id=354, 642.4pt x 392.46625pt>
 File: imagenes/rendFaceMesh.png Graphic file (type png)
 <use imagenes/rendFaceMesh.png>
-Package pdftex.def Info: imagenes/rendFaceMesh.png  used on input line 220.
+Package pdftex.def Info: imagenes/rendFaceMesh.png  used on input line 349.
 (pdftex.def)             Requested size: 284.52756pt x 173.82948pt.
 
 
@@ -1124,7 +1195,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28 <./imagenes/rendFaceMesh.png>]
+[32 <./imagenes/rendFaceMesh.png>]
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 369.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33]
 Underfull \vbox (badness 6125) has occurred while \output is active []
 
 
@@ -1136,11 +1221,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29]
-<imagenes/cnnssd.png, id=324, 526.96875pt x 207.02344pt>
+[34]
+<imagenes/cnnssd.png, id=379, 526.96875pt x 207.02344pt>
 File: imagenes/cnnssd.png Graphic file (type png)
 <use imagenes/cnnssd.png>
-Package pdftex.def Info: imagenes/cnnssd.png  used on input line 251.
+Package pdftex.def Info: imagenes/cnnssd.png  used on input line 417.
 (pdftex.def)             Requested size: 284.52756pt x 111.78467pt.
 
 
@@ -1151,7 +1236,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30 <./imagenes/cnnssd.png>]
+[35 <./imagenes/cnnssd.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1160,7 +1245,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31]) (capitulo5.tex
+[36]
+File: imagenes/ada1.png Graphic file (type png)
+<use imagenes/ada1.png>
+Package pdftex.def Info: imagenes/ada1.png  used on input line 448.
+(pdftex.def)             Requested size: 284.52756pt x 112.7332pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1169,9 +1259,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
+[37]) (capitulo5.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
 Cap\'{\i }tulo 5.
-) (proyecto.bbl [33]
+) (proyecto.bbl [39]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 2.
 
@@ -1201,7 +1300,7 @@ Overfull \hbox (64.44934pt too wide) in paragraph at lines 36--42
 nal-[]neural-[]networks-[]8fe8aacc79f3$[][]\T1/pplx/m/n/12 . 
  []
 
-[34]
+[40]
 Overfull \hbox (113.83728pt too wide) in paragraph at lines 115--122
 \T1/cmtt/m/n/12 understanding-[]face-[]detection-[]with-[]the-[]viola-[]jones-[
 ]object-[]detection-[]framework-[]c55cc2a9da14$[][]\T1/pplx/m/n/12 . 
@@ -1215,7 +1314,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 140--145
 []\T1/pplx/m/n/12 Satya Ma-llick.  His-to-gram of orien-ted gra-dients ex-plai-
 ned using
@@ -1236,18 +1335,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36] (proyecto.aux
+[42] (proyecto.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: B461789DBE825EC63114B7460207BC3A;2900.
+(rerunfilecheck)             Checksum: 56D0F8F0B7A6CCA6D013FE9D99DDC753;2900.
  ) 
 Here is how much of TeX's memory you used:
- 17261 strings out of 479334
- 257069 string characters out of 2856609
- 630973 words of memory out of 3000000
- 34248 multiletter control sequences out of 15000+200000
+ 17312 strings out of 479334
+ 257840 string characters out of 2856609
+ 632163 words of memory out of 3000000
+ 34266 multiletter control sequences out of 15000+200000
  461930 words of font info for 106 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,12n,77p,3231b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1263,9 +1362,9 @@ Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Juanjo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Juanjo/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Juanjo/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on proyecto.pdf (37 pages, 1012887 bytes).
+Output written on proyecto.pdf (44 pages, 1029866 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

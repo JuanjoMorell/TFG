@@ -1,16 +1,23 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Soluciones de MediaPipe\relax }}{11}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Soluciones de MediaPipe\relax }}{12}{figure.caption.6}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{15}{figure.caption.6}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{16}{figure.caption.7}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{17}{figure.caption.8}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{18}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Fórmula \textit {HOG}\relax }}{21}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}\relax }}{23}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{27}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{28}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{30}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features\relax }}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}\relax }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}\relax }}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}\relax }}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Pruebas con Haar-like features y \textit {frontalface\_default.xml}\relax }}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Pruebas con Haar-like features y \textit {frontalface\_alt2.xml}\relax }}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Pruebas con prototipo Haar Custom y \textit {frontalface\_default.xml}\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Pruebas con prototipo Haar Custom y \textit {frontalface\_alt2.xml}\relax }}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Fórmula \textit {HOG}\relax }}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}\relax }}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{28}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{31}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{32}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{33}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{35}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Pruebas con SSD-MobileNetV2 \textit {mcs\_mouth.xml}\relax }}{37}{figure.caption.27}%
 \addvspace {10\p@ }

@@ -1,0 +1,12 @@
+\babel@toc {spanish}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Entornos de prueba.\relax }}{14}{table.caption.7}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Tiempos para el prototipo 1.\relax }}{20}{table.caption.14}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Tiempos para el prototipo 2, Haar-like features custom.\relax }}{22}{table.caption.17}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos para el prototipo 3, Dlib's Facial Landmarks + Haar-like features\relax }}{28}{table.caption.21}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos para el prototipo 4, Mediapipe FaceMesh + Haar-like features\relax }}{33}{table.caption.25}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Tiempos para el prototipo 5, TensorFlow + SSD-MobileNetv2\relax }}{37}{table.caption.28}%
+\addvspace {10\p@ }
