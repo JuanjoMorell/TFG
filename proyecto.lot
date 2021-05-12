@@ -7,8 +7,8 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces Tiempos para el prototipo 1.\relax }}{21}{table.caption.13}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Tiempos para el prototipo 2, Haar-like features custom.\relax }}{23}{table.caption.16}%
 \contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos para el prototipo 3, Dlib's Facial Landmarks + Haar-like features\relax }}{29}{table.caption.20}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos para el prototipo 4, Mediapipe FaceMesh + Haar-like features\relax }}{34}{table.caption.24}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Tiempos para el prototipo 5, TensorFlow + SSD-MobileNetv2\relax }}{38}{table.caption.27}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos para el prototipo 4, Mediapipe FaceMesh + Haar-like features\relax }}{35}{table.caption.24}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Tiempos para el prototipo 5, TensorFlow + SSD-MobileNetv2\relax }}{41}{table.caption.27}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

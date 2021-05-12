@@ -347,11 +347,23 @@ El prototipo de este apartado se realizará mediante el uso de \textit{FaceMesh}
 
 \begin{enumerate}
 	\item Detección FaceMesh
+	
+	Para la detección del rostro en la imagen de entrada se utiliza la solución de Mediapipe llamada FaceMesh, implementada en el framework de python que recibe el mismo nombre, \textit{mediapipe}. Esta solución dispone de dos parámetros de configuración: \textit{min\_detection\_confidence} y \textit{min\_tracking\_confidence}. El primero hace referencia a ..., mientras que el segundo se entiende como ....
+	
+	Una vez configurado el FaceMesh, se procede a tratar la imagen de entrada para facilitar su tratamiento. Se convierte el espacio de color de la imagen de BGR, espacio de color con el que trabaja \textit{OpenCV}, a RGB. Y, para mejorar el rendimiento, se elimina la opción de la imagen para que sea escribible (\textit{writeable}). Este proceso será invertido después de realizar la detección.
+	
 	\item Obtención de zona ROI
+	
+	Tras la detección de Landmarks, el resultado se almacena en una variable llamada \textit{multi\_face\_landmarks}, donde se encuentran todas las marcas faciales de todos los rostros detectados. A su vez, este contiene cada una de las marcas, con una totalidad de 468 puntos.
+
+	Estas marcas contienen parámetros para medir la precisión de la detección del mismo, llamados: \textit{visibility} y \textit{presence}. Si estos valores son muy bajos no se tienen en cuenta. Tras esto, se normalizan sus valores a coordenadas con respecto a los píxeles de la imagen de entrada, se reservan unicamente las coordenadas relacionadas con la boca y se obtiene el ROI donde se localiza esta.
+	
 	\item Detección de una boca en el ROI 
+	
+	Para el último paso se hace uso de un modelo pre-entrenado de \textit{Haar-like features} llamado \textit{mcs\_mouth.xml}, capaz de detectar una boca. Si dentro del ROI no se detecta nada, significa que la persona tiene una mascarilla puesta.
 \end{enumerate}
 
-Se utiliza la misma idea planteada en el prototipo anterior, pero intentando mejorar su funcionamiento con el uso del framework \textit{Mediapipe}. La desventajas de este modelo son ...
+Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al uso de la solución proporcionada por Mediapipe, \textit{FaceMesh}. Y, posteriormente detectar mediante un modelo Haar-like features si existe una boca en dicha zona. Se utiliza la misma idea planteada en el prototipo anterior, pero intentando mejorar su funcionamiento con el uso del framework \textit{Mediapipe}. La desventajas de este prototipo es que si la persona obstaculiza la zona de la boca a la hora de la detección, podría ser capaz de engañar al algoritmo haciendo pensar que si porta una mascarilla, cuando en realidad no es así. Lo bueno es que no hace falta distinguir entre tipos mascarillas.
 
 \begin{figure}[htp]
 	\centering
@@ -427,9 +439,44 @@ Este modelo se basa en el uso de una arquitectura optimizada que usa convolucion
 
 \begin{enumerate}
 	\item Elección del modelo
+	
+	aa
+	
+	\item Dataset de imágenes y labeling
+	
+	Para el dataset, he realizado una serie de fotos mias con varias mascarillas y sin. (todas estas imagenes son tomadas con la webcam que se va a realizar el trabajo). Conta de un total de 27 imagenes, dividas en dos grupos train y test.
+	
+	En el primero se encuentran las imagenes que se utilizaran para el entrenamiento del modelo por transfer learning y tiene 20 imagenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de 7 imagenes.
+	
+	Antes de realizar el modelo es necesario preparar las imagenes y un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en python) llamado labelImg. Al tratar las imagenes, se crean unos archivos xml donde se encuentra la informacion del label que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: mask o noMask.
+	
+	Una vez creados todos los archivos xml con los labels, se tiene que crear un archivo pbtxt donde se refleje todas las labels posibles que tendrá el modelo.
+	
 	\item Transfer Learning
+	
+	LabelMap: Archivo referido para enumerar todas las clases posibles en la identificación de objetos. Cada una de las imagenes de entrenamiento tendrá un archivo donde apareceran cada label de la misma y su localización. 
+	
+	Depende del modelo usado, los archivos de labelmap serán de un tipo u otro. Yolo Darknet (txt), Yolov5 Pytorch (txt), Tensorflow (TFRecord), Yolo Keras (txt). Para la creacion del archivo pbtxt se hace uso del programa label\_file.py.
+	
+	Data Argumentation: Genera modificaciones de imagenes del modelo para crear una base de entrenamiento mas completa.
+	
+	TFRecords: Se usa un script proporcionado por Tensorflow para transformar el labeling que hemos realizado al formato correcto para el entrenamiento del modelo.
+	
+	El modelo preentrenado que se usa para este prototipo es SSD MobileNet v2, proveniente de los modelos preentreandos de TensorFlow models. (Posibles modelos) Antes de hacer el entremiento se tiene que preparar un archivo de configuración sobre el mismo. Este archivo tiene el nombre de pipeline.config y contiene la información principal del modelo, tanto el numero de clases que puede detectar, el tamaño que reajusta las imagenes antes de tratarlas y checkpoints para el entrenamiento. Esto es debido a   que si se realiza el entrenamiento a partir del API de deteccion de objetos de Tensorflow es la forma de trabajar que sigue.
+	
+	A la hora de elegir un modelo se siguen dos parametros principales: Coco mAP (main average prestion) no indica la precision media del modelo, y Speed, velocidad de refresco.
+	
+	Hay que preparar el archivo de configuracion para realizar el transfer learning. Para ello se necesitan importar los siguientes paquetes: tensorflow, object detection API y protobuf. Todo este proceso se encuentra en el archivo train.py.
+	
+	Protobuf: Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
+	
 	\item Crear entorno Tensorflow y cargar modelo
+	
+	aa
+	\newpage
 	\item Realizar detección
+	
+	aa
 \end{enumerate}
 
 \begin{figure}[htp]

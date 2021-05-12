@@ -16,9 +16,9 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{29}{figure.caption.19}%
 \contentsline {figure}{\numberline {4.11}{\ignorespaces MediaPipe Graph utilizado en FaceMesh\relax }}{32}{figure.caption.21}%
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles\relax }}{33}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{34}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{36}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruebas con SSD-MobileNetV2 \textit {mcs\_mouth.xml}\relax }}{38}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{35}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Arquitectura de una CNN con uso de SSD.\relax }}{37}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruebas con SSD-MobileNetV2 \textit {mcs\_mouth.xml}\relax }}{41}{figure.caption.26}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
