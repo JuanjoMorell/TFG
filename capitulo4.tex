@@ -96,27 +96,16 @@ La \textbf{implementación básica} hace uso de un modelo preentrenado cargado m
 
 Finalmente, la detección se realiza, tras hacer una transformación del espacio de color a blanco y negro, mediante la función \textit{detectMultiScale} de la clase, creada anteriormente, \textit{Cascade Classifier}. Concretamente, su funcionalidad será encontrar caras dentro de las imágenes que vaya procesando.
 
-La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media (150 cm), para comprobar su funcionamiento estandar. Intentando estudiar su velocidad de procesamiento y su precisión a la hora de detectar un rostro sin obstáculos.
-
-Para \textit{frontalface\_default.xml} se puede observar que ...
+La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media (150 cm), para comprobar su funcionamiento estandar con dos modelos pre-entrenados, llamados:  \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}, dedicados a reconocer rostros de manera frontal. Intentando estudiar su velocidad de procesamiento y su precisión a la hora de detectar un rostro sin y con obstáculos, el resultado obtenido se ve reflejado en la Figura \ref{fig:haar1}.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
-	\caption{Pruebas con Haar-like features y \textit{frontalface\_default.xml}}
-	\label{fig:haarDefault}
+	\includegraphics[width=15cm]{imagenes/prueba_proto1.jpg}
+	\caption{Pruebas con Haar-like features con: \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}}
+	\label{fig:haar1}
 \end{figure}
 
-Para \textit{frontalface\_alt2.xml} se puede observar que ...
-
-\begin{figure}[htp]
-	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
-	\caption{Pruebas con Haar-like features y \textit{frontalface\_alt2.xml}}
-	\label{fig:haarAlt2}
-\end{figure}
-
-Los tiempos recogidos para estas pruebas son los siguientes:
+Tras la experimentación se puede comprobar que ambos modelos funcionan bastante bien, tanto para un reconocimiento de rostro sin obstáculos como con ellos. Aunque, es importante destacar que el modelo pre-entrenado \textit{frontalface\_default.xml} no es tan preciso en distancias superiores a los 150 cm. En cuanto a los tiempos recogidos para estas pruebas, el segundo modelo pre-entrenado \textit{frontalface\_alt2.xml} obtiene un tiempo medio más lento pero funciona de forma más precias. Se refleja en la siguiente tabla:
 
 \begin{table}[h!]
 	\begin{center}
@@ -124,9 +113,9 @@ Los tiempos recogidos para estas pruebas son los siguientes:
 			\hline
 			& default (70cm) & default (150cm) & alt2 (70cm) & alt2 (150cm) \\
 			\hline
-			PC1 / Time (MS) & 213  & 123 & 213  & 123 \\
+			PC1 / Time (MS) & 47.05  & X & 62.68  & X \\
 			\hline
-			PC2 / Time (MS) & 213  & 123 & 213  & 123 \\
+			PC2 / Time (MS) & X  & X & X  & X \\
 			\hline
 		\end{tabular}
 		\caption{Tiempos para el prototipo 1.}
@@ -134,41 +123,41 @@ Los tiempos recogidos para estas pruebas son los siguientes:
 	\end{center}
 \end{table}
 
-Porque este prototipo funciona mal?
-
-El segundo prototipo (custom) implementa un identificador de caras conjunto a un modelo de \textit{Machine Learning} que identifica cuando una persona lleva o no mascarilla. Gracias a los modelos PCA y SVM, se puede crear un modelo para su identificación con el uso de muestras del modelo de \textit{Haar-like features}. Para ello se realizará el siguiente esquema de procedimiento:
+El \textbf{segundo prototipo} (custom) implementa un identificador de caras conjunto a un modelo de \textit{Machine Learning} que identifica cuando una persona lleva o no mascarilla, ademas de si se lleva bien. Gracias a los modelos PCA y SVM, se puede crear un modelo para su identificación con el uso de muestras de los modelos pre-entrenados \textit{Haar-like features} probados antes. Para ello se realizará el siguiente esquema de procedimiento:
 
 \begin{enumerate}
 	\item Haar-like features
 	
-	Sigue el mismo procedimiento que el prototipo anterior. Mediante la creación de una clase de OpenCV, llamada \textit{CascadeClassifier}, y el uso de un modelo \textit{Haar-like features} pre-entrenado, se obtiene el ROI donde se localiza un rostro.
+	Sigue el mismo procedimiento que el prototipo anterior. Mediante la creación de una clase de OpenCV, llamada \textit{CascadeClassifier}, y el uso de un modelo \textit{Haar-like features} pre-entrenado, se obtiene el ROI donde se localiza un rostro. En este caso, se hará un estudio con el modelo pre-entrenado llamado \textit{frontalface\_alt2.xml}, capaz de reconocer de forma más fiable rostros con mascarilla. 
 	
 	\item Modelo PCA/SVM
 	
 	Una vez obtenido el ROI de la localización de la cara con o sin mascarilla, se procede a predecir de que caso se trata. Previo a dicha predicción y ejecución del prototipo, se necesita entrenar el modelo. Y para ello se toman referencias de rostros con y sin la mascarilla para que sirvan como entrada en el entrenamiento del modelo, usando el prototipo anterior. Exactamente se debe ejecutar dos veces el archivo \textit{Python: trainCascade.py}, una para el caso de sin y otro para el caso de con mascarilla. Siendo la mejor opción, el uso del modelo pre-entrenado \textit{frontalface\_alt2.xml}. También es posible realizar el entrenamiento con imágenes de un dataset.
+	
+	Principal Component Analysis, (\textbf{PCA}), es un algoritmo de \textit{Machine Learning} dedicado a la reducibilidad de dimensionalidad. Identifica un hiperplano común que conecta a todos los datos y son proyectados sobre el. \textit{Scikit-Learn} ofrece una implementación de este, mediante descomposición SVD (Singular Value Decomposition), también conocido como una regresión lineal. \cite{geron_2020}
+	
+	La salida de PCA servirá para reducir la complejidad de la entrada al modelo \textbf{SVM} (Support Vector Machine), capaz de realizar regresiones o clasificaciones tanto lineales como no lineales. La idea tras este modelo es separar los distintos conjuntos de datos existentes mediante lineas rectas en el espacio (Figura \ref{fig:svm}).\cite{geron_2020}
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=7cm]{imagenes/svm_example.png}
+		\caption{Ejemplos de clasificaciones SVM}
+		\label{fig:svm}
+	\end{figure}
+
+	Para la implementación de esta parte se hace uso de \textit{Scikit-Learn}, librería de Python que implementa una gran variedad de clasificadores, regresores y cluster de modelos \textit{Machine Learning}.
 \end{enumerate}
 
-La desventaja de este prototipo es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con mas información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada.
-
-Para \textit{frontalface\_default.xml} se puede observar que ...
+En resumen, el procedeminiento que sigue este prototipo se basa en cargar el modelo que se ha creado, detectar un rostro en al imagen de entrada y a partir de ese ROI (donde se encuentra dicho rostro), hacer un estudio con el modelo y mostrar por pantalla el resultado. Para la detección de los rostros antes de tratarlos con el modelo se realizará con el modelo pre-entrenado \textit{frontalface\_default.xml}, para conseguir un funcionamiento más fluido. El funcionamiento del prototipo se muestra en la Figura \ref{fig:haarCustom}, junto a los tiempos en la Tabla \ref{tab:table3}.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
-	\caption{Pruebas con prototipo Haar Custom y \textit{frontalface\_default.xml}}
-	\label{fig:haarCustom1}
+	\includegraphics[width=12cm]{imagenes/prueba_proto1.jpg}
+	\caption{Pruebas con prototipo Haar Custom}
+	\label{fig:haarCustom}
 \end{figure}
 
-Para \textit{frontalface\_alt2.xml} se puede observar que ...
-
-\begin{figure}[htp]
-	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
-	\caption{Pruebas con prototipo Haar Custom y \textit{frontalface\_alt2.xml}}
-	\label{fig:haarCustom2}
-\end{figure}
-
-Los tiempos recogidos para estas pruebas son los siguientes:
+La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con mas información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada.
 
 \begin{table}[h!]
 	\begin{center}
@@ -176,17 +165,17 @@ Los tiempos recogidos para estas pruebas son los siguientes:
 			\hline
 			(MS) & PC1 & PC2 \\
 			\hline
-			default (70cm) & 213  & 123  \\
+			default (70cm) & X  & X  \\
 			\hline
-			default (150cm) & 213  & 123 \\
+			default (150cm) & X  & X \\
 			\hline
-			default (puerta) & 213  & 123 \\
+			default (puerta) & X  & X \\
 			\hline
-			alt2 (70cm) & 213  & 123  \\
+			alt2 (70cm) & X  & X  \\
 			\hline
-			alt2 (150cm) & 213  & 123 \\
+			alt2 (150cm) & X  & X \\
 			\hline
-			alt2 (puerta) & 213  & 123 \\
+			alt2 (puerta) & X  & X \\
 			\hline
 		\end{tabular}
 		\caption{Tiempos para el prototipo 2, Haar-like features custom.}

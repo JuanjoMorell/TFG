@@ -43,45 +43,45 @@ Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
 Warning--empty journal in hog2
-You've used 29 entries,
+You've used 30 entries,
             2882 wiz_defined-function locations,
-            781 strings with 9552 characters,
-and the built_in function-call counts, 12329 in all, are:
-= -- 1249
-> -- 459
+            785 strings with 9714 characters,
+and the built_in function-call counts, 12645 in all, are:
+= -- 1279
+> -- 467
 < -- 5
-+ -- 168
-- -- 138
-* -- 601
-:= -- 1736
-add.period$ -- 114
-call.type$ -- 29
-change.case$ -- 154
++ -- 171
+- -- 140
+* -- 610
+:= -- 1781
+add.period$ -- 117
+call.type$ -- 30
+change.case$ -- 157
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 357
-empty$ -- 1200
-format.name$ -- 138
-if$ -- 3254
+cite$ -- 42
+duplicate$ -- 369
+empty$ -- 1237
+format.name$ -- 140
+if$ -- 3342
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 22
-newline$ -- 175
-num.names$ -- 58
-pop$ -- 370
+int.to.str$ -- 30
+missing$ -- 24
+newline$ -- 180
+num.names$ -- 60
+pop$ -- 383
 preamble$ -- 1
-purify$ -- 127
+purify$ -- 130
 quote$ -- 0
-skip$ -- 910
+skip$ -- 935
 stack$ -- 0
-substring$ -- 342
-swap$ -- 82
+substring$ -- 347
+swap$ -- 83
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
+type$ -- 114
 warning$ -- 12
-while$ -- 67
-width$ -- 31
-write$ -- 343
+while$ -- 69
+width$ -- 32
+write$ -- 353
 (There were 2 error messages)

@@ -84,6 +84,12 @@ Google.
 \newblock Acceso: 21-04-2021.
 \newblock URL: \url{https://google.github.io/mediapipe/solutions/face_mesh}.
 
+\bibitem{geron_2020}
+Aurélien Géron.
+\newblock {\em Hands-on machine learning with Scikit-Learn, Keras, and
+  TensorFlow: concepts, tools, and techniques to build intelligent systems}.
+\newblock OReilly, 2020.
+
 \bibitem{ibm}
 IBM.
 \newblock Visual recognition, 2021.

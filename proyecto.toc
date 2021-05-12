@@ -12,9 +12,11 @@
 \contentsline {section}{\numberline {3.1}Prototipo}{14}{section.3.1}%
 \contentsline {chapter}{\numberline {4}Diseño y resolución}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Facial Landmark}{23}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Mediapipe}{30}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Tensorflow}{34}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Comparación}{38}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{39}{chapter.5}%
-\contentsline {chapter}{Bibliografía}{42}{chapter*.29}%
+\contentsline {section}{\numberline {4.2}Facial Landmark}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mediapipe}{31}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Tensorflow}{35}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparación}{39}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{40}{chapter.5}%
+\contentsline {chapter}{\numberline {A}ANEXO I - Implementación Viola-Jones Face Detector}{41}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}ANEXO II - Implementación Dlib Facial Landmarks}{42}{appendix.Alph2}%
+\contentsline {chapter}{Bibliografía}{45}{appendix*.28}%
