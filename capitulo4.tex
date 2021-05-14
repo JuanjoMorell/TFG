@@ -440,7 +440,14 @@ Este modelo se basa en el uso de una arquitectura optimizada que usa convolucion
 \begin{enumerate}
 	\item Elección del modelo
 	
-	aa
+	A la hora de elegir un modelo se tienen en cuenta dos parámetros principales: 
+	
+	\begin{itemize}
+		\item Coco mAP (\textit{main Average Prestion}): indica la precisión media del modelo.
+		\item Speed: velocidad de refresco.
+	\end{itemize} 
+	
+	SSD-MobileNetV2 será el modelo elegido, ya que dispone de las mejores medidas en cada uno de los parámetros anteriores.
 	
 	\item Dataset de imágenes y labeling
 	
@@ -463,8 +470,6 @@ Este modelo se basa en el uso de una arquitectura optimizada que usa convolucion
 	TFRecords: Se usa un script proporcionado por Tensorflow para transformar el labeling que hemos realizado al formato correcto para el entrenamiento del modelo.
 	
 	El modelo preentrenado que se usa para este prototipo es SSD MobileNet v2, proveniente de los modelos preentreandos de TensorFlow models. (Posibles modelos) Antes de hacer el entremiento se tiene que preparar un archivo de configuración sobre el mismo. Este archivo tiene el nombre de pipeline.config y contiene la información principal del modelo, tanto el numero de clases que puede detectar, el tamaño que reajusta las imagenes antes de tratarlas y checkpoints para el entrenamiento. Esto es debido a   que si se realiza el entrenamiento a partir del API de deteccion de objetos de Tensorflow es la forma de trabajar que sigue.
-	
-	A la hora de elegir un modelo se siguen dos parametros principales: Coco mAP (main average prestion) no indica la precision media del modelo, y Speed, velocidad de refresco.
 	
 	Hay que preparar el archivo de configuracion para realizar el transfer learning. Para ello se necesitan importar los siguientes paquetes: tensorflow, object detection API y protobuf. Todo este proceso se encuentra en el archivo train.py.
 	
