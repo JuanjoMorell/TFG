@@ -96,7 +96,7 @@ La \textbf{implementación básica} hace uso de un modelo preentrenado cargado m
 
 Finalmente, la detección se realiza, tras hacer una transformación del espacio de color a blanco y negro, mediante la función \textit{detectMultiScale} de la clase, creada anteriormente, \textit{Cascade Classifier}. Concretamente, su funcionalidad será encontrar caras dentro de las imágenes que vaya procesando.
 
-La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media (150 cm), para comprobar su funcionamiento estandar con dos modelos pre-entrenados, llamados:  \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}, dedicados a reconocer rostros de manera frontal. Intentando estudiar su velocidad de procesamiento y su precisión a la hora de detectar un rostro sin y con obstáculos, el resultado obtenido se ve reflejado en la Figura \ref{fig:haar1}.
+La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media (150 cm), para comprobar su funcionamiento estandar con dos modelos pre-entrenados, llamados:  \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}, dedicados a reconocer rostros de manera frontal. Intentando estudiar su velocidad de procesamiento y su precisión a la hora de detectar un rostro sin y con obstáculos, el resultado obtenido se ve reflejado en la \textit{Figura \ref{fig:haar1}}.
 
 \begin{figure}[htp]
 	\centering
@@ -152,7 +152,7 @@ En resumen, el procedeminiento que sigue este prototipo se basa en cargar el mod
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=12cm]{imagenes/prueba_proto1.jpg}
+	\includegraphics[width=15cm]{imagenes/haarcustom_prueba.png}
 	\caption{Pruebas con prototipo Haar Custom}
 	\label{fig:haarCustom}
 \end{figure}
@@ -258,15 +258,15 @@ De forma más general, la investigación ofrece las siguiente contribuciones a l
 Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementación de ambas ideas, mediante modelos pre-entrenados. Para la detección facial y predicción de puntos de interés se realizará el uso de los modelos propuesto por Dlib, siendo el de detección basado en HOG y el de predicción llamado \textit{shape\_predictor\_68\_face\_landmarks.dat}. El procedimiento que seguirá este prototipo será el siguiente:
 
 \begin{enumerate}
-	\item Detección facial.
-	\item Predicción de \textit{Facial Landmarks}.
-	\item Se obtiene el ROI de la zona donde se encuentra la boca.
-	\item Detección de una boca dentro del ROI.
+	\item Detección facial: Dlib dispone de una función donde inicializa un detector basado en HOG con el que se podrá determinar donde se encuentra el rostro en la imagen. Para realizar la detección tiene que recibir una imagen transformada en el espacio de color \textit{GRAY}.
+	\item Predicción de \textit{Facial Landmarks}: Una vez detectados los rostros de la imagen, se utiliza un predictor creado con la función \textit{shape\_predictor} de Dlib. Este es capaz de determinar los puntos de interés de un ROI con el rostro detectado anteriormente. En este punto es necesario el uso de un modelo pre-entrenado, exactamente el de 68 puntos de interés (nombrado anteriormente).
+	\item Se obtiene el ROI de la zona donde se encuentra la boca, a través de los puntos de interés obtenidos en el paso anterior.
+	\item Detección de una boca dentro del ROI: Mediante un modelo pre-entrenado y basándonos en el prototipo anterior de \textit{Haar-like features} se construye un detector capaz de detectar una boca. Con el objetivo de que si se detecta una boca se puede decir que la persona no lleva mascarilla, mientra que, si no es capaz de realizar una detección si que llevaría mascarilla.
 \end{enumerate}
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
+	\includegraphics[width=12cm]{imagenes/landmark_prueba.png}
 	\caption{Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit{mcs\_mouth.xml}}
 	\label{fig:dlibLandmarks}
 \end{figure}
@@ -367,7 +367,7 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
+	\includegraphics[width=17cm]{imagenes/mediapipe_prueba.png}
 	\caption{Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit{mcs\_mouth.xml}}
 	\label{fig:protoMediapipe}
 \end{figure}
@@ -415,7 +415,7 @@ El modelo \textit{SSD} se caracteriza por estar formado por dos componentes prin
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/cnnssd.png}
+	\includegraphics[width=13cm]{imagenes/cnnssd.png}
 	\caption{Arquitectura de una CNN con uso de SSD.}
 	\label{fig:ssd}
 \end{figure}
@@ -433,11 +433,16 @@ El comportamiento y aportaciones especificas de este modelo, vienen planteadas e
 
 MobileNet es un modelo con arquitectura \textit{CNN} para la clasificación de imágenes y visión artificial en móviles. Lo que hace especial este modelo es la potencia computacional necesaria para ejecutarlo o aplicar transfer learning sobre el. Esto lo convierte en un perfecto candidato para dispositivos móviles, sistemas integrados y ordenadores sin GPU o baja eficiencia computacional sin llegar a comprometer significativamente la precisión de los resultados.
 
-Este modelo se basa en el uso de una arquitectura optimizada que usa convoluciones separables en profundidad para construir \textit{deep neural networks} ligeros. Ademas, proporciona dos hiperparámetros globales que permiten ajustar de forma eficiente entre la latencia y precisión. Por consiguiente, con la combinación de ambos, se logra la creación de un modelo apto para dispositivos y ordenadores con poca potencia de GPU, capaz de obtener una detección de forma precisa y veloz.
+Este modelo se basa en el uso de una arquitectura optimizada que utiliza convoluciones separables en profundidad para construir \textit{deep neural networks} ligeros. Ademas, proporciona dos hiperparámetros globales que permiten ajustar de forma eficiente entre la latencia y precisión. Por consiguiente, con la combinación de ambos, se logra la creación de un modelo apto para dispositivos y ordenadores con poca potencia de GPU, capaz de obtener una detección de forma precisa y veloz.
 
+\newpage
 \subsection*{Prototipo}
 
 \begin{enumerate}
+	\item Intalación del framework
+	
+	Para realizar este prototipo se hace uso del API \textit{object\_detection} proporcionado por Tensorflow para Python. Tras seguir las instrucciones ofrecidas se consigue un entorno de trabajo con las siguientes herramientas: Anaconda conjunto a una versión de Python 3.7, Tensorflow, CUDA, TensorFlow Model Garden,  Object Detection API, Protobuf y COCO API.
+	
 	\item Elección del modelo
 	
 	A la hora de elegir un modelo se tienen en cuenta dos parámetros principales: 
@@ -447,46 +452,38 @@ Este modelo se basa en el uso de una arquitectura optimizada que usa convolucion
 		\item Speed: velocidad de refresco.
 	\end{itemize} 
 	
-	SSD-MobileNetV2 será el modelo elegido, ya que dispone de las mejores medidas en cada uno de los parámetros anteriores.
+	\textit{\textbf{SSD-MobileNetV2}} (320x320) será el modelo elegido, ya que dispone de las mejores medidas en cuanto a velocidad. Exactamente cuenta con una medida \textit{Coco mAP} de 20.2 y 19 ms de \textit{Speed}. Aunque la precisión sea más baja que el resto de modelos, se suple con la gran velocidad que logra este modelo.
 	
 	\item Dataset de imágenes y labeling
 	
-	Para el dataset, he realizado una serie de fotos mias con varias mascarillas y sin. (todas estas imagenes son tomadas con la webcam que se va a realizar el trabajo). Conta de un total de 27 imagenes, dividas en dos grupos train y test.
+	Para el dataset, he realizado una serie de fotos con varias mascarillas y sin (todas estas imágenes son tomadas con la webcam que se va a realizar el trabajo) mezcladas con imágenes de ejemplo encontradas por internet. Consta de un total de X imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con X imagenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de X imágenes.
 	
-	En el primero se encuentran las imagenes que se utilizaran para el entrenamiento del modelo por transfer learning y tiene 20 imagenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de 7 imagenes.
+	Para construir un dataset más completo se utiliza una técnica llamada \textit{Data Argumentation}, que genera modificaciones de las imágenes del modelo, como blur, rotaciones, etc.
 	
-	Antes de realizar el modelo es necesario preparar las imagenes y un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en python) llamado labelImg. Al tratar las imagenes, se crean unos archivos xml donde se encuentra la informacion del label que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: mask o noMask.
+	Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
 	
-	Una vez creados todos los archivos xml con los labels, se tiene que crear un archivo pbtxt donde se refleje todas las labels posibles que tendrá el modelo.
+	En resumen, un \textit{LabelMap} es una archivo referido a enumerar todas las clases posibles en la identificación de objetos. Además, cada una de las imágenes de entrenamiento dispondrá de un archivo adicional donde aparezcan cada \textit{label} de la misma y su localización. Depende del modelo usado, los archivos de \textit{LabelMap} serán de un tipo u otro. En el caso de Tensorflow se utiliza un \textit{TFRecord}, mientras que en YOLO se usa un \textit{txt}.
+	
+	 Por último, se usa un script proporcionado por Tensorflow para transformar el etiquetado que hemos realizado al formato correcto para el entrenamiento del modelo (\textit{TFRecord}).
 	
 	\item Transfer Learning
 	
-	LabelMap: Archivo referido para enumerar todas las clases posibles en la identificación de objetos. Cada una de las imagenes de entrenamiento tendrá un archivo donde apareceran cada label de la misma y su localización. 
+	Antes de hacer el entremiento se tiene que preparar un archivo de configuración sobre el modelo seleccionado (SSD-MobileNetV2). Este archivo tiene el nombre de \textit{pipeline.config} y contiene la información principal del modelo, tanto el numero de clases que puede detectar, el tamaño que reajusta las imágenes antes de tratarlas y checkpoints para el entrenamiento. Para su creación será necesario el uso de las siguientes herramientas: Tensorflow, Object Detection API y Protobuf. Este último, es una herramienta de Google centrada en transformar los \textit{xml} de etiquetado que hemos creado antes en \textit{protocol buffers}, para poder serializar la información de forma estructurada y más rápida.
 	
-	Depende del modelo usado, los archivos de labelmap serán de un tipo u otro. Yolo Darknet (txt), Yolov5 Pytorch (txt), Tensorflow (TFRecord), Yolo Keras (txt). Para la creacion del archivo pbtxt se hace uso del programa label\_file.py.
+	Para realizar el entrenamiento se hace uso del codigo proporcionado tras la instalación de la API Object Detection de Tensorflow, llamado \textit{model\_main\_tf2}. A este hay que cederle la siguiente información: dirección de salida, archivo de configuración y numero de pasos de entrenamiento. Tras el entrenamiento, se obtienen unos archivos llamados \textit{checkpoints} con los que se podrá cargar el modelo para su uso mediante la siguientes clases de Tensorflow: \textit{Model\_builder} y \textit{Checkpoint}.
 	
-	Data Argumentation: Genera modificaciones de imagenes del modelo para crear una base de entrenamiento mas completa.
-	
-	TFRecords: Se usa un script proporcionado por Tensorflow para transformar el labeling que hemos realizado al formato correcto para el entrenamiento del modelo.
-	
-	El modelo preentrenado que se usa para este prototipo es SSD MobileNet v2, proveniente de los modelos preentreandos de TensorFlow models. (Posibles modelos) Antes de hacer el entremiento se tiene que preparar un archivo de configuración sobre el mismo. Este archivo tiene el nombre de pipeline.config y contiene la información principal del modelo, tanto el numero de clases que puede detectar, el tamaño que reajusta las imagenes antes de tratarlas y checkpoints para el entrenamiento. Esto es debido a   que si se realiza el entrenamiento a partir del API de deteccion de objetos de Tensorflow es la forma de trabajar que sigue.
-	
-	Hay que preparar el archivo de configuracion para realizar el transfer learning. Para ello se necesitan importar los siguientes paquetes: tensorflow, object detection API y protobuf. Todo este proceso se encuentra en el archivo train.py.
-	
-	Protobuf: Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
-	
-	\item Crear entorno Tensorflow y cargar modelo
-	
-	aa
-	\newpage
 	\item Realizar detección
 	
-	aa
+	Para la detección de la mascarilla se crea una función, \textit{detect\_fn}, que tomando una imagen se preprocesa con el objetivo de  reducir su tamaño al de la entrada del modelo, siendo en este caso 320x320. Tras esto, se realiza la detección usando el modelo que hemos creado y se realiza un postprocesado para obtener una imagen de salida del mismo tamaño que la de entrada.
+	
+	El último paso será realizar esta detección en tiempo real, mediante el uso de OpenCV. Una vez capturado un \textit{frame} de la cámara de entrada, se debe transformar en una entrada compatible con el modelo, en este caso un tensor. Con este ya se puede detectar el objeto con la función que se ha definido anteriormente, \textit{detect\_fn}. 
+	
+	De manera que, cuando se obtiene el label que se ha detectado, se utiliza la herramienta de visualización de la API Object Detection, \textit{visualization\_utils}, para mostrar el resultado por pantalla. Un ejemplo del funcionamiento se puede observar en la \textit{Figura \ref{fig:protoTensorFlow}}.
 \end{enumerate}
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=10cm]{imagenes/ada1.png}
+	\includegraphics[width=12cm]{imagenes/tf_prueba.png}
 	\caption{Pruebas con SSD-MobileNetV2 \textit{mcs\_mouth.xml}}
 	\label{fig:protoTensorFlow}
 \end{figure}
@@ -514,6 +511,9 @@ Este modelo se basa en el uso de una arquitectura optimizada que usa convolucion
 		\label{tab:table6}
 	\end{center}
 \end{table}
+
+\newpage
+Comentar tiempos
 
 %\subsection{Prototipo RetinaNet}
 
