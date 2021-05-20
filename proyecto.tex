@@ -60,7 +60,7 @@
 % Columnas de más de una fila en las tablas
 \usepackage{multirow}
 \usepackage{epstopdf}
-
+\usepackage{setspace}
 
 \renewcommand{\tablename}{Tabla}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -135,7 +135,7 @@ a.ruiz@um.es
 \linespread{1.5}
 
 \listoffigures
-\listoftables
+%\listoftables
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 \setlength{\parindent}{18pt}
@@ -172,13 +172,19 @@ a.ruiz@um.es
 \input{capitulo5.tex}
 
 % Apéndices, si hiciese falta
-\appendix
-\input{apendice1.tex}
-\input{apendice2.tex}
+%\appendix
+%\input{apendice1.tex}
+%\input{apendice2.tex}
 
-\nocite{gonzalez_woods_2018, szeliski_2018, histComputer}
-\bibliography{bibliografia}
-\addcontentsline{toc}{chapter}{Bibliografía}
-\bibliographystyle{plainurl}
+
+
+\nocite{*}
+
+\begin{spacing}{1.1}
+	\bibliography{bibliografia}
+	\addcontentsline{toc}{chapter}{Bibliografía}
+	\bibliographystyle{plainurl}
+\end{spacing}
+
 
 \end{document}

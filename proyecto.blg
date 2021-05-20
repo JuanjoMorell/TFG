@@ -31,6 +31,10 @@ Repeated entry---line 271 of file bibliografia.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "ibm" isn't style-file defined
 --line 288 of file bibliografia.bib
+Warning--entry type for "mdSolutions" isn't style-file defined
+--line 303 of file bibliografia.bib
+Warning--entry type for "mpGraph" isn't style-file defined
+--line 311 of file bibliografia.bib
 Warning--empty journal in faceMesh3
 Warning--empty journal in blazeface
 Warning--empty journal in histComputer
@@ -43,45 +47,45 @@ Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
 Warning--empty journal in hog2
-You've used 30 entries,
+You've used 34 entries,
             2882 wiz_defined-function locations,
-            785 strings with 9714 characters,
-and the built_in function-call counts, 12645 in all, are:
-= -- 1279
-> -- 467
+            805 strings with 10374 characters,
+and the built_in function-call counts, 14368 in all, are:
+= -- 1446
+> -- 556
 < -- 5
-+ -- 171
-- -- 140
-* -- 610
-:= -- 1781
-add.period$ -- 117
-call.type$ -- 30
-change.case$ -- 157
++ -- 205
+- -- 170
+* -- 705
+:= -- 2023
+add.period$ -- 132
+call.type$ -- 34
+change.case$ -- 184
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 369
-empty$ -- 1237
-format.name$ -- 140
-if$ -- 3342
+cite$ -- 46
+duplicate$ -- 403
+empty$ -- 1402
+format.name$ -- 170
+if$ -- 3789
 int.to.chr$ -- 0
-int.to.str$ -- 30
+int.to.str$ -- 34
 missing$ -- 24
-newline$ -- 180
-num.names$ -- 60
-pop$ -- 383
+newline$ -- 203
+num.names$ -- 68
+pop$ -- 448
 preamble$ -- 1
-purify$ -- 130
+purify$ -- 153
 quote$ -- 0
-skip$ -- 935
+skip$ -- 1050
 stack$ -- 0
-substring$ -- 347
-swap$ -- 83
+substring$ -- 367
+swap$ -- 91
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 114
+type$ -- 130
 warning$ -- 12
-while$ -- 69
-width$ -- 32
-write$ -- 353
+while$ -- 77
+width$ -- 36
+write$ -- 399
 (There were 2 error messages)

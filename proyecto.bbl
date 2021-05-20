@@ -5,6 +5,8 @@ Artsiom Ablavatski and Google~AI Ivan~Grishchenko, Research~Engineers.
 \newblock Real-time ar self-expression with machine learning.
 \newblock 03 2019.
 \newblock Acceso: 25-04-2021.
+\newblock URL:
+  \url{https://ai.googleblog.com/2019/03/real-time-ar-self-expression-with.html}.
 
 \bibitem{integral-web}
 AIShak.
@@ -84,11 +86,30 @@ Google.
 \newblock Acceso: 21-04-2021.
 \newblock URL: \url{https://google.github.io/mediapipe/solutions/face_mesh}.
 
+\bibitem{mpGraph}
+Google.
+\newblock Mediapipe visualizer, 2021.
+\newblock Acceso: 20-05-2021.
+\newblock URL: \url{https://viz.mediapipe.dev/}.
+
+\bibitem{mdSolutions}
+Google.
+\newblock Ml solutions in mediapipe, 2021.
+\newblock Acceso: 19-05-2021.
+\newblock URL: \url{https://google.github.io/mediapipe/}.
+
 \bibitem{geron_2020}
 Aurélien Géron.
 \newblock {\em Hands-on machine learning with Scikit-Learn, Keras, and
   TensorFlow: concepts, tools, and techniques to build intelligent systems}.
 \newblock OReilly, 2020.
+
+\bibitem{mobilenet1}
+Andrew~G. Howard, Menglong Zhu, Bo~Chen, Dmitry Kalenichenko, Weijun Wang,
+  Tobias Weyand, Marco Andreetto, and Hartwig Adam.
+\newblock Mobilenets: Efficient convolutional neural networks for mobile vision
+  applications, 2017.
+\newblock \href {http://arxiv.org/abs/1704.04861} {\path{arXiv:1704.04861}}.
 
 \bibitem{ibm}
 IBM.
@@ -169,6 +190,12 @@ Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
   Workshops}, pages 397--403, 2013.
 \newblock \href {https://doi.org/10.1109/ICCVW.2013.59}
   {\path{doi:10.1109/ICCVW.2013.59}}.
+
+\bibitem{mobilenetv2}
+Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh
+  Chen.
+\newblock Mobilenetv2: Inverted residuals and linear bottlenecks, 2019.
+\newblock \href {http://arxiv.org/abs/1801.04381} {\path{arXiv:1801.04381}}.
 
 \bibitem{szeliski_2018}
 R.~Szeliski.
