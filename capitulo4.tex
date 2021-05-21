@@ -291,6 +291,13 @@ El segundo modelo, \textit{Face Landmark Model}, generado mediante \textit{Trans
 \vspace{-0.5cm}
 El prototipo de este apartado se realizará mediante el uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado en \textit{Haar-like features}, como el mencionado en el \textit{paper} de Viola \& Jones (\ref{haar-like}). Los pasos que lo definen son los siguientes:
 
+\vspace{-0.5cm}
+\subsubsection*{1. Detección FaceMesh}
+\vspace{-0.7cm}
+Para la detección del rostro en la imagen de entrada se utiliza la solución de Mediapipe llamada FaceMesh, implementada en el framework de Python que recibe el mismo nombre, \textit{mediapipe}. Esta solución dispone de dos parámetros de configuración: \textit{min\_detection\_confidence} y \textit{min\_tracking\_confidence}. El primero hace referencia a ..., mientras que el segundo se entiende como ....
+
+Una vez configurado el FaceMesh, se procede a tratar la imagen de entrada para facilitar su tratamiento. Se convierte el espacio de color de la imagen de BGR, espacio de color con el que trabaja \textit{OpenCV}, a RGB. Y, para mejorar el rendimiento, se elimina la opción de la imagen para que sea escribible (\textit{writeable}). Este proceso será invertido después de realizar la detección.
+
 \begin{enumerate}
 	\item Detección FaceMesh
 	
@@ -318,7 +325,7 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 	\label{fig:protoMediapipe}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 15.5 ms. Tras la realización de las pruebas, se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 15.5 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma.
 
 \newpage
 \section{Tensorflow}
@@ -359,54 +366,51 @@ MobileNet es un modelo con arquitectura \textit{CNN} para la clasificación de i
 
 Este modelo se basa en el uso de una arquitectura optimizada que utiliza convoluciones separables en profundidad para construir \textit{deep neural networks} ligeros. Además, proporciona dos hiperparámetros globales que permiten ajustar de forma eficiente entre la latencia y precisión. Por consiguiente, con la combinación de ambos, se logra la creación de un modelo apto para dispositivos y ordenadores con poca potencia de GPU, capaz de obtener una detección de forma precisa y veloz.
 
-\newpage
 \subsection*{Prototipo}
 
-\begin{enumerate}
-	\item Instalación del framework
-	
-	Para realizar este prototipo se hace uso del API \textit{object\_detection} proporcionado por Tensorflow para Python. Tras seguir las instrucciones ofrecidas se consigue un entorno de trabajo con las siguientes herramientas: Anaconda conjunto a una versión de Python 3.7, Tensorflow, CUDA, TensorFlow Model Garden,  Object Detection API, Protobuf y COCO API.
-	
-	\item Elección del modelo
-	
-	A la hora de elegir un modelo se tienen en cuenta dos parámetros principales: 
-	
-	\begin{itemize}
-		\item Coco mAP (\textit{main Average Prestion}): indica la precisión media del modelo.
-		\item Speed: velocidad de refresco.
-	\end{itemize} 
-	
-	\textit{\textbf{SSD-MobileNetV2}} (320x320) será el modelo elegido, ya que dispone de las mejores medidas en cuanto a velocidad. Exactamente cuenta con una medida \textit{Coco mAP} de 20.2 y 19 ms de \textit{Speed}. Aunque la precisión sea más baja que el resto de modelos, se suple con la gran velocidad que logra este modelo.
-	
-	\item Dataset de imágenes y labeling
-	
-	%https://arxiv.org/abs/2008.08016
-	%https://www.kaggle.com/prithwirajmitra/covid-face-mask-detection-dataset#
-	
-	Para el dataset, he realizado una serie de fotos con varias mascarillas y sin (todas estas imágenes son tomadas con la webcam que se va a realizar el trabajo) mezcladas con imágenes de ejemplo encontradas por internet. Consta de un total de X imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con X imágenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de X imágenes.
-	
-	Para construir un dataset más completo se utiliza una técnica llamada \textit{Data Argumentation}, que genera modificaciones de las imágenes del modelo, como blur, rotaciones, etc.
-	
-	Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
-	
-	En resumen, un \textit{LabelMap} es una archivo referido a enumerar todas las clases posibles en la identificación de objetos. Además, cada una de las imágenes de entrenamiento dispondrá de un archivo adicional donde aparezcan cada \textit{label} de la misma y su localización. Depende del modelo usado, los archivos de \textit{LabelMap} serán de un tipo u otro. En el caso de Tensorflow se utiliza un \textit{TFRecord}, mientras que en YOLO se usa un \textit{txt}.
-	
-	 Por último, se usa un script proporcionado por Tensorflow para transformar el etiquetado que hemos realizado al formato correcto para el entrenamiento del modelo (\textit{TFRecord}).
-	
-	\item Transfer Learning
-	
-	Antes de hacer el entrenamiento se tiene que preparar un archivo de configuración sobre el modelo seleccionado (SSD-MobileNetV2). Este archivo tiene el nombre de \textit{pipeline.config} y contiene la información principal del modelo, tanto el número de clases que puede detectar, el tamaño que reajusta las imágenes antes de tratarlas y checkpoints para el entrenamiento. Para su creación será necesario el uso de las siguientes herramientas: Tensorflow, Object Detection API y Protobuf. Este último, es una herramienta de Google centrada en transformar los \textit{xml} de etiquetado que hemos creado antes en \textit{protocol buffers}, para poder serializar la información de forma estructurada y más rápida.
-	
-	Para realizar el entrenamiento se hace uso del código proporcionado tras la instalación de la API Object Detection de Tensorflow, llamado \textit{model\_main\_tf2}. A este hay que cederle la siguiente información: dirección de salida, archivo de configuración y número de pasos de entrenamiento. Tras el entrenamiento, se obtienen unos archivos llamados \textit{checkpoints} con los que se podrá cargar el modelo para su uso mediante la siguientes clases de Tensorflow: \textit{Model\_builder} y \textit{Checkpoint}.
-	
-	\item Realizar detección
-	
-	Para la detección de la mascarilla se crea una función, \textit{detect\_fn}, que tomando una imagen se pre-procesa con el objetivo de  reducir su tamaño al de la entrada del modelo, siendo en este caso 320x320. Tras esto, se realiza la detección usando el modelo que hemos creado y se realiza un post-procesado para obtener una imagen de salida del mismo tamaño que la de entrada.
-	
-	El último paso será realizar esta detección en tiempo real, mediante el uso de OpenCV. Una vez capturado un \textit{frame} de la cámara de entrada, se debe transformar en una entrada compatible con el modelo, en este caso un tensor. Con este ya se puede detectar el objeto con la función que se ha definido anteriormente, \textit{detect\_fn}. 
-	
-	De manera que, cuando se obtiene el label que se ha detectado, se utiliza la herramienta de visualización de la API Object Detection, \textit{visualization\_utils}, para mostrar el resultado por pantalla. Un ejemplo del funcionamiento se puede observar en la \textit{Figura \ref{fig:protoTensorFlow}}.
-\end{enumerate}
+\vspace{-0.5cm}
+\subsubsection*{1. Instalación del framework}
+\vspace{-0.7cm}
+Para realizar este prototipo se hace uso del API \textit{object\_detection} proporcionado por Tensorflow para Python. Tras seguir las instrucciones ofrecidas se consigue un entorno de trabajo con las siguientes herramientas: Anaconda conjunto a una versión de Python 3.7, Tensorflow, CUDA, TensorFlow Model Garden,  Object Detection API, Protobuf y COCO API.
+
+\vspace{-0.5cm}
+\subsubsection*{2. Elección del modelo}
+\vspace{-0.7cm}
+A la hora de elegir un modelo se tienen en cuenta dos parámetros principales. El primero, Coco mAP (\textit{main Average Prestion}), indica la precisión media del modelo. Mientras que, el segundo, Speed, mide la velocidad de refresco.
+
+\textit{SSD-MobileNetV2} (320x320) será el modelo elegido, ya que dispone de las mejores medidas en cuanto a velocidad. Exactamente cuenta con una medida \textit{Coco mAP} de 20.2 y 19 ms de \textit{Speed}. Aunque la precisión sea más baja que el resto de modelos, se suple con la gran velocidad que logra este modelo.
+
+\vspace{-0.5cm}
+\subsubsection*{3. Dataset de imágenes y labeling}
+\vspace{-0.7cm}
+Para el dataset, he realizado una serie de fotos con varias mascarillas y sin (todas estas imágenes son tomadas con la webcam que se va a realizar el trabajo) mezcladas con imágenes de ejemplo encontradas por internet. Consta de un total de X imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con X imágenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de X imágenes.
+
+Para construir un dataset más completo se utiliza una técnica llamada \textit{Data Argumentation}, que genera modificaciones de las imágenes del modelo, como blur, rotaciones, etc.
+
+Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
+
+En resumen, un \textit{LabelMap} es una archivo referido a enumerar todas las clases posibles en la identificación de objetos. Además, cada una de las imágenes de entrenamiento dispondrá de un archivo adicional donde aparezcan cada \textit{label} de la misma y su localización. Depende del modelo usado, los archivos de \textit{LabelMap} serán de un tipo u otro. En el caso de Tensorflow se utiliza un \textit{TFRecord}, mientras que en YOLO se usa un \textit{txt}.
+
+Por último, se usa un script proporcionado por Tensorflow para transformar el etiquetado que hemos realizado al formato correcto para el entrenamiento del modelo (\textit{TFRecord}).
+
+%https://arxiv.org/abs/2008.08016
+%https://www.kaggle.com/prithwirajmitra/covid-face-mask-detection-dataset#
+
+\vspace{-0.5cm}
+\subsubsection*{4. Transfer Learning}
+\vspace{-0.7cm}
+Antes de hacer el entrenamiento se tiene que preparar un archivo de configuración sobre el modelo seleccionado (SSD-MobileNetV2). Este archivo tiene el nombre de \textit{pipeline.config} y contiene la información principal del modelo, tanto el número de clases que puede detectar, el tamaño que reajusta las imágenes antes de tratarlas y checkpoints para el entrenamiento. Para su creación será necesario el uso de las siguientes herramientas: Tensorflow, Object Detection API y Protobuf. Este último, es una herramienta de Google centrada en transformar los \textit{xml} de etiquetado que hemos creado antes en \textit{protocol buffers}, para poder serializar la información de forma estructurada y más rápida.
+
+Para realizar el entrenamiento se hace uso del código proporcionado tras la instalación de la API Object Detection de Tensorflow, llamado \textit{model\_main\_tf2}. A este hay que cederle la siguiente información: dirección de salida, archivo de configuración y número de pasos de entrenamiento. Tras el entrenamiento, se obtienen unos archivos llamados \textit{checkpoints} con los que se podrá cargar el modelo para su uso mediante la siguientes clases de Tensorflow: \textit{Model\_builder} y \textit{Checkpoint}.
+
+\vspace{-0.5cm}
+\subsubsection*{5. Realizar detección}
+\vspace{-0.7cm}
+Para la detección de la mascarilla se crea una función, \textit{detect\_fn}, que tomando una imagen se pre-procesa con el objetivo de  reducir su tamaño al de la entrada del modelo, siendo en este caso 320x320. Tras esto, se realiza la detección usando el modelo que hemos creado y se realiza un post-procesado para obtener una imagen de salida del mismo tamaño que la de entrada.
+
+El último paso será realizar esta detección en tiempo real, mediante el uso de OpenCV. Una vez capturado un \textit{frame} de la cámara de entrada, se debe transformar en una entrada compatible con el modelo, en este caso un tensor. Con este ya se puede detectar el objeto con la función que se ha definido anteriormente, \textit{detect\_fn}. 
+
+De manera que, cuando se obtiene el label que se ha detectado, se utiliza la herramienta de visualización de la API Object Detection, \textit{visualization\_utils}, para mostrar el resultado por pantalla. Un ejemplo del funcionamiento se puede observar en la \textit{Figura \ref{fig:protoTensorFlow}}.
 
 \begin{figure}[htp]
 	\centering
@@ -415,7 +419,6 @@ Este modelo se basa en el uso de una arquitectura optimizada que utiliza convolu
 	\label{fig:protoTensorFlow}
 \end{figure}
 
-\newpage
 El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms. Aunque el resultado obtenido sea bastante bueno, solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo, al igual que los anteriores, funciona de forma correcta y precisa en pruebas cercanas a la cámara, mientras que en distancias mayores se dificulta la detección. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
 
 %\subsection{Prototipo RetinaNet}
@@ -431,3 +434,16 @@ El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 
 
 \newpage
 \section{Comparación}
+
+Este apartado contará con dos apartados.
+
+\subsection*{Distancia}
+
+aa
+
+\subsection*{Tiempo de retardo}
+
+aa
+
+
+

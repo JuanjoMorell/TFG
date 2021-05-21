@@ -15,6 +15,6 @@
 \contentsline {section}{\numberline {4.2}Facial Landmark}{24}{section.4.2}
 \contentsline {section}{\numberline {4.3}Mediapipe}{30}{section.4.3}
 \contentsline {section}{\numberline {4.4}Tensorflow}{35}{section.4.4}
-\contentsline {section}{\numberline {4.5}Comparaci\IeC {\'o}n}{42}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusiones y v\IeC {\'\i }as futuras}{43}{chapter.5}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{46}{chapter*.23}
+\contentsline {section}{\numberline {4.5}Comparaci\IeC {\'o}n}{41}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusiones y v\IeC {\'\i }as futuras}{42}{chapter.5}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{45}{chapter*.23}
