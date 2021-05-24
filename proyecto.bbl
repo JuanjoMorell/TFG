@@ -20,6 +20,15 @@ Valentin Bazarevsky, Yury Kartynnik, Andrey Vakunov, Karthik Raveendran, and
 \newblock Blazeface: Sub-millisecond neural face detection on mobile gpus.
 \newblock 07 2019.
 
+\bibitem{Cabani_2021}
+Adnane Cabani, Karim Hammoudi, Halim Benhabiles, and Mahmoud Melkemi.
+\newblock Maskedface-net – a dataset of correctly/incorrectly masked face
+  images in the context of covid-19.
+\newblock {\em Smart Health}, 19:100144, Mar 2021.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.smhl.2020.100144}, \href
+  {https://doi.org/10.1016/j.smhl.2020.100144}
+  {\path{doi:10.1016/j.smhl.2020.100144}}.
+
 \bibitem{coco}
 COCO.
 \newblock Coco, common objects in context, 2021.
@@ -176,6 +185,13 @@ Takeshi Mita, Toshimitsu Kaneko, and Osamu Hori.
 \newblock {\em IEEE Int Conf Comp Vis}, 2:1619 -- 1626 Vol. 2, 11 2005.
 \newblock \href {https://doi.org/10.1109/ICCV.2005.129}
   {\path{doi:10.1109/ICCV.2005.129}}.
+
+\bibitem{datasetMask}
+Prithwiraj Mitra.
+\newblock Covid face mask detection dataset, 2020.
+\newblock Acceso: 23-05-2021.
+\newblock URL:
+  \url{https://www.kaggle.com/prithwirajmitra/covid-face-mask-detection-dataset}.
 
 \bibitem{YOLO}
 Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.

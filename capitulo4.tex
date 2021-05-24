@@ -168,7 +168,7 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 \begin{enumerate}
 	\item \textit{Pre-procesado}: Para una imagen de entrada de cualquier tamaño es tratada en regiones de ciertas escalas y analizadas en varias zonas de la imagen. La única restricción es que los tamaño de las regiones analizadas tienen una relación de aspecto fija.
 	
-	\item \textit{Cálculo de las imágenes de gradiente}: Para el calculo del histograma de gradientes es necesario realizar el cálculo de los gradientes, tanto verticales como horizontales. Esto se puede obtener fácilmente gracias al uso de \textit{Kernels} (filtros). Posteriormente, se busca la magnitud de las direcciones de dichos gradientes con el uso de la siguiente fórmula:
+	\item \textit{Cálculo de las imágenes de gradiente}: Para el calculo del histograma de gradientes es necesario realizar el cálculo de los gradientes, tanto verticales como horizontales. Esto se puede obtener fácilmente gracias al uso de \textit{Kernels} (filtros). Posteriormente, se busca la magnitud de las direcciones de dichos gradientes con el uso de la siguiente fórmula (Figura \ref{fig:hogf}):
 	
 	\begin{figure}[htp]
 		\centering
@@ -244,7 +244,7 @@ Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementació
 	\label{fig:dlibLandmarks}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 5 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz. Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 14,7 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz (Figura \ref{fig:dlibLandmarks}). Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
 
 \vspace{-0.8cm}
 \subsection*{Próximos pasos}
@@ -325,7 +325,7 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 	\label{fig:protoMediapipe}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 15.5 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma.
 
 \newpage
 \section{Tensorflow}
@@ -366,6 +366,7 @@ MobileNet es un modelo con arquitectura \textit{CNN} para la clasificación de i
 
 Este modelo se basa en el uso de una arquitectura optimizada que utiliza convoluciones separables en profundidad para construir \textit{deep neural networks} ligeros. Además, proporciona dos hiperparámetros globales que permiten ajustar de forma eficiente entre la latencia y precisión. Por consiguiente, con la combinación de ambos, se logra la creación de un modelo apto para dispositivos y ordenadores con poca potencia de GPU, capaz de obtener una detección de forma precisa y veloz.
 
+\newpage
 \subsection*{Prototipo}
 
 \vspace{-0.5cm}
@@ -383,18 +384,13 @@ A la hora de elegir un modelo se tienen en cuenta dos parámetros principales. E
 \vspace{-0.5cm}
 \subsubsection*{3. Dataset de imágenes y labeling}
 \vspace{-0.7cm}
-Para el dataset, he realizado una serie de fotos con varias mascarillas y sin (todas estas imágenes son tomadas con la webcam que se va a realizar el trabajo) mezcladas con imágenes de ejemplo encontradas por internet. Consta de un total de X imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con X imágenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de X imágenes.
+Para el dataset, se ha realizado una combinación de datasets donde aparecen imágenes de personas con mascarilla, sin ella y con ella pero mal puesta \cite{Cabani_2021} \cite{datasetMask}. Consta de un total de 895 imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con 745 imágenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de 150 imágenes.
 
-Para construir un dataset más completo se utiliza una técnica llamada \textit{Data Argumentation}, que genera modificaciones de las imágenes del modelo, como blur, rotaciones, etc.
-
-Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del modelo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
+Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del mismo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
 
 En resumen, un \textit{LabelMap} es una archivo referido a enumerar todas las clases posibles en la identificación de objetos. Además, cada una de las imágenes de entrenamiento dispondrá de un archivo adicional donde aparezcan cada \textit{label} de la misma y su localización. Depende del modelo usado, los archivos de \textit{LabelMap} serán de un tipo u otro. En el caso de Tensorflow se utiliza un \textit{TFRecord}, mientras que en YOLO se usa un \textit{txt}.
 
 Por último, se usa un script proporcionado por Tensorflow para transformar el etiquetado que hemos realizado al formato correcto para el entrenamiento del modelo (\textit{TFRecord}).
-
-%https://arxiv.org/abs/2008.08016
-%https://www.kaggle.com/prithwirajmitra/covid-face-mask-detection-dataset#
 
 \vspace{-0.5cm}
 \subsubsection*{4. Transfer Learning}
@@ -415,35 +411,62 @@ De manera que, cuando se obtiene el label que se ha detectado, se utiliza la her
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=12cm]{imagenes/tf_prueba.png}
-	\caption{Pruebas con SSD-MobileNetV2 \textit{mcs\_mouth.xml}}
+	\caption{Pruebas con SSD-MobileNetV2.}
 	\label{fig:protoTensorFlow}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms. Aunque el resultado obtenido sea bastante bueno, solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo, al igual que los anteriores, funciona de forma correcta y precisa en pruebas cercanas a la cámara, mientras que en distancias mayores se dificulta la detección. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
-
-%\subsection{Prototipo RetinaNet}
-
-%Explicar RetinaNet y pruebas
-
-%\subsection{Prototipo YOLO}
-
-%Explicar YOLO y pruebas
-%https://medium.com/analytics-vidhya/yolov3-custom-object-detection-with-transfer-learning-47186c8f166d
-%https://github.com/hunglc007/tensorflow-yolov4-tflite
-
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms. El resultado obtenido sea bastante bueno, cuando solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo tras un entrenamiento con un dataset más amplio, funciona de forma correcta pero con más errores. Destacando que su funcionamiento correcto sucede en una distancia a cámara muy cercana. Cuanto más lejos se sitúe la persona de la cámara, más detecciones falsas se crearán, sobre todo en el caso de encontrar una mascarilla cuando no la hay. Este puede mejorar su funcionamiento si se realiza un dataset más amplio aún y un entrenamiento más largo. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
 
 \newpage
 \section{Comparación}
 
-Este apartado contará con dos apartados.
+Este apartado estará dedicado a la comparación de los prototipos implementados anteriormente, con el objetivo de contrastar el funcionamiento de todos ellos y las técnicas implementadas. Para ello, se hará uso de dos medidas: distancia de funcionamiento y el tiempo que tarda en procesar una imagen.
 
 \subsection*{Distancia}
+\vspace{-0.5cm}
+La primera comparación se basa en el estudio del rango de funcionamiento de los prototipos. Pudiendo medir su distancia mediante el tamaño de la imagen que se le pasa como entrada al algoritmo. En la siguiente tabla (Cuadro \ref{tab:table3}) se presenta esto mediante una medida en píxeles (x,y) que corresponde con la medida de la detección más pequeña que el prototipo puede procesar. Además, aparecerán dos medidas: la primera cuando no se lleva mascarilla y la segunda cuando si.
 
-aa
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			\textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
+			\hline
+			(25,25) & (32,32)  & (18,26) & (320, 320)* \\
+			(25,25) & (68,68)  & (38,44) & (320, 320)* \\
+			\hline
+		\end{tabular}
+		\caption{Rango píxeles de los prototipos.}
+		\label{tab:table3}
+	\end{center}
+\end{table}
 
+En el caso del último prototipo todas las imágenes que procesa son re-escaladas a unas dimensiones de 320x320, debido a las características que presenta el mismo. Obteniendo como resultado, detecciones con unos píxeles cercanos a estos valores.
+
+En conclusión, como resultado final se obtiene que el prototipo 1, a pesar de no utilizar técnicas avanzadas de \textit{deep learning}, obtiene el mejor resultado de los cuatro prototipos. Pudiendo detectar rostros de hasta 25x25 píxeles dentro de la imagen de entrada.
+
+\vspace{-0.5cm}
 \subsection*{Tiempo de retardo}
+\vspace{-0.5cm}
 
-aa
+La segunda comparación se basa en la medida del tiempo que toma el algoritmo en tratar una imagen de entrada. Para ello se realizará la misma prueba en todos los prototipos, mostrando en la siguiente tabla (Cuadro \ref{tab:table4}) el tiempo medio (ms) tras una ejecución de un minuto.
 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			\textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
+			\hline
+			87.5 ms & 14.7 ms  & 12.3 ms & 83.2 ms \\
+			\hline
+		\end{tabular}
+		\caption{Tiempo de los prototipos.}
+		\label{tab:table4}
+	\end{center}
+\end{table}
+
+El resultado del estudio presenta al prototipo 3 como el más veloz , mientras que el prototipo 1 como el más lento. Esto se debe a la tecnología implementada en el tercer prototipo, que presenta un modelo \textit{deep learning} centrado en realizar un trabajo rápido en cualquier dispositivo, incluyendo móviles.
+
+De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (Mediapipe). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (Haar-like features) o incluso entrenar un modelo personalizado como el cuarto prototipo (Transfer Learning). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
 
 
