@@ -3,10 +3,16 @@
 \chapter*{Resumen}
 \addcontentsline{toc}{chapter}{Resumen}
 
-En 2020 comenzó una gran pandemia, provocada por un virus llamado COVID19, que dejará marcado el futuro de la humanidad y por un tiempo paralizó todo el funcionamiento de la misma.
+En 2020 comenzó una gran pandemia, provocada por el coronavirus (COVID-19), que esta marcando la historia de la humanidad y por un tiempo paralizó todo el funcionamiento de la misma. Tal es la importancia del COVID-19, que la Organización Mundial de la Salud (OMS) presentó medidas para evitar el contagio entre personas. Entre ellas se encuentra la norma del uso de mascarillas para reducir el riesgo de la exposición al virus de la población \cite{oms}. 
 
-%[Párrafo sobre medidas covid]
+Para llevar el control de esta norma, se plantea el uso de técnicas de visión artificial y Machine Learning para la implementación de prototipos capaces de llevar a cabo ese control en tiempo real. Para ello, se centra el esfuerzo en el estudio de las siguientes técnicas: Haar-like feature, Facial Landmarks, Mediapipe, Transfer Learning/Tensorflow. 
 
-%[Párrafo sobre como usar la vision artificial como solución para cumplir dichas medidas]
+La primera técnica Haar-like feature proviene de una investigación dirigida por Paul Viola y Michael Jones en el año 2001, centrada en el reconocimiento facial en tiempo real mediante el uso de dichas características y un modelo de \textit{Machine Learning} llamado Adaboost. Para el prototipo se realizará la creación de un modelo SVM (Super Vector Machine), capaz de realizar regresiones y clasificaciones sobre un conjunto de datos, mediante la detección facial del modelo anterior.
 
-%[También se puede usar estas medidas como solucion a reconocer caras]
+La siguiente técnica, Facial Landmarks, se apoyará en la anterior para poder predecir puntos de interés del rostro humano, como: ojos, nariz y boca. Esto se logra por medio del uso de una técnica llamada HOG, estudio de la dirección de un punto en la imagen utilizando derivadas. Logrando obtener unos datos que posteriormente serán utilizados en la creación de un clasificador SVM (Super Vector Machine), capaz de realizar una detección/predicción en tiempo real. La implementación usada para el prototipo de esta técnica fue desarrollada por \textit{Kazemi} y \textit{Sullivan} en 2014.
+
+Por otro lado, el tercer prototipo se centrará en el uso de una de las soluciones implementadas en Mediapipe, framework de Python desarrollado por Google para la creación de aplicaciones de visión artificial de forma sencilla y potente, llamada FaceMesh. Conjuntamente a esta se hará uso de un modelo preentrenado de Haar-like features y se construirá un prototipo capaz de realizar detecciones en tiempo real con gran precisión, bajo la idea de detectar un rostro en la imagen de entrada, obtener la zona donde se encuentra la boca del rostro y aplicar el modelo pre-entrenado para detectar si se encuentra una boca o no.
+
+En último lugar, se implementará un prototipo con el uso de la técnica de Transfer Learning y Tensorflow, plataforma que permitirá su desarrollo. Este estará centrado en la creación de un modelo personalizado para la detección de mascarillas. Concretamente se realizará un total de tres detecciones: mascarilla, no mascarilla, mal mascarilla. Para ello, se partirá de un modelo de \textit{Deep Learning}, llamado \textit{SSD-MobileNetV2}, y mediante el uso de Transfer Learning se logrará crear dicho modelo personalizado. Esta técnica se caracteriza por reusar un modelo ya entrenado para un nuevo problema.
+
+Para terminar, se realizará una comparación entre todos los prototipos anteriores para estudiar cual de ellos ofrece el mejor control de la norma presentada por la OMS (Organización Mundial de la Salud).
