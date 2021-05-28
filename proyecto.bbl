@@ -253,4 +253,10 @@ Paul Viola and Michael Jones.
 \newblock \href {https://doi.org/10.1109/CVPR.2001.990517}
   {\path{doi:10.1109/CVPR.2001.990517}}.
 
+\bibitem{covid19}
+Wikipedia.
+\newblock Covid-19 pandemic, 2021.
+\newblock Acceso: 27-05-2021.
+\newblock URL: \url{https://en.wikipedia.org/wiki/COVID-19_pandemic}.
+
 \end{thebibliography}

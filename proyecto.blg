@@ -37,6 +37,8 @@ Warning--entry type for "mpGraph" isn't style-file defined
 --line 311 of file bibliografia.bib
 Warning--entry type for "datasetMask" isn't style-file defined
 --line 333 of file bibliografia.bib
+Warning--entry type for "covid19" isn't style-file defined
+--line 351 of file bibliografia.bib
 Warning--empty journal in faceMesh3
 Warning--empty journal in blazeface
 Warning--empty journal in histComputer
@@ -50,45 +52,45 @@ Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
 Warning--empty journal in hog2
-You've used 37 entries,
+You've used 38 entries,
             2882 wiz_defined-function locations,
-            828 strings with 11142 characters,
-and the built_in function-call counts, 15706 in all, are:
-= -- 1589
-> -- 598
+            833 strings with 11240 characters,
+and the built_in function-call counts, 16053 in all, are:
+= -- 1626
+> -- 606
 < -- 6
-+ -- 220
-- -- 182
-* -- 782
-:= -- 2203
-add.period$ -- 144
-call.type$ -- 37
-change.case$ -- 199
++ -- 223
+- -- 184
+* -- 792
+:= -- 2248
+add.period$ -- 148
+call.type$ -- 38
+change.case$ -- 203
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 443
-empty$ -- 1536
-format.name$ -- 182
-if$ -- 4148
+cite$ -- 51
+duplicate$ -- 452
+empty$ -- 1578
+format.name$ -- 184
+if$ -- 4247
 int.to.chr$ -- 0
-int.to.str$ -- 37
+int.to.str$ -- 38
 missing$ -- 26
-newline$ -- 221
-num.names$ -- 74
-pop$ -- 484
+newline$ -- 227
+num.names$ -- 76
+pop$ -- 498
 preamble$ -- 1
-purify$ -- 165
+purify$ -- 168
 quote$ -- 0
-skip$ -- 1150
+skip$ -- 1179
 stack$ -- 0
-substring$ -- 404
-swap$ -- 102
+substring$ -- 409
+swap$ -- 103
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 142
+type$ -- 146
 warning$ -- 13
-while$ -- 85
-width$ -- 39
-write$ -- 438
+while$ -- 87
+width$ -- 40
+write$ -- 450
 (There were 2 error messages)
