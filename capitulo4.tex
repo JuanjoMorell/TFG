@@ -108,7 +108,7 @@ Tras la experimentación se puede comprobar que ambos modelos funcionan bastante
 			\hline
 			PC1 / Time (MS) & 46.15  & 45.09 & 62.04  & 61.75 \\
 			\hline
-			PC2 / Time (MS) & X  & X & X  & X \\
+			PC2 / Time (MS) & 50.02  & 47.02 & 55.46  & 58.22 \\
 			\hline
 		\end{tabular}
 		\caption{Tiempos para el prototipo 1.}
@@ -148,7 +148,7 @@ En resumen, el procedeminiento que sigue este prototipo se basa en cargar el mod
 	\label{fig:haarCustom}
 \end{figure}
 
-La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Asimismo, el tiempo de retardo que presenta este prototipo para el PC1 es de una media de 87.5 ms.
+La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Asimismo, el tiempo de retardo que presenta este prototipo para el PC1 es de una media de 87.5 ms, y para el PC2 una media de 116.14 ms.
 
 Este procedimiento se podría llegar a usar con otra implementación, específicamente con HOG, centrada también en la extracción de caracteristicas pero usando gradientes.
 
@@ -244,7 +244,7 @@ Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementació
 	\label{fig:dlibLandmarks}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 14,7 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz (Figura \ref{fig:dlibLandmarks}). Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 14,7 ms y para el PC2 una media de 8,79 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz (Figura \ref{fig:dlibLandmarks}). Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
 
 \vspace{-0.8cm}
 \subsection*{Próximos pasos}
@@ -325,7 +325,7 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 	\label{fig:protoMediapipe}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms y para el PC2 una media de 15.1 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma. Destacando un funcionamiento más veloz en el PC1 sin GPU.
 
 \newpage
 \section{Tensorflow}
@@ -415,7 +415,7 @@ De manera que, cuando se obtiene el label que se ha detectado, se utiliza la her
 	\label{fig:protoTensorFlow}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms. El resultado obtenido sea bastante bueno, cuando solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo tras un entrenamiento con un dataset más amplio, funciona de forma correcta pero con más errores. Destacando que su funcionamiento correcto sucede en una distancia a cámara muy cercana. Cuanto más lejos se sitúe la persona de la cámara, más detecciones falsas se crearán, sobre todo en el caso de encontrar una mascarilla cuando no la hay. Este puede mejorar su funcionamiento si se realiza un dataset más amplio aún y un entrenamiento más largo. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms y para el PC2 de 67.49 ms. El resultado obtenido sea bastante bueno, cuando solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo tras un entrenamiento con un dataset más amplio, funciona de forma correcta pero con más errores. Destacando que su funcionamiento correcto sucede en una distancia a cámara muy cercana. Cuanto más lejos se sitúe la persona de la cámara, más detecciones falsas se crearán, sobre todo en el caso de encontrar una mascarilla cuando no la hay. Este puede mejorar su funcionamiento si se realiza un dataset más amplio aún y un entrenamiento más largo. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
 
 \newpage
 \section{Comparación}
@@ -436,7 +436,7 @@ La primera comparación se basa en el estudio del rango de funcionamiento de los
 			(25,25) & (68,68)  & (38,44) & (320, 320)* \\
 			\hline
 		\end{tabular}
-		\caption{Rango píxeles de los prototipos.}
+		\caption{Rango píxeles de los prototipos (Pruebas realizadas en PC1).}
 		\label{tab:table3}
 	\end{center}
 \end{table}
@@ -453,11 +453,13 @@ La segunda comparación se basa en la medida del tiempo que toma el algoritmo en
 
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{ |c|c|c|c| } 
+		\begin{tabular}{ |c|c|c|c|c| } 
 			\hline
-			\textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
+			& \textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
 			\hline
-			87.5 ms & 14.7 ms  & 12.3 ms & 83.2 ms \\
+			\textbf{PC1} & 87.5 ms & 14.7 ms  & 12.3 ms & 83.2 ms \\
+			\hline
+			\textbf{PC2} & 116.14 ms & 8.79 ms  & 15.1 ms & 67.49 ms \\
 			\hline
 		\end{tabular}
 		\caption{Tiempo de los prototipos.}
@@ -465,7 +467,7 @@ La segunda comparación se basa en la medida del tiempo que toma el algoritmo en
 	\end{center}
 \end{table}
 
-El resultado del estudio presenta al prototipo 3 como el más veloz , mientras que el prototipo 1 como el más lento. Esto se debe a la tecnología implementada en el tercer prototipo, que presenta un modelo \textit{deep learning} centrado en realizar un trabajo rápido en cualquier dispositivo, incluyendo móviles.
+El resultado del estudio, sobre el PC1, presenta al prototipo 3 como el más veloz , mientras que el prototipo 1 como el más lento. Esto se debe a la tecnología implementada en el tercer prototipo, que presenta un modelo \textit{deep learning} centrado en realizar un trabajo rápido en cualquier dispositivo, incluyendo móviles. Mientras que en el PC2, se puede observar una mejora de rendimiento en el prototipo 4, gracias al uso de la GPU y CUDA. Pero el resto de prototipos obtienen un resultado semejante al del PC1.
 
 De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (Mediapipe). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (Haar-like features) o incluso entrenar un modelo personalizado como el cuarto prototipo (Transfer Learning). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
 
