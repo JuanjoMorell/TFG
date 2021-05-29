@@ -144,11 +144,11 @@ En resumen, el procedeminiento que sigue este prototipo se basa en cargar el mod
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=15cm]{imagenes/haarcustom_prueba.png}
-	\caption{Pruebas con prototipo Haar Custom}
+	\caption{Pruebas con prototipo Haar Custom.}
 	\label{fig:haarCustom}
 \end{figure}
 
-La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Asimismo, el tiempo de retardo que presenta este prototipo para el PC1 es de una media de 87.5 ms, y para el PC2 una media de 116.14 ms.
+La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Por último, el tiempo de retardo que presenta este prototipo para el PC1 es de una media de 87.5 ms, y para el PC2 una media de 116.14 ms.
 
 Este procedimiento se podría llegar a usar con otra implementación, específicamente con HOG, centrada también en la extracción de caracteristicas pero usando gradientes.
 
@@ -168,7 +168,7 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 \begin{enumerate}
 	\item \textit{Pre-procesado}: Para una imagen de entrada de cualquier tamaño es tratada en regiones de ciertas escalas y analizadas en varias zonas de la imagen. La única restricción es que los tamaño de las regiones analizadas tienen una relación de aspecto fija.
 	
-	\item \textit{Cálculo de las imágenes de gradiente}: Para el calculo del histograma de gradientes es necesario realizar el cálculo de los gradientes, tanto verticales como horizontales. Esto se puede obtener fácilmente gracias al uso de \textit{Kernels} (filtros). Posteriormente, se busca la magnitud de las direcciones de dichos gradientes con el uso de la siguiente fórmula (Figura \ref{fig:hogf}):
+	\item \textit{Cálculo de las imágenes de gradiente}: Para el cálculo del histograma de gradientes es necesario realizar el cálculo de los gradientes, tanto verticales como horizontales. Esto se puede obtener fácilmente gracias al uso de \textit{Kernels} (filtros). Posteriormente, se busca la magnitud de las direcciones de dichos gradientes con el uso de la siguiente fórmula (Figura \ref{fig:hogf}):
 	
 	\begin{figure}[htp]
 		\centering
@@ -192,7 +192,7 @@ Este procedimiento se repite varias veces sobre imágenes distintas y se introdu
 
 \subsection*{Sullivan Paper}
 
-El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \textit{toolkit Dlib} del algoritmo que estima de forma precisa y eficiente los puntos de interés faciales. Esta basado en \textit{gradient boosting} para el aprendizaje de un conjunto de arboles de regresión (\textit{ensemble of regression trees}), que será el encargado de la predicción de los puntos de interés \cite{faceLandmark}.
+El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \textit{toolkit Dlib} del algoritmo que estima de forma precisa y eficiente los puntos de interés faciales. Esta basado en \textit{gradient boosting} para el aprendizaje de un conjunto de árboles de regresión (\textit{ensemble of regression trees}), que será el encargado de la predicción de los puntos de interés \cite{faceLandmark}.
 
 Este método fue uno de los primeros que mejoró el rendimiento, a diferencia con los métodos anteriores, gracias a la detección de componentes esenciales para el \textit{face aligment} y procesarlos para introducirlos en funciones de regresión en cascada. Cada una de estas funciones estima, de forma eficiente, la forma facial desde una estimación inicial y obtiene un conjunto de píxeles indexados a dicha estimación. En concreto, \textit{Dlib} estimará un total de 68 píxeles indexados (Figura \ref{fig:dlibPoints}), ya que sigue las anotaciones del \textit{dataset iBUG 300-W} \cite{ibug}, usado en los modelos pre-entrenados ofrecidos por \textit{Dlib}.
 
@@ -212,7 +212,7 @@ Para resolver esto se plantearon dos soluciones a lo largo del tiempo. El primer
 Esto permite realizar un estudio sobre un mayor número de características relevante de forma eficiente. El resultado es una cascada de regresores que pueden localizar los puntos de referencia faciales cuando es inicializada con la media de la pose facial \cite{faceLandmark}.
 
 \newpage
-De forma más general, la investigación ofrece las siguiente contribuciones a las investigaciones de \textit{Face Landmark} anteriores:
+De forma más general, la investigación ofrece las siguientes contribuciones a las investigaciones de \textit{Face Landmark} anteriores:
 
 \begin{enumerate}
 	\vspace{-0.2cm}
@@ -249,7 +249,7 @@ El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 
 \vspace{-0.8cm}
 \subsection*{Próximos pasos}
 \vspace{-0.5cm}
-En los siguientes apartados se probará implementar prototipos con el uso de Deep Learning. En las últimas décadas, se ha convertido en uno de los métodos mas usados para la creación de aplicaciones de visión artificial. \cite{szeliski_2018}. Esta basado en las estructuras neuronales CNN (\textit{Convolutional Neural Network}), principales responsables de que un ordenador pueda procesar de forma sencilla una imagen. \textit{CNN} es una combinación entre capas neuronales y convolucionales, siendo estas últimas filtros con los que se obtendrán características de la imagen de entrada, los conocidos \textit{features}. La principal función del Deep Learning es clasificar, ya sea una imagen, un objeto o incluso varios objetos a la vez. Esto es gracias al uso de modelos, entrenados con miles de imágenes, que consiguen clasificar imágenes en varias categorías, por ejemplo \textit{MobileNet} \cite{cnn}. 
+En los siguientes apartados se probará implementar prototipos con el uso de Deep Learning. En las últimas décadas, se ha convertido en uno de los métodos más usados para la creación de aplicaciones de visión artificial. \cite{szeliski_2018}. Esta basado en las estructuras neuronales CNN (\textit{Convolutional Neural Network}), principales responsables de que un ordenador pueda procesar de forma sencilla una imagen. \textit{CNN} es una combinación entre capas neuronales y convolucionales, siendo estas últimas filtros con los que se obtendrán características de la imagen de entrada, los conocidos \textit{features}. La principal función del Deep Learning es clasificar, ya sea una imagen, un objeto o incluso varios objetos a la vez. Esto es gracias al uso de modelos, entrenados con miles de imágenes, que consiguen clasificar imágenes en varias categorías, por ejemplo \textit{MobileNet} \cite{cnn}. 
 
 \newpage
 \section{Mediapipe}
@@ -258,7 +258,7 @@ Mediapipe es una API \textit{open-source} creada por \textit{Google}, que ofrece
 
 La \textit{pipeline} que se utiliza en esta API consiste en dos modelos de \textit{Deep Learning} que trabajan al mismo tiempo. Su funcionalidad es realizar una detección a partir de una imagen de los puntos de interés sobre una cara y construir un modelo \textit{face landmark} 3D que aproxima la superficie de esta mediante regresión sobre dichos puntos. Esta tarea es facilitada si la cara, donde se tienen que detectar los puntos de interés, se encuentra recortada, haciendo así que el modelo se centre solamente en buscar los puntos, aumentando la precisión de la predicción. Asimismo, los recortes de las caras se puede generar a partir de las predicciones anteriores realizadas por el mismo modelo, y solamente es llamada la predicción nuevamente cuando no se consigue detectar la presencia de la cara \cite{faceMesh}.
 
-Todo esto es implementado gracias al framework \textit{MediaPipe}, con la herramienta \textit{MediaPipe graph}. Arquitectura caracterizada por estar formada por componentes llamados \textit{Calculator}, nodos del grafo que tras la entrada de cero o más inputs generan cero o más salidas. Todos estos nodos están conectados mediante datos en forma de \textit{Streams}, donde cada uno representa un conjunto de datos-tiempo en \textit{Packets}. Por tanto, los \textit{calculators} y \textit{steams} definen el flujo de datos del \textit{Graph} \cite{mediapipe}. All this is implemented thanks to the MediaPipe framework, with the MediaPipe graph tool.
+Todo esto es implementado gracias al framework \textit{MediaPipe}, con la herramienta \textit{MediaPipe graph}. Arquitectura caracterizada por estar formada por componentes llamados \textit{Calculator}, nodos del grafo que tras la entrada de cero o más inputs generan cero o más salidas. Todos estos nodos están conectados mediante datos en forma de \textit{Streams}, donde cada uno representa un conjunto de datos-tiempo en \textit{Packets}. Por tanto, los \textit{calculators} y \textit{steams} definen el flujo de datos del \textit{Graph} \cite{mediapipe}.
 
 El \textit{pipeline} puede ser definido mediante la adición/modificación de \textit{calculators} dentro del \textit{graph}. Específicamente, el \textit{pipeline} que se utiliza en esta solución (\textit{FaceMesh}) esta formada por un \textit{graph} compuesto por un \textit{subgraph} de \textit{face landmark} (proveniente del módulo, ya implementado, de \textit{face landmark} de \textit{Mediapipe}), donde a su vez usa otro \textit{subgraph} proveniente de \textit{face detection module} para la detección de caras, y un \textit{face renderer subgraph} para mostrar el resultado \cite{faceMesh}. En concreto el \textit{graph} que se usa en esta implementación es el mostrado en la Figura \ref{fig:faceMesh}.
 
