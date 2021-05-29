@@ -63,7 +63,7 @@ Una vez estudiada la obtención de características y con un set de entrenamient
 
 Este algoritmo de aprendizaje esta basado en generar una predicción muy buena a partir de la combinación de predicciones peores y más débiles, donde cada uno de estas se corresponde con el \textit{threshold} de una de las características \textit{Haar-like}. La primera vez que aparece este algoritmo, de forma práctica, fue de la mano de \textit{Freund y Schapire} \cite{adaboost1}. Sin embargo, el usado por \textit{Viola y Jones} es una modificación de este. La salida que genera el algoritmo \textbf{\textit{AdaBoost}} es un clasificador llamado \textit{Strong Classifier}, como se ha mencionado anteriormente, compuesto por combinaciones lineales de \textit{Weak Classifiers}. 
 
-El procedimiento para encontrar \textit{Weak Classifiers} es ejecutar el algoritmo T iteraciones donde T es el número de clasificadores a encontrar. En cada iteración, el algoritmo busca el porcentaje de error entre todas las características y escoge la que menos porcentaje de error presente en dicha iteración \cite{adaboost2}. (Como se muestra en la \textit{Figura \ref{fig:ada1}}) 
+El procedimiento para encontrar \textit{Weak Classifiers} es ejecutar el algoritmo T iteraciones donde T es el número de clasificadores a encontrar. En cada iteración, el algoritmo busca el porcentaje de error entre todas las características y escoge la que menos porcentaje de error presente en dicha iteración \cite{adaboost2}. (Como se muestra en la \textit{Figura \ref{fig:ada1}}). 
 
 \begin{figure}[htp]
 	\centering
@@ -98,7 +98,7 @@ La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media
 	\label{fig:haar1}
 \end{figure}
 
-Tras la experimentación se puede comprobar que ambos modelos funcionan bastante bien, tanto para un reconocimiento de rostro sin obstáculos como con ellos. Aunque, es importante destacar que el modelo pre-entrenado \textit{frontalface\_default.xml} no es tan preciso en distancias superiores a los 150 cm. En cuanto a los tiempos recogidos para estas pruebas, el segundo modelo pre-entrenado \textit{frontalface\_alt2.xml} obtiene un tiempo medio más lento pero funciona de forma más precias. Se refleja en la siguiente tabla:
+Tras la experimentación se puede comprobar que ambos modelos funcionan bastante bien, tanto para un reconocimiento de rostro sin obstáculos como con ellos. Aunque, es importante destacar que el modelo pre-entrenado \textit{frontalface\_default.xml} no es tan preciso en distancias superiores a los 150 cm. En cuanto a los tiempos recogidos para estas pruebas, el segundo modelo pre-entrenado \textit{frontalface\_alt2.xml} obtiene un tiempo medio más lento pero funciona de forma más precisa. Se refleja en la siguiente tabla:
 
 \begin{table}[h!]
 	\begin{center}
