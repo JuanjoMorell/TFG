@@ -1,15 +1,18 @@
 %!TEX root = proyecto.tex
 
 \chapter{Diseño y resolución}
+\vspace{-1cm}
 
-En este capítulo se realizará el estudio de las principales técnicas/frameworks presentadas .
+En este capítulo se realizará el diseño y resolución del problema planteado mediante la realización de cuatro prototipos. El primer prototipo se basa en el uso de un algoritmo desarrollado por Paul Viola y Michael Jones, centrado en el uso de Haar-like features y un modelo de \textit{Machine Learning} (Adaboost). \textit{Facial Landmark} será la tecnica usada para el segundo prototipo, estudiando concretamente el algoritmo implementado en \textit{Dlib}, toolkit de algoritmos de \textit{Machine Learning}. El tercer prototipo estará implementado mediante una solución de Mediapipe, \textit{FaceMesh}. Mientras que, el cuarto prototipo se construirá mediante el uso de la técnica \textit{Transfer Learning} y el framework \textit{Tensorflow}. Por último, se realizará una comparacion entre todos los prototipos mediante un estudio de su funcionamiento en una aplicacion en tiempo real y bajo un dataset.
 
+\vspace{-1cm}
 \section{Paul Viola and Michael Jones} \label{haar-like}
+\vspace{-0.7cm}
 
 En 2001, el reconocimiento facial tuvo su primera aparición en el campo de la visión artificial como aplicación en tiempo real. Este avance fue de la mano de Paul Viola y Michael Jones. Análogamente, el punto de partida del estudio de este TFG. Durante este apartado, se estudiará el funcionamiento del algoritmo \textit{Viola-Jones face detector}, ideado por estos dos investigadores y se realizará una implementación del mismo mediante \textit{Python} y \textit{OpenCV} para comprobar como se comporta en la situación actual.
 
 \subsection*{Método de estudio}
-
+\vspace{-0.7cm}
 El trabajo de los expertos fue presentado por parte de la Universidad de Cambridge mediante un \textit{paper} (ensayo de la investigación). Y se introduce como: 
 \begin{quote}
 	"[...] This paper describes a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates" \cite{paulViola}
@@ -27,7 +30,7 @@ Las imágenes que se toman para realizar la detección pasan por una transformac
 	\caption{Haar-like Features \cite{haar-like}.}
 	\label{fig:haarLike}
 \end{figure}
-
+\vspace{-0.3cm}
 Las \textbf{\textit{Haar-like features}}, o también conocidas como \textit{Haar-wavelet} son una secuencia de funciones \textit{rescaled square-shaped}, siendo similares a las funciones de Fourier y con un comportamiento parecido a los \textit{Kernel} usados en las \textit{Redes Convolucionales} (matrices que consiguen extraer ciertas \textit{features} de la imagen de entrada). De manera que, las \textit{Haar Features} serán las características de la detección facial.
 
 En un estudio ideal, los píxeles que forma el \textit{feature} tendrá una división clara entre píxeles de color blanco con los de color negro (Figura \ref{fig:haarLike}), pero en la realidad eso casi nunca se va a dar.
@@ -82,9 +85,9 @@ Con estos clasificadores se procede a la construcción de una estructura en casc
 \end{figure}
 
 % VIDEO DE LOCOS: https://www.youtube.com/watch?v=uEJ71VlUmMQ&t=5s
-
+\vspace{-0.7cm}
 \subsection*{Implementación y Experimentación}
-
+\vspace{-0.5cm}
 El prototipo será implementado en \textit{Python}, con el uso de \textit{OpenCV}. Y, el objetivo es construir dos detectores de caras, donde el primero usará dos modelos preentrenados de \textit{OpenCV} de caras frontales, para estudiar cual es mejor para el siguiente prototipo. Mientras que en el segundo, se intentará modificar el programa, para que mediante el uso de uno de estos modelos preentrenados y uno de \textit{Machine learning} se pueda detectar una cara con una mascarilla o sin ella.
 
 La \textbf{implementación básica} hace uso de un modelo preentrenado cargado mediante una clase de \textit{OpenCV}, llamada \textit{Cascade Classifier}. Esta representa la base de \textit{Machine Learning} explicado en el apartado anterior. Asimismo, \textit{OpenCV} también proporciona una serie de archivos \textit{xml} con diferente modelos preentrenados. En concreto, para este prototipo se hace uso del modelo por defecto, detector de caras frontal, como se muestra en la investigación de \textit{Viola y Jones}, y una variante del mismo denominada \textit{frontalface\_alt2.xml}. Finalmente, la detección se realiza, tras hacer una transformación del espacio de color a blanco y negro, mediante la función \textit{detectMultiScale} de la clase, creada anteriormente, \textit{Cascade Classifier}. Concretamente, su funcionalidad será encontrar caras dentro de las imágenes que vaya procesando.
@@ -125,13 +128,13 @@ El \textbf{segundo prototipo} (custom) implementa un identificador de caras conj
 	
 	\item Modelo PCA/SVM
 	
-	Una vez obtenido el ROI de la localización de la cara con o sin mascarilla, se procede a predecir de que caso se trata. Previo a dicha predicción y ejecución del prototipo, se necesita entrenar el modelo. Y para ello se toman referencias de rostros con y sin la mascarilla para que sirvan como entrada en el entrenamiento del modelo, usando el prototipo anterior. Exactamente se debe ejecutar dos veces el archivo \textit{Python: trainCascade.py}, una para el caso de sin y otro para el caso de con mascarilla. Siendo la mejor opción, el uso del modelo pre-entrenado \textit{frontalface\_alt2.xml}. También es posible realizar el entrenamiento con imágenes de un dataset.
+	Una vez obtenido el ROI de la localización de la cara con o sin mascarilla, se procede a predecir de que caso se trata. Previo a dicha predicción y ejecución del prototipo, se necesita entrenar el modelo. Y para ello se toman como referencias las imagenes de nuestro dataset, concretamente el conjunto de train. El entrenamiento se realiza con la ejecución del archivo \textit{Python: trainDataset.py}, que recorrerá todas las imagenes del conjunto train del dataset. El modelo final esta formado por un PCA (Principal Component Analysis) seguido de un SVM (Super Vector Machine).
 	
 	Principal Component Analysis, (\textbf{PCA}), es un algoritmo de \textit{Machine Learning} dedicado a la reducibilidad de dimensionalidad. Identifica un hiperplano común que conecta a todos los datos y son proyectados sobre él. \textit{Scikit-Learn} ofrece una implementación de este, mediante descomposición SVD (Singular Value Decomposition), también conocido como una regresión lineal \cite{geron_2020}. La salida de PCA servirá para reducir la complejidad de la entrada al modelo \textbf{SVM} (Support Vector Machine), capaz de realizar regresiones o clasificaciones tanto lineales como no lineales. La idea tras este modelo es separar los distintos conjuntos de datos existentes mediante lineas rectas en el espacio (Figura \ref{fig:svm}) \cite{geron_2020}.
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=7cm]{imagenes/svm_example.png}
+		\includegraphics[width=6cm]{imagenes/svm_example.png}
 		\caption{Ejemplos de clasificaciones SVM}
 		\label{fig:svm}
 	\end{figure}
@@ -143,24 +146,26 @@ En resumen, el procedeminiento que sigue este prototipo se basa en cargar el mod
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=15cm]{imagenes/haarcustom_prueba.png}
+	\includegraphics[width=10cm]{imagenes/haarcustom_prueba.png}
 	\caption{Pruebas con prototipo Haar Custom.}
 	\label{fig:haarCustom}
 \end{figure}
 
-La desventaja es que solamente funciona con los rostros/rostro que se toma como referencia para construir el modelo, igualmente pasa con el tipo de mascarilla (siendo la quirúrgica la que mejor funciona con este prototipo). Asimismo, su funcionamiento es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Por último, el tiempo de retardo que presenta este prototipo para el PC1 es de una media de 87.5 ms, y para el PC2 una media de 116.14 ms.
+\vspace{-0.3cm}
+El funcionamiento del prototipo en tiempo real es de manera frontal y cercana, tanto a 70 cm como a 150 cm, funciona de forma correcta. Sin embargo, para una posición lejana y con más información a tratar el detector se pierde y crea identificaciones falsa o no llega a reconocer nada. Por último, el tiempo de retardo que presenta este prototipo en tiempo real para el PC1 es de una media de 87.5 ms, y para el PC2 una media de 116.14 ms.
 
 Este procedimiento se podría llegar a usar con otra implementación, específicamente con HOG, centrada también en la extracción de caracteristicas pero usando gradientes.
 
 \newpage
 \section{Facial Landmark}
-
+\vspace{-0.7cm}
 Con el objetivo de ampliar la idea anterior, se plantea el uso de Facial Landmark, una tecnología que nos permite el reconocimiento de puntos de interés en las caras que se han detectado en la imagen. Sus pasos de ejecución son: detectar caras dentro de la imagen y obtener dichos puntos de interés. La implementación que se va a utilizar es la estudiada por \textit{Kazemi} y \textit{Sullivan} en 2014, con el paper \textit{One Millisecond Face Alignment with an Ensemble of Regression Trees} \cite{inproceedings}, y usado en el \textit{toolkit} \textit{Dlib}. Este método se centra en localizar las siguientes zonas faciales: boca, cejas, ojos, nariz y mentón, gracias al uso de un conjunto de árboles de regresión. Estos son entrenados mediante  un modelo formado por puntos de interés de un grupo de imágenes, etiquetados a mano y especificadas como coordenadas (x,y). 
 
 \textit{Dlib} será el \textit{toolkit} (\textit{Open Source}) utilizado para la implementación de dicho método. Este contiene algoritmos de \textit{Machine Learning} y herramientas capaces de crear software complejo en \textit{C++} y \textit{Python} para resolver problemas reales. Sobre todo centrado en robótica, dispositivos embebidos, móviles y ordenadores de gran capacidad \cite{dlib}. 
 
+\vspace{-0.7cm}
 \subsection*{HOG - \textit{Histogram of Oriented Gradients}}
-
+\vspace{-0.5cm}
 El primer paso en esta solución es encontrar una cara dentro de la imagen de entrada, y el encargado será el método HOG. El cual, sigue una idea similar al método de \textit{Haar-like}, ya que se basa en la detección de \textit{features} (características).
 
 La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un objeto mediante la distribución de la intensidad de gradientes locales, gracias a que estos obtienen una magnitud mayor en las cercanías de bordes o esquinas. Mientras que la implementación, divide la imagen en pequeñas regiones (llamadas celdas) y se calcula un histograma de gradientes de una dimensión para cada uno de los píxeles de cada celda. Para un mejor estudio se normaliza el contraste de la imagen de entrada \cite{hog}. Con este procedimiento se obtiene un \textit{feature vector} a partir de la imagen de entrada, y la distribución resultante de los gradientes serán usados como las características. La implementación de HOG se podría dividir en 5 pasos generales \cite{hog2}:
@@ -189,16 +194,16 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 
 Este procedimiento se repite varias veces sobre imágenes distintas y se introduce en un modelo \textit{Machine Learning} del tipo SVM Linear, con el objetivo de obtener un detector de caras. En el caso de \textit{Dlib}, posee un modelo preentrenado.
 
-
+\vspace{-0.7cm}
 \subsection*{Sullivan Paper}
-
+\vspace{-0.5cm}
 El \textit{paper} de Kazemi y Sullivan presenta la implementación usada en el \textit{toolkit Dlib} del algoritmo que estima de forma precisa y eficiente los puntos de interés faciales. Esta basado en \textit{gradient boosting} para el aprendizaje de un conjunto de árboles de regresión (\textit{ensemble of regression trees}), que será el encargado de la predicción de los puntos de interés \cite{faceLandmark}.
 
 Este método fue uno de los primeros que mejoró el rendimiento, a diferencia con los métodos anteriores, gracias a la detección de componentes esenciales para el \textit{face aligment} y procesarlos para introducirlos en funciones de regresión en cascada. Cada una de estas funciones estima, de forma eficiente, la forma facial desde una estimación inicial y obtiene un conjunto de píxeles indexados a dicha estimación. En concreto, \textit{Dlib} estimará un total de 68 píxeles indexados (Figura \ref{fig:dlibPoints}), ya que sigue las anotaciones del \textit{dataset iBUG 300-W} \cite{ibug}, usado en los modelos pre-entrenados ofrecidos por \textit{Dlib}.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=8cm]{imagenes/facial_landmarks_68markup.jpg}
+	\includegraphics[width=6cm]{imagenes/facial_landmarks_68markup.jpg}
 	\caption{68 coordenadas del \textit{facial landmark} con \textit{iBUG 300-W} \textit{dataset} \cite{ibug}.}
 	\label{fig:dlibPoints}
 \end{figure}
@@ -211,7 +216,6 @@ Para resolver esto se plantearon dos soluciones a lo largo del tiempo. El primer
 %La entrada usada en el regresor, es seleccionada mediante \textit{gradient boosting} sobre un conjunto de píxeles dispersos, y la prioridad de probabilidad sobre la distancia entre pares de píxeles de entrada. 
 Esto permite realizar un estudio sobre un mayor número de características relevante de forma eficiente. El resultado es una cascada de regresores que pueden localizar los puntos de referencia faciales cuando es inicializada con la media de la pose facial \cite{faceLandmark}.
 
-\newpage
 De forma más general, la investigación ofrece las siguientes contribuciones a las investigaciones de \textit{Face Landmark} anteriores:
 
 \begin{enumerate}
@@ -244,7 +248,7 @@ Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementació
 	\label{fig:dlibLandmarks}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 14,7 ms y para el PC2 una media de 8,79 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz (Figura \ref{fig:dlibLandmarks}). Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
+El tiempo de retardo que presenta este prototipo en tiempo real para el PC1 es de una media de 14,7 ms y para el PC2 una media de 8,79 ms. Aunque estos tiempos presenten un buen resultado, el funcionamiento del prototipo en tiempo real no es el esperado. Por un lado, le cuesta reconocer un rostro con mascarilla, incluso en muchas ocasiones sin lograrlo, ya en el primer tipo de prueba (distancia de 75 cm). Por otro lado, el detector facial sin mascarilla funciona correctamente y de manera eficaz (Figura \ref{fig:dlibLandmarks}). Por lo que, otro planteamiento que se podría desarrollar sería un prototipo donde si aparece una detección de una persona y su boca significa que no viste una mascarilla, por tanto no cumpliría con la normativa y saltaría la alarma.
 
 \vspace{-0.8cm}
 \subsection*{Próximos pasos}
@@ -253,6 +257,7 @@ En los siguientes apartados se probará implementar prototipos con el uso de Dee
 
 \newpage
 \section{Mediapipe}
+\vspace{-0.7cm}
 
 Mediapipe es una API \textit{open-source} creada por \textit{Google}, que ofrece servicios de \textit{Machine Learning} para vídeos y fuentes multimedia. Entre ellas, se encuentra un servicio llamado \textit{Face Mesh} que ofrece una solución que estima 468 puntos de interés de un rostro, conformando una malla 3D en tiempo real. Este usa aceleración GPU conjuntamente con un modelo y el uso de una \textit{pipeline}.
 
@@ -318,11 +323,11 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 	\label{fig:protoMediapipe}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms y para el PC2 una media de 15.1 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición lejana tarda en detectar a la persona, hasta que esta no se encuentre a una distancia cercana. Destacando un funcionamiento más veloz en el PC1 sin GPU.
+El tiempo de retardo que presenta este prototipo en tiempo real para el PC1 es de una media de 12,3 ms y para el PC2 una media de 15.1 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición lejana tarda en detectar a la persona, hasta que esta no se encuentre a una distancia cercana. Destacando un funcionamiento más veloz en el PC1 sin GPU.
 
 \newpage
 \section{Tensorflow}
-
+\vspace{-1cm}
 TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. Esta se basa en tensores, matrices multidimensionales con un tipo uniforme, que si se está familiarizado con NumPy, los tensores son como \textit{np.arrays}. Con la característica de que nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo \cite{tensorflow}.
 
 Concretamente, se usarán los modelos y ejemplos de aprendizaje automático ofrecidos y entrenados mediante la API de alto nivel de Tensorflow para la implementación del último prototipo. Este recurso recibe el nombre de \textit{TensorFlow Model Garden} \cite{modelGarden}, y se trata de un repositorio con diferentes implementaciones de modelos y soluciones modeladas para Tensorflow. Los modelos están pre-entrenados mediante un dataset llamado \textit{COCO 2017} \cite{coco}. Siendo este un gran conjunto de datos a grande escala para \textit{object detection}, segmentación y captación.
@@ -412,9 +417,11 @@ El tiempo de retardo que presenta este prototipo en una ejecución en tiempo rea
 
 \newpage
 \section{Comparación}
+\vspace{-0.7cm}
 
 Este apartado estará dedicado a la comparación de los prototipos implementados anteriormente, con el objetivo de contrastar el funcionamiento de todos ellos y las técnicas implementadas. Para ello, se hará uso de dos medidas: distancia de funcionamiento y el tiempo que tarda en procesar una imagen.
 
+\vspace{-0.7cm}
 \subsection*{Distancia}
 \vspace{-0.5cm}
 La primera comparación se basa en el estudio del rango de funcionamiento de los prototipos. Pudiendo medir su distancia mediante el tamaño de la imagen que se le pasa como entrada al algoritmo. En la siguiente tabla (Cuadro \ref{tab:table3}) se presenta esto mediante una medida en píxeles (x,y) que corresponde con la medida de la detección más pequeña que el prototipo puede procesar. Además, aparecerán dos medidas: la primera cuando no se lleva mascarilla y la segunda cuando si.
@@ -438,7 +445,7 @@ En el caso del último prototipo todas las imágenes que procesa son re-escalada
 
 En conclusión, como resultado final se obtiene que el prototipo 1, a pesar de no utilizar técnicas avanzadas de \textit{deep learning}, obtiene el mejor resultado de los cuatro prototipos. Pudiendo detectar rostros de hasta 25x25 píxeles dentro de la imagen de entrada.
 
-\vspace{-0.5cm}
+\vspace{-0.7cm}
 \subsection*{Tiempo de retardo}
 \vspace{-0.5cm}
 
@@ -462,11 +469,12 @@ La segunda comparación se basa en la medida del tiempo que toma el algoritmo en
 
 El resultado del estudio, sobre el PC1, presenta al prototipo 3 como el más veloz , mientras que el prototipo 1 como el más lento. Esto se debe a la tecnología implementada en el tercer prototipo, que presenta un modelo \textit{deep learning} centrado en realizar un trabajo rápido en cualquier dispositivo, incluyendo móviles. Mientras que en el PC2, se puede observar una mejora de rendimiento en el prototipo 4, gracias al uso de la GPU y CUDA. Pero el resto de prototipos obtienen un resultado semejante al del PC1.
 
-\vspace{-0.5cm}
+\vspace{-0.7cm}
 \subsection*{Dataset}
 \vspace{-0.5cm}
 
-Tratar el procedimiento del dataset para cada una de las técnicas. Dando el porcentaje de acierto, porcentaje de resultados y acierto/resultados.
+La última comparacion será observar el porcentaje de aciertos de cada uno de los prototipos para el dataset creado para este trabajo. Para ello, el experimento se centrará en el porcentaje de aciertos tanto del conjunto test como del dataset al completo. Además, se mostrará el total de imagenes con detecciones, ya que si no se consigue realizar una detección, tampoco se podrá saber si la persona lleva o no mascarilla. El resultado de los experimentos aparecen en las siguientes tablas:
+
 
 \begin{table}[h!]
 	\begin{center}
@@ -474,16 +482,35 @@ Tratar el procedimiento del dataset para cada una de las técnicas. Dando el por
 			\hline
 			& \textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
 			\hline
-			\textbf{Estudio 1} &  &  &  &  \\
+			\textbf{Acierto (\%)} & 29.53 / 52.35 & 45.64 & 55.03 & 40.27 / 65.77 \\
 			\hline
-			\textbf{Estudio 2} &  &   &  &  \\
+			\textbf{Detecciones (\%)} & 82.55 / 82.55 & 69.8  & 79.87 & 100 / 100 \\
 			\hline
 		\end{tabular}
-		\caption{Tiempo de los prototipos.}
-		\label{tab:table4}
+		\caption{Porcentaje de acierto / resultados para el conjunto test del dataset.}
+		\label{tab:test}
 	\end{center}
 \end{table}
 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c| } 
+			\hline
+			& \textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
+			\hline
+			\textbf{Acierto (\%)} & 51.35 / 65.77 & 51.46 & 53.04 & 43.8 / 80.07 \\
+			\hline
+			\textbf{Detecciones (\%)} & 83.33 / 83.33 & 68.36  & 72.97 & 100 / 100 \\
+			\hline
+		\end{tabular}
+		\caption{Porcentaje de acierto / resultados para el dataset completo.}
+		\label{tab:dataset}
+	\end{center}
+\end{table}
+
+Para el primer y cuarto prototipo obtienen dos resultados. El primero hace referencia al porcentaje de aciertos conseguidos cuando hay tres clase para clasificar: \textit{Mask}, \textit{NoMask} y \textit{BadMask}. Mientras que, el segundo resultado es el caso cuando la clase \textit{BadMask} se trata como \textit{NoMask}. Asimismo, los exprerimentos en el segundo y tercer prototipo se realizan solamente con la clasificacion de dos clases: \textit{Mask} y \textit{NoMask}. 
+
+Como resultado de esta comparacion se obtiene que el cuarto prototipo consigue un porcentaje alto de aciertos, teniendo en cuenta que consigue detectar el 100\% de las imagenes que trata. Sin embargo, es importante destacar el funcionamiento de los demás prototipos, consiguiendo detectar/clasificar las imagenes de entrada con un buen resultado.
 
 De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (\textit{Mediapipe}). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (\textit{Haar-like features}) o incluso entrenar un modelo personalizado como el cuarto prototipo (\textit{Transfer Learning}). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
 
