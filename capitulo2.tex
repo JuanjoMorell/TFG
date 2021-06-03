@@ -17,15 +17,37 @@ Entre los años 2000 y 2015 se implementaron varias soluciones para el problema 
 \begin{enumerate}
 	\item \textbf{HAAR-like Features \& ADABOOST}.
 	
-	Técnica diseñada por Paul Viola y Michael Jones en el año 2001, donde se implementa una detección mediante el uso de \textit{Machine Learning} que es capaz de procesar imágenes a una velocidad y precisión bastante altos, comparado con los desarrollos de la época, gracias al uso de técnicas avanzadas de procesamiento de imágenes y de un modelo de \textit{Machine Learning} llamado \textit{AdaBoost} \cite{paulViola}. 
+	Técnica diseñada por Paul Viola y Michael Jones en el año 2001, donde se implementa una detección mediante el uso de \textit{Machine Learning} que es capaz de procesar imágenes a una velocidad y precisión bastante altos (Figura \ref{fig:haarExample}), comparado con los desarrollos de la época, gracias al uso de técnicas avanzadas de procesamiento de imágenes y de un modelo de \textit{Machine Learning} llamado \textit{AdaBoost} \cite{paulViola}. 
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=10cm]{imagenes/violayjones_detector.png}
+		\caption{Salida generada por el detector facial \cite{paulViola}.}
+		\label{fig:haarExample}
+	\end{figure}
 	
 	\item \textbf{HOG} (Histogram of Gradient).
 	
-	Se trata de una técnica de detección de rostros u otro tipo de objetos mediante el uso de gradientes, término dedicado al estudio de la dirección de un punto en la imagen utilizando derivadas. Estos servirán para el entrenamiento de un clasificador SVM (\textit{Super Vector Machine}), que será capaz de realizar una detección en tiempo real.
+	Se trata de una técnica de detección de rostros u otro tipo de objetos mediante el uso de gradientes, término dedicado al estudio de la dirección de un punto en la imagen utilizando derivadas (Figura \ref{fig:hogExample}). Estos servirán para el entrenamiento de un clasificador SVM (\textit{Super Vector Machine}), que será capaz de realizar una detección en tiempo real.
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=5cm]{imagenes/hog_example.png}
+		\caption{HOG generada tras estudiar un rostro.}
+		\label{fig:hogExample}
+	\end{figure}
 	
 	\item \textbf{Facial Landmarks}.
 	
-	Con la aparición de técnicas como las anteriores, se dio el siguiente paso con la predicción de puntos de interés sobre los rostros detectados. El desarrollo de esta se realiza con el uso de técnicas llamadas: \textit{Gradient Boosting} y \textit{Ensemble of regression trees}, ambas del ámbito del \textit{Machine Learning} \cite{faceLandmark}. Cabe destacar, que esta técnica detecta rasgos faciales (como boca, nariz u ojos) aunque se encuentren escondidos tras algún complemento u objeto, gracias al uso de la predicción.
+	Con la aparición de técnicas como las anteriores, se dio el siguiente paso con la predicción de puntos de interés sobre los rostros detectados (Figura \ref{fig:landmarkExample}). El desarrollo de esta se realiza con el uso de técnicas llamadas: \textit{Gradient Boosting} y \textit{Ensemble of regression trees}, ambas del ámbito del \textit{Machine Learning} \cite{faceLandmark}. Cabe destacar, que esta técnica detecta rasgos faciales (como boca, nariz u ojos) aunque se encuentren escondidos tras algún complemento u objeto, gracias al uso de la predicción.
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=5cm]{imagenes/landmark_example.png}
+		\caption{Salidas de ejemplo de Facial Landmark \cite{faceLandmark}.}
+		\label{fig:landmarkExample}
+	\end{figure}
+	
 \end{enumerate}
 
 
@@ -36,11 +58,25 @@ A partir de 2016, el \textit{Deep Learning} fue un ámbito que gano mucha import
 \begin{enumerate}
 	\item \textbf{YOLO}.
 	
-	Modelo capaz de procesar imágenes en tiempo real a una velocidad de 45 frames por segundo (con una GPU Nvidia Titan X), con el uso de una única red convolucional (CNN) que predice simultáneamente varios tipos de clases de objetos. Este modelo es entrenado mediante imágenes completas \cite{YOLO}.
+	Modelo capaz de procesar imágenes en tiempo real a una velocidad de 45 frames por segundo (con una GPU Nvidia Titan X), con el uso de una única red convolucional (CNN) que predice simultáneamente varios tipos de clases de objetos (Figura \ref{fig:yoloExample}). Este modelo es entrenado mediante imágenes completas \cite{YOLO}.
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=5cm]{imagenes/yolo_example.jpg}
+		\caption{Detecciones de ejemplo de YOLO.}
+		\label{fig:yoloExample}
+	\end{figure}
 	
 	\item \textbf{TensorFlow}.
 	
-	TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. En el ámbito de la visión artificial, dispone de una gran cantidad de modelos pre-entrenados capaces de realizar detección de objetos y clasificación de imágenes de forma rápida y precisa. Entre dichos modelos destaca \textit{MobileNet}, capaz de obtener un gran rendimiento en dispositivos móviles y ordenadores con poca potencia computacional. Esto ha creado un aumento de la popularidad en la implementaciones de detectores en dispositivos embebidos, como \textit{Raspberry Pi}, o en chips ESP32 mediante procesamiento remoto.
+	TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. En el ámbito de la visión artificial, dispone de una gran cantidad de modelos pre-entrenados capaces de realizar detección de objetos y clasificación de imágenes de forma rápida y precisa. Entre dichos modelos destaca \textit{MobileNet}, capaz de obtener un gran rendimiento en dispositivos móviles y ordenadores con poca potencia computacional (Figura \ref{fig:mobilenetExample}). Esto ha creado un aumento de la popularidad en la implementaciones de detectores en dispositivos embebidos, como \textit{Raspberry Pi}, o en chips ESP32 mediante procesamiento remoto.
+	
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=7cm]{imagenes/mobilenet_example.png}
+		\caption{Ejemplo de detección con el modelo MobileNet y Tensorflow \cite{mobilenet1}.}
+		\label{fig:mobilenetExample}
+	\end{figure}
 	
 	\item \textbf{MediaPipe}.
 	
@@ -48,7 +84,7 @@ A partir de 2016, el \textit{Deep Learning} fue un ámbito que gano mucha import
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=10cm]{imagenes/solucionesMediaPipe.png}
+		\includegraphics[width=7cm]{imagenes/solucionesMediaPipe.png}
 		\caption{Soluciones de MediaPipe \cite{mdSolutions}.}
 		\label{fig:solMed}
 	\end{figure}

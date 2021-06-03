@@ -5,7 +5,7 @@
 \linespread{1.5}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla]{babel}
 \decimalpoint
 \usepackage{graphicx}
 \usepackage{listings}
@@ -28,6 +28,9 @@
 \usepackage[all,pdf]{xy}
 % Subfiguras
 \usepackage{subcaption}
+% URL en bibliografía
+\usepackage{url}
+
 % Hyperref
 \usepackage{hyperref}
 \hypersetup{
@@ -36,10 +39,10 @@
 	filecolor=black,%
 	linkcolor=black,%
 	urlcolor=black,%
-	pageanchor=false
+	pageanchor=false,%
+	breaklinks=true
 }
-% URL en bibliografía
-\usepackage{url}
+
 % Apéndices
 \usepackage{appendix}
 % Múltiples columnas
@@ -159,13 +162,16 @@ ginesgm@um.es
 \renewcommand{\footrulewidth}{0.5pt}
 
 % Introduccion
+\linespread{1.1}
 \input{capitulo1.tex}
 
 % Estado del arte
 \input{capitulo2.tex}
 
+
 % Análisis de objetivos y metodología 
 \input{capitulo3.tex}
+\linespread{1.5}
 
 % Diseño y resolución
 \input{capitulo4.tex}

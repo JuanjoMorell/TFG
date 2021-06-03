@@ -2,7 +2,7 @@
 
 \chapter{Diseño y resolución}
 
-%\linespread{1.5}
+En este capítulo se realizará el estudio de las principales técnicas/frameworks presentadas .
 
 \section{Paul Viola and Michael Jones} \label{haar-like}
 
@@ -260,7 +260,7 @@ La \textit{pipeline} que se utiliza en esta API consiste en dos modelos de \text
 
 Todo esto es implementado gracias al framework \textit{MediaPipe}, con la herramienta \textit{MediaPipe graph}. Arquitectura caracterizada por estar formada por componentes llamados \textit{Calculator}, nodos del grafo que tras la entrada de cero o más inputs generan cero o más salidas. Todos estos nodos están conectados mediante datos en forma de \textit{Streams}, donde cada uno representa un conjunto de datos-tiempo en \textit{Packets}. Por tanto, los \textit{calculators} y \textit{steams} definen el flujo de datos del \textit{Graph} \cite{mediapipe}.
 
-El \textit{pipeline} puede ser definido mediante la adición/modificación de \textit{calculators} dentro del \textit{graph}. Específicamente, el \textit{pipeline} que se utiliza en esta solución (\textit{FaceMesh}) esta formada por un \textit{graph} compuesto por un \textit{subgraph} de \textit{face landmark} (proveniente del módulo, ya implementado, de \textit{face landmark} de \textit{Mediapipe}), donde a su vez usa otro \textit{subgraph} proveniente de \textit{face detection module} para la detección de caras, y un \textit{face renderer subgraph} para mostrar el resultado \cite{faceMesh}. En concreto el \textit{graph} que se usa en esta implementación es el mostrado en la Figura \ref{fig:faceMesh}.
+El \textit{pipeline} puede ser definido mediante la adición/modificación de \textit{calculators} dentro del \textit{graph}. Específicamente, el \textit{pipeline} que se utiliza en esta solución (\textit{FaceMesh}) esta formada por un \textit{graph} compuesto por un \textit{subgraph} de \textit{face landmark} (proveniente del módulo, ya implementado, de \textit{face landmark} de \textit{Mediapipe}), donde a su vez usa otro \textit{subgraph} proveniente de \textit{face detection module} para la detección de caras, y un \textit{face renderer subgraph} para mostrar el resultado \cite{faceMesh}. En concreto, el \textit{graph} que se usa en esta implementación es el mostrado en la Figura \ref{fig:faceMesh}.
 
 \begin{figure}[htp]
 	\centering
@@ -269,7 +269,7 @@ El \textit{pipeline} puede ser definido mediante la adición/modificación de \t
 	\label{fig:faceMesh}
 \end{figure}
 
-Por tanto, el procesamiento de una imagen en este modelo sigue dos pasos. El primero (1) toma la imagen de entrada, capturada por la cámara, es procesada por un detector de caras \textit{lightweigth}, llamado \textit{BlazeFace}, y produce unos rectángulos que definen el perímetro donde se encuentra la cara, conjuntamente con un par de puntos de interés superficiales (ojos, boca y nariz). Estos puntos se utilizarán para alinear la cara para el siguiente paso. Y el segundo (2), mediante el rectángulo obtenido en el paso anterior, se recorta la cara de la imagen inicial y es re-escalado para utilizarse como entrada de la red neuronal que realiza la predicción de la malla. (El tamaño de re-escalado será entre 256x256 en un modelo completo, hasta 128x128 en el modelo más pequeño). Tras la predicción, se obtiene como salida un vector de coordenadas \textit{landmark 3D}, que serán mapeadas y dibujadas en la imagen original \cite{faceMesh2}. 
+Por tanto, el procesamiento de una imagen en este modelo sigue dos pasos. El primero (1), toma la imagen de entrada, capturada por la cámara, es procesada por un detector de caras \textit{lightweigth}, llamado \textit{BlazeFace}, y produce unos rectángulos que definen el perímetro donde se encuentra la cara, conjuntamente con un par de puntos de interés superficiales (ojos, boca y nariz). Estos puntos se utilizarán para alinear la cara para el siguiente paso. Y el segundo (2), mediante el rectángulo obtenido en el paso anterior, se recorta la cara de la imagen inicial y es re-escalado para utilizarse como entrada de la red neuronal que realiza la predicción de la malla. (El tamaño de re-escalado será entre 256x256 en un modelo completo, hasta 128x128 en el modelo más pequeño). Tras la predicción, se obtiene como salida un vector de coordenadas \textit{landmark 3D}, que serán mapeadas y dibujadas en la imagen original \cite{faceMesh2}. 
 
 Las coordenadas que se obtienen como salida están compuestas por unas coordenadas x e y provenientes de localizaciones del plano 2D propio de la imagen. Mientras que, la coordenada z es interpretada como una profundidad relativa a un centro de masa que compone la malla de la cara.
 
@@ -291,17 +291,10 @@ El segundo modelo, \textit{Face Landmark Model}, generado mediante \textit{Trans
 \vspace{-0.5cm}
 El prototipo de este apartado se realizará mediante el uso de \textit{FaceMesh} del framework \textit{MediaPipe} y un detector basado en \textit{Haar-like features}, como el mencionado en el \textit{paper} de Viola \& Jones (\ref{haar-like}). Los pasos que lo definen son los siguientes:
 
-\vspace{-0.5cm}
-\subsubsection*{1. Detección FaceMesh}
-\vspace{-0.7cm}
-Para la detección del rostro en la imagen de entrada se utiliza la solución de Mediapipe llamada FaceMesh, implementada en el framework de Python que recibe el mismo nombre, \textit{mediapipe}. Esta solución dispone de dos parámetros de configuración: \textit{min\_detection\_confidence} y \textit{min\_tracking\_confidence}. El primero hace referencia a ..., mientras que el segundo se entiende como ....
-
-Una vez configurado el FaceMesh, se procede a tratar la imagen de entrada para facilitar su tratamiento. Se convierte el espacio de color de la imagen de BGR, espacio de color con el que trabaja \textit{OpenCV}, a RGB. Y, para mejorar el rendimiento, se elimina la opción de la imagen para que sea escribible (\textit{writeable}). Este proceso será invertido después de realizar la detección.
-
 \begin{enumerate}
 	\item Detección FaceMesh
 	
-	Para la detección del rostro en la imagen de entrada se utiliza la solución de Mediapipe llamada FaceMesh, implementada en el framework de Python que recibe el mismo nombre, \textit{mediapipe}. Esta solución dispone de dos parámetros de configuración: \textit{min\_detection\_confidence} y \textit{min\_tracking\_confidence}. El primero hace referencia a ..., mientras que el segundo se entiende como ....
+	Para la detección del rostro en la imagen de entrada se utiliza la solución de Mediapipe llamada FaceMesh, implementada en el framework de Python que recibe el mismo nombre, \textit{mediapipe}. Esta solución dispone de dos parámetros de configuración: \textit{min\_detection\_confidence} y \textit{min\_tracking\_confidence}. El primero hace referencia al valor mínimo de \textit{confidence} para considerar una detección como buena, mientras que el segundo se entiende como el valor mínimo para considerar una prediccion de \textit{facial landmark} buena.
 	
 	Una vez configurado el FaceMesh, se procede a tratar la imagen de entrada para facilitar su tratamiento. Se convierte el espacio de color de la imagen de BGR, espacio de color con el que trabaja \textit{OpenCV}, a RGB. Y, para mejorar el rendimiento, se elimina la opción de la imagen para que sea escribible (\textit{writeable}). Este proceso será invertido después de realizar la detección.
 	
@@ -309,7 +302,7 @@ Una vez configurado el FaceMesh, se procede a tratar la imagen de entrada para f
 	
 	Tras la detección de Landmarks, el resultado se almacena en una variable llamada \textit{multi\_face\_landmarks}, donde se encuentran todas las marcas faciales de todos los rostros detectados. A su vez, este contiene cada una de las marcas, con una totalidad de 468 puntos.
 
-	Estas marcas contienen parámetros para medir la precisión de la detección del mismo, llamados: \textit{visibility} y \textit{presence}. Si estos valores son muy bajos no se tienen en cuenta. Tras esto, se normalizan sus valores a coordenadas con respecto a los píxeles de la imagen de entrada, se reservan unicamente las coordenadas relacionadas con la boca y se obtiene el ROI donde se localiza esta.
+	Estas marcas contienen parámetros para medir la precisión de la detección del mismo, llamados: \textit{visibility} y \textit{presence}. Si estos valores son muy bajos no se tienen en cuenta. Tras esto, se normalizan sus valores a coordenadas con respecto a los píxeles de la imagen de entrada, se reservan únicamente las coordenadas relacionadas con la boca y se obtiene el ROI donde se localiza esta.
 	
 	\item Detección de una boca en el ROI 
 	
@@ -325,16 +318,16 @@ Por tanto, la idea tras este prototipo es obtener la zona de la boca gracias al 
 	\label{fig:protoMediapipe}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms y para el PC2 una media de 15.1 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición elevada, como podría ser una puerta, tarda en detectar a la persona, hasta que esta no  se encuentre a una distancia cercana de la misma. Destacando un funcionamiento más veloz en el PC1 sin GPU.
+El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 12,3 ms y para el PC2 una media de 15.1 ms. Tras la realización de las pruebas (Figura \ref{fig:protoMediapipe}), se puede concluir en que el prototipo funciona de una manera bastante eficaz y precisa en distancias cercanas, mientras que en una posición lejana tarda en detectar a la persona, hasta que esta no se encuentre a una distancia cercana. Destacando un funcionamiento más veloz en el PC1 sin GPU.
 
 \newpage
 \section{Tensorflow}
 
-TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. Esta se basa en tensores, matrices multidimensionales con un tipo uniforme, que si se está familiarizado con NumPy , los tensores son como \textit{np.arrays}. Con la característica de que nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo \cite{tensorflow}.
+TensorFlow es una plataforma de \textit{Open Source} dedicada al aprendizaje automático. Permite compilar e implementar con facilidad aplicaciones con tecnología de AA. Esta se basa en tensores, matrices multidimensionales con un tipo uniforme, que si se está familiarizado con NumPy, los tensores son como \textit{np.arrays}. Con la característica de que nunca se puede actualizar el contenido de un tensor, solo crear uno nuevo \cite{tensorflow}.
 
 Concretamente, se usarán los modelos y ejemplos de aprendizaje automático ofrecidos y entrenados mediante la API de alto nivel de Tensorflow para la implementación del último prototipo. Este recurso recibe el nombre de \textit{TensorFlow Model Garden} \cite{modelGarden}, y se trata de un repositorio con diferentes implementaciones de modelos y soluciones modeladas para Tensorflow. Los modelos están pre-entrenados mediante un dataset llamado \textit{COCO 2017} \cite{coco}. Siendo este un gran conjunto de datos a grande escala para \textit{object detection}, segmentación y captación.
 
-Model Garden dispone de un apartado dedicado a la visión artificial, donde se encuentran los ámbitos de clasificación de imágenes, como \textit{MNIST}, \textit{ResNet} o \textit{EfficentNet}, y detección de objetos y segmentación, donde se destacan \textit{RetinaNet}, \textit{Mask R-CNN}, etc. Sin embargo, este prototipo se centrará en la implementación de uno de los modelos que ofrece Model Garden, llamado \textit{SSD-MobileNet}, y aplicar \textit{Transfer Learning} sobre el, para obtener un detector de lo que estamos buscando, comprobar si la mascarilla esta bien vestida.
+Model Garden dispone de un apartado dedicado a la visión artificial, donde se encuentran los ámbitos de clasificación de imágenes, como \textit{MNIST}, \textit{ResNet} o \textit{EfficentNet}, y detección de objetos y segmentación, donde se destacan \textit{RetinaNet}, \textit{Mask R-CNN}, etc. Sin embargo, este prototipo se centrará en la implementación de uno de los modelos que ofrece Model Garden, llamado \textit{SSD-MobileNet}, y aplicar \textit{Transfer Learning} sobre el, para obtener un detector sobre una tarea específica, comprobar si la mascarilla esta bien vestida.
 
 Transfer Learning es una técnica en la que se reusa un modelo pre-entrenado para un nuevo problema. Últimamente su uso se esta popularizando, ya que permite el entrenamiento de una \textit{deep neural network} con una pequeña cantidad de datos. Algo bastante revolucionario, puesto que todos los modelos hasta ahora necesitaban millones de datos, clasificados a mano y posteriormente necesitar una gran capacidad computacional para ser entrenados \cite{transferLearning}. En este caso, se busca utilizar un modelo general de detección de objetos y aplicando transfer learning, re-entrenarlo para una tarea más especifica pero sin desperdiciar sus conocimientos previos.
 
@@ -351,7 +344,7 @@ El modelo \textit{SSD} se caracteriza por estar formado por dos componentes prin
 	\label{fig:ssd}
 \end{figure}
 
-Otras característica destacables de SSD es la división de la imagen de entrada mediante un \textit{grid} y realizar una predicción de la clase y la localización del objeto en cada una de las celdas de dicho grid. Si en dicho grid no existe ningún objeto, se considera como \textit{background} y la localización es ignorado. A cada celda se le puede asignar varias \textit{anchor boxes} (\textit{Bounding boxes} con una altura y anchura predefinida) con un tamaño igual al de las celdas. Pero no todos los objetos que están contenidos en la imagen tienen dicho tamaño, por eso se añade un parámetro (\textit{ratio}) dedicado a especificar los diferentes valores que pueden tomar las \textit{anchor boxes}. Asimismo, existe otro parámetro llamado zoom para especificar cuanto pueden escalar dichos \textit{boxes}, tanto aumentando como reduciendo \cite{ssdwork}.
+Otras características destacables de SSD es la división de la imagen de entrada mediante un \textit{grid} y realizar una predicción de la clase y la localización del objeto en cada una de las celdas de dicho grid. Si en dicho grid no existe ningún objeto, se considera como \textit{background} y la localización es ignorada. A cada celda se le puede asignar varias \textit{anchor boxes} (\textit{Bounding boxes} con una altura y anchura predefinida) con un tamaño igual al de las celdas. Pero no todos los objetos que están contenidos en la imagen tienen dicho tamaño, por eso se añade un parámetro (\textit{ratio}) dedicado a especificar los diferentes valores que pueden tomar las \textit{anchor boxes}. Asimismo, existe otro parámetro llamado zoom para especificar cuanto pueden escalar dichos \textit{boxes}, tanto aumentando como reduciendo \cite{ssdwork}.
 
 El comportamiento y aportaciones específicas de este modelo, vienen planteadas en el paper con su mismo nombre, \textit{"SSD: Single Shot MultiBox Detector"} \cite{ssd}. Y son las siguientes:
 
@@ -359,7 +352,7 @@ El comportamiento y aportaciones específicas de este modelo, vienen planteadas 
 	\item Se introduce un modelo para la detección de múltiples categorías que es más eficaz y preciso que los modelos posteriores como \textit{YOLO}.
 	\item El núcleo de SSD predice la categoría y localización de la \textit{bounding box} mediante el uso de pequeños filtros convolucionales aplicados sobre mapas de características.
 	\item Para obtener una mayor precisión se realizan predicciones sobre mapas de características con diferente escalado.
-	\item Experimentación con análisis de tiempo y precisión sobre el modelo evaluado sobre \textit{PASCAL VOC}, \textit{COCO} y \textit{ILSVRC}. Asimismo, es comparado con modelos recientes.
+	\item Experimentación con análisis de tiempo y precisión sobre el modelo evaluado sobre \textit{PASCAL VOC}, \textit{COCO} y \textit{ILSVRC}. De la misma forma, es comparado con modelos recientes.
 \end{enumerate}
 
 MobileNet es un modelo con arquitectura \textit{CNN} para la clasificación de imágenes y visión artificial en móviles. Lo que hace especial este modelo es la potencia computacional necesaria para ejecutarlo o aplicar transfer learning sobre el. Esto lo convierte en un perfecto candidato para dispositivos móviles, sistemas integrados y ordenadores sin GPU o baja eficiencia computacional sin llegar a comprometer significativamente la precisión de los resultados.
@@ -386,7 +379,7 @@ A la hora de elegir un modelo se tienen en cuenta dos parámetros principales. E
 \vspace{-0.7cm}
 Para el dataset, se ha realizado una combinación de datasets donde aparecen imágenes de personas con mascarilla, sin ella y con ella pero mal puesta \cite{Cabani_2021} \cite{datasetMask}. Consta de un total de 895 imágenes, dividas en dos grupos train y test. En el primero se encuentran las imágenes que se utilizarán para el entrenamiento del modelo por \textit{Transfer Learning} y cuenta con 745 imágenes. Mientras que, el conjunto de test se utilizará para validar el modelo entrenado con un total de 150 imágenes.
 
-Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del mismo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los dos labels del trabajo: \textit{mask} o \textit{noMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
+Antes de realizar el modelo es necesario preparar las imágenes conjuntamente a un archivo donde se plasmen las etiquetas del mismo. Para ello, se hace uso de un programa (hecho en Python) llamado \textit{labelImg}. Al tratar las imágenes, se crean unos archivos \textit{xml} donde se encuentra la información del etiquetado que se ha realizado, en este caso se tiene uno de los tres labels del trabajo: \textit{mask}, \textit{noMask} o \textit{badMask}. Una vez creados todos los archivos de etiquetado \textit{xml} con los labels, se tiene que crear un archivo \textit{pbtxt} donde se refleje todas las labels posibles que tendrá el modelo.
 
 En resumen, un \textit{LabelMap} es una archivo referido a enumerar todas las clases posibles en la identificación de objetos. Además, cada una de las imágenes de entrenamiento dispondrá de un archivo adicional donde aparezcan cada \textit{label} de la misma y su localización. Depende del modelo usado, los archivos de \textit{LabelMap} serán de un tipo u otro. En el caso de Tensorflow se utiliza un \textit{TFRecord}, mientras que en YOLO se usa un \textit{txt}.
 
@@ -410,12 +403,12 @@ De manera que, cuando se obtiene el label que se ha detectado, se utiliza la her
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=12cm]{imagenes/tf_prueba.png}
+	\includegraphics[width=10cm]{imagenes/tf_prueba.png}
 	\caption{Pruebas con SSD-MobileNetV2.}
 	\label{fig:protoTensorFlow}
 \end{figure}
 
-El tiempo de retardo que presenta este prototipo para el PC1 es de una media de 83.2 ms y para el PC2 de 67.49 ms. El resultado obtenido sea bastante bueno, cuando solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo tras un entrenamiento con un dataset más amplio, funciona de forma correcta pero con más errores. Destacando que su funcionamiento correcto sucede en una distancia a cámara muy cercana. Cuanto más lejos se sitúe la persona de la cámara, más detecciones falsas se crearán, sobre todo en el caso de encontrar una mascarilla cuando no la hay. Este puede mejorar su funcionamiento si se realiza un dataset más amplio aún y un entrenamiento más largo. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
+El tiempo de retardo que presenta este prototipo en una ejecución en tiempo real para el PC1 es de una media de 83.2 ms y para el PC2 de 67.49 ms. El resultado obtenido sea bastante bueno, cuando solamente funciona en un ámbito cerrado. Esto se debe a que el entrenamiento del modelo usado se ha realizado con imágenes mías. Aun así, este prototipo tras un entrenamiento con un dataset más amplio, funciona de forma correcta pero con más errores. Destacando que su funcionamiento correcto sucede en una distancia a cámara muy cercana. Cuanto más lejos se sitúe la persona de la cámara, más detecciones falsas se crearán, sobre todo en el caso de encontrar una mascarilla cuando no la hay. Este puede mejorar su funcionamiento si se realiza un dataset más amplio aún y un entrenamiento más largo. Por ejemplo, el prototipo realiza detecciones de \textit{badMask} cuando debería ser \textit{noMask} o viceversa, haciendo difícil la diferenciación entre ambas. De igual forma, si se encuentra en una situación donde la iluminación sea escasa o la cámara no este bien colocada el rendimiento del prototipo disminuye.
 
 \newpage
 \section{Comparación}
@@ -469,6 +462,29 @@ La segunda comparación se basa en la medida del tiempo que toma el algoritmo en
 
 El resultado del estudio, sobre el PC1, presenta al prototipo 3 como el más veloz , mientras que el prototipo 1 como el más lento. Esto se debe a la tecnología implementada en el tercer prototipo, que presenta un modelo \textit{deep learning} centrado en realizar un trabajo rápido en cualquier dispositivo, incluyendo móviles. Mientras que en el PC2, se puede observar una mejora de rendimiento en el prototipo 4, gracias al uso de la GPU y CUDA. Pero el resto de prototipos obtienen un resultado semejante al del PC1.
 
-De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (Mediapipe). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (Haar-like features) o incluso entrenar un modelo personalizado como el cuarto prototipo (Transfer Learning). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
+\vspace{-0.5cm}
+\subsection*{Dataset}
+\vspace{-0.5cm}
+
+Tratar el procedimiento del dataset para cada una de las técnicas. Dando el porcentaje de acierto, porcentaje de resultados y acierto/resultados.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c| } 
+			\hline
+			& \textbf{Prototipo 1} & \textbf{Prototipo 2} & \textbf{Prototipo 3} & \textbf{Prototipo 4} \\
+			\hline
+			\textbf{Estudio 1} &  &  &  &  \\
+			\hline
+			\textbf{Estudio 2} &  &   &  &  \\
+			\hline
+		\end{tabular}
+		\caption{Tiempo de los prototipos.}
+		\label{tab:table4}
+	\end{center}
+\end{table}
+
+
+De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (\textit{Mediapipe}). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (\textit{Haar-like features}) o incluso entrenar un modelo personalizado como el cuarto prototipo (\textit{Transfer Learning}). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
 
 
