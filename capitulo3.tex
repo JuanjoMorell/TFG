@@ -4,20 +4,21 @@
 
 \chapter{Análisis de objetivos y metodología}
 \vspace{-1cm}
-El COVID-19 es un virus que ha provocado en la humanidad incontables problemas, y en el mundo de la visión artificial también, por eso me voy a centrar en la creación de un prototipo que sea capaz de revisar el cumplimiento de las normas COVID impuestas en España y en todo el mundo por la OMS. Concretamente, detectar cuando una persona lleva, de manera correcta, una mascarilla al entrar a un comercio, cine, restaurante, etc. Los objetivos que se plantean para llevar esto a cabo son los siguientes:
+El COVID-19 es un pandemia que ha provocado en la humanidad incontables problemas, y en el mundo de la visión artificial también. Por ello, este TFG se ha centrado en la creación de un prototipo que sea capaz de revisar el cumplimiento de las normas COVID impuestas en España y en todo el mundo por la OMS. Concretamente, un prototipo que detecte cuándo una persona lleva, de manera correcta, una mascarilla al entrar a un comercio, cine, restaurante, etc. Los objetivos que se plantean para llevarlo a cabo son los siguientes:
 
 \begin{itemize}
-	\item Estudio de las tecnologías actuales, para comprobar su comportamiento con uso de mascarilla.
-	\item Creación de un prototipo capaz de reconocer rostros y detectar si se lleva mascarilla.
-	\item Estudiar la capacidad de que el prototipo pueda identificar si se lleva correctamente la mascarilla. 
-	\item Poder detectar la mascarilla, independientemente del tipo que se lleve.
+	\item Estudio de las tecnologías de detección facial actuales, para comprobar su comportamiento con uso de mascarilla.
+	\item Creación de un prototipo capaz de reconocer rostros y detectar si llevan puesta la mascarilla.
+	\item Estudiar la capacidad de que el prototipo pueda identificar si se lleva correctamente la mascarilla, es decir, cubriendo la nariz y la boca. 
+	\item Poder detectar la mascarilla, independientemente del tipo o del dibujo que se lleve.
 \end{itemize}
 \vspace{-0.7cm}
-\section{Prototipo}
+\section{Prototipos a desarrollar}
 \vspace{-0.5cm}
-Para cada uno de los apartados del desarrollo de este \textit{TFG} se creará un prototipo con la finalidad de mostrar la tecnología expuesta en el mismo, con el objetivo final de crear una aplicación que contenga todos los prototipos y se puedan ejecutar de forma sencilla. 
 
-Los prototipos serán probados en varios escenarios de prueba, todos ellos se realizarán en tiempo real. Se contará con una totalidad de tres escenarios:
+El desarrollo del TFG se divide en la creación de cuatro prototipos, centrados en cada una de las técnicas que se van a utilizar. Cada prototipo tendrá como objetivo final detectar el rostro de una persona y clasificar si lleva mascarilla, bien o mal, o no la lleva.
+
+Los prototipos serán probados en varios escenarios de prueba, todos ellos se realizarán en tiempo real. Se contará con tres escenarios distintos:
 
 \begin{itemize}
 	\item Detección de mascarillas a una distancia cercana.
@@ -25,7 +26,7 @@ Los prototipos serán probados en varios escenarios de prueba, todos ellos se re
 	\item Detección de mascarillas desde una posición alejada.
 \end{itemize}
 
-Asimismo, las pruebas se repetirán en dos dispositivos diferentes. El primero de ellos sin GPU y el segundo con GPU (CUDA). A continuación se muestran las especificaciones de los dispositivos:
+Asimismo, las pruebas se repetirán en dos dispositivos diferentes, el primero de ellos sin GPU y el segundo con GPU (CUDA). A continuación se muestran las especificaciones de los dispositivos en la tabla \ref{tab:table1}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -51,39 +52,40 @@ Asimismo, las pruebas se repetirán en dos dispositivos diferentes. El primero d
 	\end{center}
 \end{table}
 
-Por último, serán probados bajo un mismo \textit{dataset} (mostrado en el apartado \ref{dataset}) para calcular el porcentaje de aciertos y detecciones que consiguen cada uno de ellos.
+Por último, los prototipos serán probados bajo un mismo \textit{dataset} (mostrado en el apartado \ref{dataset}) para calcular el porcentaje de aciertos y detecciones que consiguen cada uno de ellos.
 
 \vspace{-0.9cm}
-\section*{Herramientas}
+\section{Herramientas}
 \vspace{-0.5cm}
 
-Para el desarrollo del prototipo se hará uso del lenguaje de programación de alto nivel, Python. Junto a este se usarán las siguientes herramientas:
+Para el desarrollo del prototipo se hará uso del lenguaje de programación de alto nivel Python. Junto a este se usarán las siguientes herramientas:
 
 \begin{itemize}
-	\item \textit{OpenCV}: Librería \textit{Open Source} centrada en la creación de aplicaciones en tiempo real sobre visión artificial, que cuenta con una gran cantidad de implementaciones de algoritmos de visión artificial.
-	\item \textit{Dlib}: Librería compuesta por implementaciones de algoritmos \textit{Machine Learning}, centrada en la creación de aplicaciones que resuelven problemas del mundo real. En concreto se hará uso de su apartado de \textit{HOG detector} y \textit{Facial Landmark}.
-	\item \textit{Scikit-learn}: Librería de \textit{Machine Learning} capaz de realizar clasificación, regresión, \textit{support vector machine} (SVM), \textit{gradient boosting, \textit{k-mean}}, etc. Se implementa conjuntamente con las librerías Numpy y SciPy.
-	\item \textit{Numpy}: Librería que añade funcionalidad a \textit{arrays} multidimensionales y matrices, junto a un gran conjunto de operaciones matemáticas para trabajar con ellos.
-	\item \textit{Mediapipe}: Librería con soluciones y aplicaciones de \textit{Machine Learning} para dispositivos móviles, en la nube o web.
-	\item \textit{Tensorflow}: Librería de \textit{Machine Learning}, referente a el entrenamiento y utilización de redes convolucionales (\textit{Deep Learning}).
+	\item \textit{OpenCV}. Librería \textit{Open Source} centrada en la creación de aplicaciones en tiempo real sobre visión artificial, que cuenta con una gran cantidad de implementaciones de algoritmos de visión artificial \cite{opencv}.
+	\item \textit{Dlib} \cite{dlib}. Librería compuesta por implementaciones de algoritmos \textit{Machine Learning}, centrada en la creación de aplicaciones que resuelven problemas del mundo real. En concreto, se hará uso de su apartado de \textit{HOG detector} \cite{hog} y \textit{Facial Landmark} \cite{faceLandmark}.
+	\vspace{-0.3cm}
+	\item \textit{Scikit-learn}. Librería de \textit{machine learning} capaz de realizar clasificación, regresión, \textit{support vector machine} (SVM), \textit{gradient boosting, \textit{k-mean}}, etc. Se implementa conjuntamente con las librerías Numpy y SciPy \cite{scikit-learn}.
+	\item \textit{Numpy}. Librería que añade funcionalidad a \textit{arrays} multidimensionales y matrices, junto a un gran conjunto de operaciones matemáticas para trabajar con ellos \cite{2020NumPy-Array}.
+	\item \textit{Mediapipe}. Librería con soluciones y aplicaciones de \textit{Machine Learning} para dispositivos móviles, en la nube o web \cite{mediapipe}.
+	\item \textit{Tensorflow}. Librería de \textit{Machine Learning}, referente al entrenamiento y utilización de redes convolucionales (\textit{Deep Learning}) \cite{tensorflow}.
 \end{itemize}
 
 \vspace{-1cm}
-\section*{Fases de desarrollo}
+\section{Fases de desarrollo}
 \vspace{-0.5cm}
-El proceso de implementación del prototipo en cada una de las técnicas presentadas en este TFG, van a contar con el siguiente flujo de trabajo:
+El proceso de desarrollo del prototipo en cada una de las técnicas presentadas en este TFG, seguirá el siguiente flujo de trabajo:
 
 \begin{enumerate}
-	\item \textit{Investigación}: El primer paso, se centra en la investigación del funcionamiento de la técnica a estudiar. Priorizando el estudio del \textit{paper}, artículo oficial donde se presenta la técnica por sus autores. Y, posteriormente buscar información extra en libros u artículos web.
-	\item \textit{Implementación básica}: EL segundo paso se trata de realizar una implementación de la técnica estudiada, tal y como se presenta por los autores. Con el objetivo de realizar un estudio de precisión y rapidez.
-	\item \textit{Implementación propia}: Por último, se crea un prototipo de la técnica intentando resolver los objetivos establecidos. Recabando datos, para una comparación final entre todas las técnicas estudiadas.
+	\item \textit{Investigación}. El primer paso se centra en la investigación del funcionamiento de la técnica a estudiar, priorizando el estudio del artículo oficial donde se presenta la técnica por sus autores. Y, posteriormente, se buscará información extra en libros o artículos web.
+	\item \textit{Implementación básica}. El segundo paso se trata de realizar una implementación de la técnica estudiada, tal y como se presenta por los autores, con el objetivo de realizar un estudio de precisión y rapidez.
+	\item \textit{Implementación propia}. Por último, se crea un prototipo de la técnica intentando resolver los objetivos establecidos, recabando datos, para una comparación final entre todas las técnicas estudiadas.
 \end{enumerate}
 
 \vspace{-0.7cm}
-\section*{Dataset} \label{dataset}
+\section{Dataset} \label{dataset}
 \vspace{-0.5cm}
 
-Un \textit{dataset} es un conjunto de imágenes utilizado para realizar el entrenamiento y validación de un modelo de \textit{Machine Learning}. En este trabajo se hará uso de la combinación de dos \textit{dataset} existentes para representar todas las posibilidades del problema planteado, conteniendo imágenes de personas con mascarilla, sin ella y con ella pero mal colocada. El primer dataset de la combinación proviene de \textit{Kaggle} llamado \textit{Covid face mask detection dataset} \cite{datasetMask} (Figura \ref{fig:1}). Kaggle es una comunidad de \textit{Machine Learning} y \textit{Deep Learning} donde se comparten proyectos y dataset. Mientras que, el segundo dataset proviene de una investigación \cite{Cabani_2021}, llamada \textit{Maskedface-net}, centrada en la creación de imágenes de personas donde se muestre un mal uso de la mascarilla (Figura \ref{fig:1}). Finalmente, el dataset creado para este trabajo cuenta con un total de 895 imágenes, donde 745 formarán el conjunto de entrenamiento y 150 el de test.
+Un \textit{dataset} es un conjunto de imágenes utilizado para realizar el entrenamiento y validación de un modelo de \textit{Machine Learning}. En este trabajo se hará uso de la combinación de dos \textit{dataset} existentes para representar todas las posibilidades del problema planteado, conteniendo imágenes de personas con mascarilla, sin ella y con ella pero mal colocada. El primer dataset de la combinación proviene del artículo de \textit{Kaggle} llamado \textit{Covid face mask detection dataset} \cite{datasetMask} (Figura \ref{fig:1}). Kaggle es una comunidad de \textit{Machine Learning} y \textit{Deep Learning} donde se comparten proyectos y dataset. El segundo dataset proviene de una investigación \cite{Cabani_2021}, llamada \textit{Maskedface-net}, centrada en la creación de imágenes de personas donde se muestre un mal uso de la mascarilla (Figura \ref{fig:1}). Finalmente, el dataset creado para este trabajo cuenta con un total de 895 imágenes mezcladas de ambas fuentes, donde 745 formarán el conjunto de entrenamiento y 150 el de test.
 
 \vspace{0.3cm}
 
@@ -136,7 +138,7 @@ Un \textit{dataset} es un conjunto de imágenes utilizado para realizar el entre
 		\caption{}
 		\label{fig:1i}
 	\end{subfigure}
-	\caption{Ejemplos de imágenes del dataset 1 (\ref{fig:1a}, \ref{fig:1b}, \ref{fig:1d}, \ref{fig:1e}, \ref{fig:1f}, \ref{fig:1g}) y del dataset 2 (\ref{fig:1c}, \ref{fig:1h}, \ref{fig:1i}).}
+	\caption[Ejemplos de imágenes del dataset 1 y del dataset 2]{Ejemplos de imágenes del dataset 1 (\ref{fig:1a}, \ref{fig:1b}, \ref{fig:1d}, \ref{fig:1e}, \ref{fig:1f}, \ref{fig:1g}) y del dataset 2 (\ref{fig:1c}, \ref{fig:1h}, \ref{fig:1i}). Se puede observar que en el segundo dataset la máscarilla se ha generado de forma artificial.}
 	\label{fig:1}
 \end{figure}
 

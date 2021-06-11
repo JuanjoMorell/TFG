@@ -47,50 +47,52 @@ Warning--empty journal in cnn
 Warning--empty journal in adaboost1
 Warning--empty journal in oms
 Warning--empty journal in faceMesh
+Warning--empty journal in ibmWatson
 Warning--empty journal in faceMesh2
 Warning--empty booktitle in inproceedings
 Warning--empty journal in adaboost2
 Warning--empty journal in mediapipe
 Warning--empty journal in hog2
-You've used 38 entries,
+Warning--empty journal in opencv
+You've used 44 entries,
             2882 wiz_defined-function locations,
-            833 strings with 11240 characters,
-and the built_in function-call counts, 16053 in all, are:
-= -- 1626
-> -- 606
+            868 strings with 12664 characters,
+and the built_in function-call counts, 19697 in all, are:
+= -- 1955
+> -- 882
 < -- 6
-+ -- 223
-- -- 184
-* -- 792
-:= -- 2248
-add.period$ -- 148
-call.type$ -- 38
-change.case$ -- 203
++ -- 330
+- -- 284
+* -- 1076
+:= -- 2825
+add.period$ -- 169
+call.type$ -- 44
+change.case$ -- 271
 chr.to.int$ -- 0
-cite$ -- 51
-duplicate$ -- 452
-empty$ -- 1578
-format.name$ -- 184
-if$ -- 4247
+cite$ -- 59
+duplicate$ -- 516
+empty$ -- 1820
+format.name$ -- 284
+if$ -- 5082
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 26
-newline$ -- 227
-num.names$ -- 76
-pop$ -- 498
+int.to.str$ -- 44
+missing$ -- 31
+newline$ -- 260
+num.names$ -- 88
+pop$ -- 597
 preamble$ -- 1
-purify$ -- 168
+purify$ -- 230
 quote$ -- 0
-skip$ -- 1179
+skip$ -- 1356
 stack$ -- 0
-substring$ -- 409
-swap$ -- 103
+substring$ -- 519
+swap$ -- 111
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 146
-warning$ -- 13
-while$ -- 87
-width$ -- 40
-write$ -- 450
+type$ -- 170
+warning$ -- 15
+while$ -- 103
+width$ -- 46
+write$ -- 517
 (There were 2 error messages)

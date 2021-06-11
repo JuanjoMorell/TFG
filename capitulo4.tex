@@ -3,7 +3,7 @@
 \chapter{Diseño y resolución}
 \vspace{-1cm}
 
-En este capítulo se realizará el diseño y resolución del problema planteado mediante la realización de cuatro prototipos. El primer prototipo se basa en el uso de un algoritmo desarrollado por Paul Viola y Michael Jones, centrado en el uso de Haar-like features y un modelo de \textit{Machine Learning} (Adaboost). \textit{Facial Landmark} será la tecnica usada para el segundo prototipo, estudiando concretamente el algoritmo implementado en \textit{Dlib}, toolkit de algoritmos de \textit{Machine Learning}. El tercer prototipo estará implementado mediante una solución de Mediapipe, \textit{FaceMesh}. Mientras que, el cuarto prototipo se construirá mediante el uso de la técnica \textit{Transfer Learning} y el framework \textit{Tensorflow}. Por último, se realizará una comparacion entre todos los prototipos mediante un estudio de su funcionamiento en una aplicacion en tiempo real y bajo un dataset.
+En este capítulo se realizará el diseño y resolución del problema planteado mediante la realización de cuatro prototipos. El primer prototipo se basa en el uso de un algoritmo desarrollado por Paul Viola y Michael Jones, centrado en el uso de Haar-like features y un modelo de \textit{Machine Learning} (Adaboost). \textit{Facial Landmark} será la técnica usada para el segundo prototipo, estudiando concretamente el algoritmo implementado en \textit{Dlib}, toolkit de algoritmos de \textit{Machine Learning}. El tercer prototipo estará implementado mediante una solución de Mediapipe, \textit{FaceMesh}. Mientras que, el cuarto prototipo se construirá mediante el uso de la técnica \textit{Transfer Learning} y el framework \textit{Tensorflow}. Por último, se realizará una comparación entre todos los prototipos mediante un estudio de su funcionamiento en una aplicación en tiempo real y bajo un dataset.
 
 \vspace{-1cm}
 \section{Paul Viola and Michael Jones} \label{haar-like}
@@ -27,7 +27,7 @@ Las imágenes que se toman para realizar la detección pasan por una transformac
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=5cm]{imagenes/haar-like.jpeg}
-	\caption{Haar-like Features \cite{haar-like}.}
+	\caption[Haar-like Features.]{Haar-like Features \cite{haar-like}.}
 	\label{fig:haarLike}
 \end{figure}
 \vspace{-0.3cm}
@@ -48,7 +48,7 @@ Si se supone una imagen con unas dimensiones de $<w,h>$ (ancho y alto, respectiv
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=5cm]{imagenes/integral.png}
-	\caption{Funcionamiento de una \textit{Imagen Integral} \cite{integral-web}.}
+	\caption[Funcionamiento de una \textit{Imagen Integral}]{Funcionamiento de una \textit{Imagen Integral} \cite{integral-web}.}
 	\label{fig:integral}
 \end{figure}
 
@@ -71,7 +71,7 @@ El procedimiento para encontrar \textit{Weak Classifiers} es ejecutar el algorit
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=10cm]{imagenes/ada1.png}
-	\caption{Construcción del \textit{Strong Classifier} \cite{adaboost2}.}
+	\caption[Construcción del \textit{Strong Classifier}]{Construcción del \textit{Strong Classifier} \cite{adaboost2}.}
 	\label{fig:ada1}
 \end{figure}
 
@@ -80,7 +80,7 @@ Con estos clasificadores se procede a la construcción de una estructura en casc
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=8cm]{imagenes/ada2.png}
-	\caption{Construcción del \textit{Multi-stage Classifier} \cite{adaboost2}.}
+	\caption[Construcción del \textit{Multi-stage Classifier}]{Construcción del \textit{Multi-stage Classifier} \cite{adaboost2}.}
 	\label{fig:ada2}
 \end{figure}
 
@@ -97,7 +97,7 @@ La prueba de esta prototipo se realizará a una distancia corta (70 cm)  y media
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=10cm]{imagenes/prueba_proto1.jpg}
-	\caption{Pruebas con Haar-like features con: \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}}
+	\caption[Pruebas con Haar-like features con: \textit{frontalface\_default.xml} y \newline \textit{frontalface\_alt2.xml}]{Pruebas con Haar-like features con: \textit{frontalface\_default.xml} y \textit{frontalface\_alt2.xml}}
 	\label{fig:haar1}
 \end{figure}
 
@@ -128,7 +128,7 @@ El \textbf{segundo prototipo} (custom) implementa un identificador de caras conj
 	
 	\item Modelo PCA/SVM
 	
-	Una vez obtenido el ROI de la localización de la cara con o sin mascarilla, se procede a predecir de que caso se trata. Previo a dicha predicción y ejecución del prototipo, se necesita entrenar el modelo. Y para ello se toman como referencias las imagenes de nuestro dataset, concretamente el conjunto de train. El entrenamiento se realiza con la ejecución del archivo \textit{Python: trainDataset.py}, que recorrerá todas las imagenes del conjunto train del dataset. El modelo final esta formado por un PCA (Principal Component Analysis) seguido de un SVM (Super Vector Machine).
+	Una vez obtenido el ROI de la localización de la cara con o sin mascarilla, se procede a predecir de que caso se trata. Previo a dicha predicción y ejecución del prototipo, se necesita entrenar el modelo. Y para ello se toman como referencias las imagenes de nuestro dataset, concretamente el conjunto de train. El entrenamiento se realiza con la ejecución del archivo \textit{Python: trainDataset.py}. El modelo final esta formado por un algoritmo PCA (Principal Component Analysis) seguido de un modelo SVM (Super Vector Machine).
 	
 	Principal Component Analysis, (\textbf{PCA}), es un algoritmo de \textit{Machine Learning} dedicado a la reducibilidad de dimensionalidad. Identifica un hiperplano común que conecta a todos los datos y son proyectados sobre él. \textit{Scikit-Learn} ofrece una implementación de este, mediante descomposición SVD (Singular Value Decomposition), también conocido como una regresión lineal \cite{geron_2020}. La salida de PCA servirá para reducir la complejidad de la entrada al modelo \textbf{SVM} (Support Vector Machine), capaz de realizar regresiones o clasificaciones tanto lineales como no lineales. La idea tras este modelo es separar los distintos conjuntos de datos existentes mediante lineas rectas en el espacio (Figura \ref{fig:svm}) \cite{geron_2020}.
 	
@@ -178,7 +178,7 @@ La idea teórica tras \textit{HOG} es encontrar la apariencia y forma de un obje
 	\begin{figure}[htp]
 		\centering
 		\includegraphics[width=3cm]{imagenes/HOGFormula.png}
-		\caption{Fórmula \textit{HOG} \cite{hog2}.}
+		\caption[Fórmula \textit{HOG}.]{Fórmula \textit{HOG} \cite{hog2}.}
 		\label{fig:hogf}
 	\end{figure}
 	
@@ -204,7 +204,7 @@ Este método fue uno de los primeros que mejoró el rendimiento, a diferencia co
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=6cm]{imagenes/facial_landmarks_68markup.jpg}
-	\caption{68 coordenadas del \textit{facial landmark} con \textit{iBUG 300-W} \textit{dataset} \cite{ibug}.}
+	\caption[68 coordenadas del \textit{facial landmark} con \textit{iBUG 300-W} \textit{dataset}]{68 coordenadas del \textit{facial landmark} con \textit{iBUG 300-W} \textit{dataset} \cite{ibug}.}
 	\label{fig:dlibPoints}
 \end{figure}
 
@@ -244,7 +244,7 @@ Mediante \textit{OpenCV} y el \textit{ToolKit Dlib} se obtiene la implementació
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=12cm]{imagenes/landmark_prueba.png}
-	\caption{Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit{mcs\_mouth.xml}.}
+	\caption[Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit{mcs\_mouth}.]{Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit{mcs\_mouth.xml}.}
 	\label{fig:dlibLandmarks}
 \end{figure}
 
@@ -270,7 +270,7 @@ El \textit{pipeline} puede ser definido mediante la adición/modificación de \t
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=10cm]{imagenes/faceMesh.png}
-	\caption{MediaPipe Graph utilizado en FaceMesh \cite{mpGraph}.}
+	\caption[MediaPipe Graph utilizado en FaceMesh.]{MediaPipe Graph utilizado en FaceMesh \cite{mpGraph}.}
 	\label{fig:faceMesh}
 \end{figure}
 
@@ -287,7 +287,7 @@ El segundo modelo, \textit{Face Landmark Model}, generado mediante \textit{Trans
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=10cm]{imagenes/rendFaceMesh.png}
-	\caption{Rendimiento de FaceMesh sobre dispositivos móviles \cite{faceMesh3}.}
+	\caption[Rendimiento de FaceMesh sobre dispositivos móviles.]{Rendimiento de FaceMesh sobre dispositivos móviles \cite{faceMesh3}.}
 	\label{fig:faceMeshRen}
 \end{figure}
 
@@ -345,7 +345,7 @@ El modelo \textit{SSD} se caracteriza por estar formado por dos componentes prin
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=10cm]{imagenes/cnnssd.png}
-	\caption{Arquitectura de una CNN con uso de SSD \cite{ssdwork}.}
+	\caption[Arquitectura de una CNN con uso de SSD.]{Arquitectura de una CNN con uso de SSD \cite{ssdwork}.}
 	\label{fig:ssd}
 \end{figure}
 
@@ -419,7 +419,7 @@ El tiempo de retardo que presenta este prototipo en una ejecución en tiempo rea
 \section{Comparación}
 \vspace{-0.7cm}
 
-Este apartado estará dedicado a la comparación de los prototipos implementados anteriormente, con el objetivo de contrastar el funcionamiento de todos ellos y las técnicas implementadas. Para ello, se hará uso de dos medidas: distancia de funcionamiento y el tiempo que tarda en procesar una imagen.
+Este apartado estará dedicado a la comparación de los prototipos implementados anteriormente, con el objetivo de contrastar el funcionamiento de todos ellos y las técnicas implementadas. Para ello, se hará uso de tres medidas: distancia de funcionamiento, el tiempo que tarda en procesar una imagen y porcentaje de acierto/detección bajo el dataset. Las dos primeras serán sobre una ejecución en tiempo real.
 
 \vspace{-0.7cm}
 \subsection*{Distancia}
@@ -473,7 +473,7 @@ El resultado del estudio, sobre el PC1, presenta al prototipo 3 como el más vel
 \subsection*{Dataset}
 \vspace{-0.5cm}
 
-La última comparacion será observar el porcentaje de aciertos de cada uno de los prototipos para el dataset creado para este trabajo. Para ello, el experimento se centrará en el porcentaje de aciertos tanto del conjunto test como del dataset al completo. Además, se mostrará el total de imagenes con detecciones, ya que si no se consigue realizar una detección, tampoco se podrá saber si la persona lleva o no mascarilla. El resultado de los experimentos aparecen en las siguientes tablas:
+La última comparación será observar el porcentaje de aciertos/detecciones de cada uno de los prototipos para el dataset creado para este trabajo. Para ello, el experimento se centrará en el porcentaje de aciertos tanto del conjunto test como del dataset al completo. Además, se mostrará el total de imágenes con detecciones, ya que si no se consigue realizar una detección, tampoco se podrá saber si la persona lleva o no mascarilla. El resultado de los experimentos aparecen en las siguientes tablas:
 
 
 \begin{table}[h!]
@@ -508,9 +508,9 @@ La última comparacion será observar el porcentaje de aciertos de cada uno de l
 	\end{center}
 \end{table}
 
-Para el primer y cuarto prototipo obtienen dos resultados. El primero hace referencia al porcentaje de aciertos conseguidos cuando hay tres clase para clasificar: \textit{Mask}, \textit{NoMask} y \textit{BadMask}. Mientras que, el segundo resultado es el caso cuando la clase \textit{BadMask} se trata como \textit{NoMask}. Asimismo, los exprerimentos en el segundo y tercer prototipo se realizan solamente con la clasificacion de dos clases: \textit{Mask} y \textit{NoMask}. 
+Para el primer y cuarto prototipo se obtienen dos resultados. El primero hace referencia al porcentaje de aciertos conseguidos cuando hay tres clase para clasificar: \textit{Mask}, \textit{NoMask} y \textit{BadMask}. Mientras que, el segundo resultado es el caso cuando la clase \textit{BadMask} se trata como \textit{NoMask}. Asimismo, los experimentos en el segundo y tercer prototipo se realizan solamente con la clasificación de dos clases: \textit{Mask} y \textit{NoMask}. 
 
-Como resultado de esta comparacion se obtiene que el cuarto prototipo consigue un porcentaje alto de aciertos, teniendo en cuenta que consigue detectar el 100\% de las imagenes que trata. Sin embargo, es importante destacar el funcionamiento de los demás prototipos, consiguiendo detectar/clasificar las imagenes de entrada con un buen resultado.
+Como resultado de esta comparación se obtiene que el cuarto prototipo consigue un porcentaje alto de aciertos, teniendo en cuenta que consigue detectar el 100\% de las imágenes que trata. Sin embargo, es importante destacar el funcionamiento de los demás prototipos, consiguiendo detectar/clasificar las imágenes de entrada con un buen resultado.
 
 De ello resulta necesario decir, que no hay ningún prototipo capaz de destacar en todos los ámbitos, haciendo imposible la selección de una solución general para el problema. Todas las técnicas usadas en este trabajo son capaces de resolverlo, y dependiendo de donde se tenga que implementar el prototipo se tendría que realizar otro estudio para resolver los objetivos del cliente. Por ejemplo,  si se desea implementar un detector de este tipo en un dispositivo móvil o en un sistema embebido, se buscaría un prototipo que sea rápido y poco pesado, como el tercer prototipo (\textit{Mediapipe}). Mientras que, si se dispone de un dispositivo con más potencia de computo se podría plantear usar un prototipo más lento pero preciso como el primer prototipo (\textit{Haar-like features}) o incluso entrenar un modelo personalizado como el cuarto prototipo (\textit{Transfer Learning}). Aun así, se debería de realizar un estudio previo en el dispositivo donde se implementará el prototipo para poder realizar una decisión definitiva.  
 

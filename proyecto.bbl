@@ -92,6 +92,11 @@ WHO Headquarters~(HQ) Emergencies~Preparedness.
   \href {https://doi.org/WHO/2019-nCoV/IPC_Masks/2020.5}
   {\path{doi:WHO/2019-nCoV/IPC_Masks/2020.5}}.
 
+\bibitem{pascalVOC}
+M.~Everingham, L.~Gool, C.~K. Williams, J.~Winn, and Andrew Zisserman.
+\newblock The pascal visual object classes (voc) challenge.
+\newblock {\em International Journal of Computer Vision}, 88:303--338, 2009.
+
 \bibitem{gonzalez_woods_2018}
 Rafael~C. Gonzalez and Richard~E. Woods.
 \newblock {\em Digital image processing}.
@@ -122,12 +127,30 @@ Aurélien Géron.
   TensorFlow: concepts, tools, and techniques to build intelligent systems}.
 \newblock OReilly, 2020.
 
+\bibitem{2020NumPy-Array}
+Charles~R. Harris, K.~Jarrod Millman, Stéfan~J van~der Walt, Ralf Gommers,
+  Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg,
+  Nathaniel~J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten~H. van
+  Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández~del Río, Mark
+  Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy,
+  Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis~E. Oliphant.
+\newblock Array programming with {NumPy}.
+\newblock {\em Nature}, 585:357–362, 2020.
+\newblock \href {https://doi.org/10.1038/s41586-020-2649-2}
+  {\path{doi:10.1038/s41586-020-2649-2}}.
+
 \bibitem{mobilenet1}
 Andrew~G. Howard, Menglong Zhu, Bo~Chen, Dmitry Kalenichenko, Weijun Wang,
   Tobias Weyand, Marco Andreetto, and Hartwig Adam.
 \newblock Mobilenets: Efficient convolutional neural networks for mobile vision
   applications, 2017.
 \newblock \href {http://arxiv.org/abs/1704.04861} {\path{arXiv:1704.04861}}.
+
+\bibitem{ibmWatson}
+IBM.
+\newblock Ibm watson.
+\newblock 2021.
+\newblock URL: \url{https://www.ibm.com/es-es/watson}.
 
 \bibitem{ibm}
 IBM.
@@ -155,6 +178,12 @@ Vahid Kazemi and Josephine Sullivan.
 \newblock 06 2014.
 \newblock \href {https://doi.org/10.13140/2.1.1212.2243}
   {\path{doi:10.13140/2.1.1212.2243}}.
+
+\bibitem{krizhevsky2014weird}
+Alex Krizhevsky.
+\newblock One weird trick for parallelizing convolutional neural networks,
+  2014.
+\newblock \href {http://arxiv.org/abs/1404.5997} {\path{arXiv:1404.5997}}.
 
 \bibitem{adaboost2}
 Socret Lee.
@@ -202,6 +231,13 @@ Prithwiraj Mitra.
 \newblock URL:
   \url{https://www.kaggle.com/prithwirajmitra/covid-face-mask-detection-dataset}.
 
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
 \bibitem{YOLO}
 Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
 \newblock You only look once: Unified, real-time object detection, 2016.
@@ -226,6 +262,12 @@ Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh
 R.~Szeliski.
 \newblock {\em COMPUTER VISION: Algorithms and aplications.}
 \newblock SPRINGER NATURE, 2021.
+
+\bibitem{opencv}
+OpenCV Team.
+\newblock Opencv.
+\newblock 2021.
+\newblock URL: \url{https://opencv.org/}.
 
 \bibitem{tensorflow}
 TensorFlow.
