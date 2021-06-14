@@ -3,7 +3,7 @@
 \contentsline {chapter}{Extended abstract}{5}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introducción}{11}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Historia de la Visión Artificial}{11}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Reconocimiento Facial y COVID-19}{13}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Reconocimiento Facial y COVID-19}{12}{section.1.2}%
 \contentsline {chapter}{\numberline {2}Estado del arte}{14}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Python y OpenCV}{14}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Aplicaciones sin Deep Learning}{15}{section.2.2}%
@@ -16,8 +16,8 @@
 \contentsline {chapter}{\numberline {4}Diseño y resolución}{23}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Paul Viola and Michael Jones}{23}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Facial Landmark}{31}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Mediapipe}{37}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Tensorflow}{42}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Comparación}{48}{section.4.5}%
+\contentsline {section}{\numberline {4.3}Implementación con Mediapipe}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Implementación con TensorFlow}{42}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparación entre prototipos}{48}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Conclusiones y vías futuras}{51}{chapter.5}%
-\contentsline {chapter}{Bibliografía}{56}{chapter*.33}%
+\contentsline {chapter}{Bibliografía}{56}{chapter*.34}%

@@ -1,28 +1,29 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Ejemplos del uso de la mascarilla}}{13}{figure.caption.5}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Salida generada por el detector facial.}}{15}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces HOG generada tras estudiar un rostro.\relax }}{16}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Salidas de ejemplo de Facial Landmark.}}{16}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Detecciones de ejemplo de YOLO \cite {YOLO}.\relax }}{17}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Ejemplo de detección con el modelo MobileNet y Tensorflow.}}{17}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Soluciones de MediaPipe.}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Salida generada por el detector facial.}}{15}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces HOG generada tras estudiar un rostro.\relax }}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Salidas de ejemplo de Facial Landmark.}}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Detecciones de ejemplo de YOLO}}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Ejemplo de detección con el modelo MobileNet y Tensorflow.}}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Soluciones de MediaPipe.}}{18}{figure.caption.11}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Ejemplos de imágenes del dataset 1 y del dataset 2}}{22}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ejemplos de imágenes del dataset 1 y del dataset 2}}{22}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features.}}{24}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}}}{25}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}}}{26}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}}}{27}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Pruebas con Haar-like features con: \textit {frontalface\_default.xml} y \newline \textit {frontalface\_alt2.xml}}}{28}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Ejemplos de clasificaciones SVM\relax }}{30}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Pruebas con prototipo Haar Custom.\relax }}{30}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Fórmula \textit {HOG}.}}{32}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}}}{33}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit {mcs\_mouth}.}}{36}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces MediaPipe Graph utilizado en FaceMesh.}}{38}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles.}}{39}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{41}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Arquitectura de una CNN con uso de SSD.}}{43}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruebas con SSD-MobileNetV2.\relax }}{47}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Haar-like Features.}}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Funcionamiento de una \textit {Imagen Integral}}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Construcción del \textit {Strong Classifier}}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Construcción del \textit {Multi-stage Classifier}}}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Pruebas con Haar-like features con: \textit {frontalface\_default} y \textit {frontalface\_alt2}}}{28}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Ejemplos de clasificaciones SVM\relax }}{30}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Pruebas con prototipo Haar Custom.\relax }}{30}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Fórmula \textit {HOG}.}}{32}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces 68 coordenadas del \textit {facial landmark} con \textit {iBUG 300-W} \textit {dataset}}}{34}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Pruebas con Dlib's Facial Landmarks y modelo Haar-like feature \textit {mcs\_mouth}.}}{36}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces MediaPipe Graph utilizado en FaceMesh.}}{38}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Rendimiento de FaceMesh sobre dispositivos móviles.}}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruebas con Mediapipe FaceMesh y modelo Haar-like feature \textit {mcs\_mouth.xml}\relax }}{41}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Arquitectura de una CNN con uso de SSD.}}{43}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruebas con SSD-MobileNetV2.\relax }}{47}{figure.caption.29}%
 \addvspace {10\p@ }
